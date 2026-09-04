@@ -1,9 +1,9 @@
-# Compact Hall-to-Borcherds--Kac--Moody Recognition
+# Finite-Height Borcherds Recognition and the Hall Comparison Problem
 
-This repository separates the construction of a compact Hall source from the
-scalar denominator expected of a target Borcherds--Kac--Moody algebra. The
-initial note proves only the non-recovery obstruction and formulates a typed
-finite-height recognition problem. No compact Hall source or full recognition
-map is currently claimed.
+The paper proves that graded dimensions alone do not recover a Lie bracket,
+defines a symmetric-monoidal height truncation, and gives a presentation-and-
+dimension criterion for recognizing the positive half of an even
+Borcherds--Kac--Moody algebra through finite height. A compact Hall realization
+is formulated as a separate open problem.
 
 Build with `make check`.
