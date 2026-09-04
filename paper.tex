@@ -31,14 +31,16 @@ Poincar\'e--Birkhoff--Witt theorem can agree for nonisomorphic graded Lie
 algebras.  We exhibit this failure before fixing an integral symmetrizable
 Borcherds--Cartan matrix and proving finite-height recognition of its purely
 even positive Lie algebra.  The proof takes place in symmetric monoidal
-height truncations.  We then isolate the additional surjection from an
-enveloping algebra to an associatively generated Hall subalgebra and show
-why Lie recognition alone does not make it injective.  For a smooth
-projective Calabi--Yau threefold, the extension correspondence and
-Donaldson--Thomas carrier are known, but the strong orientation coherence
-needed for an associative product is not known in general.  The compact
-Hall comparison, its bialgebra structure, and its completed realization
-therefore remain open.
+height truncations.  We distinguish the canonical surjection from an
+enveloping algebra to an associatively generated Hall subalgebra from an
+independently constructed Hall-to-enveloping quotient in each finite
+window.  The latter would split the former and recognize the spherical
+window, but its construction and its kernel do not follow from scalar data.
+For a smooth projective Calabi--Yau threefold, the extension correspondence
+and Donaldson--Thomas carrier are known, but the strong orientation
+coherence needed for an associative product is not known in general.  The
+compact Hall quotient, its bialgebra structure, and its compatible completed
+realization therefore remain open.
 \end{abstract}
 
 \section{One scalar shadow, two brackets}
@@ -288,6 +290,71 @@ coproduct on $U(\mathfrak n_+(A))$ and the coproduct on $\mathcal H$ agree
 on the algebra generators, which proves the bialgebra assertion.
 \end{proof}
 
+For $N\geq1$, put
+\[
+ B_N=\tau_{\leq N}U(\mathfrak n_+(A)),\qquad
+ S_N=\tau_{\leq N}\mathcal H^{\mathrm{sph}},\qquad
+ H_N=\tau_{\leq N}\mathcal H,
+\]
+and write $\jmath_N:S_N\hookrightarrow H_N$ for the inclusion and
+$\Phi_N=\tau_{\leq N}\Phi$.
+
+\begin{proposition}[The reverse quotient is additional data] \label{reverse-quotient}
+Assume the hypotheses producing \eqref{Phi}.  If there is a unital graded
+algebra morphism in $\mathsf{Gr}_{\leq N}(Q_+)$
+\begin{equation}
+ \rho_N:H_N\longrightarrow B_N,\qquad \rho_N(x_i)=e_i,       \label{rhoN}
+\end{equation}
+then $\rho_N$ is surjective and
+\begin{equation}
+ \rho_N\jmath_N\Phi_N=\operatorname{id}_{B_N}.              \label{splitPhi}
+\end{equation}
+Consequently, $\Phi_N:B_N\to S_N$ is an isomorphism with inverse
+$\rho_N|_{S_N}$, and
+\[
+ H_N/\ker\rho_N\cong B_N.
+\]
+The map $\rho_N$ is an isomorphism precisely when $H_N=S_N$.  In
+particular, this holds if all homogeneous components are finite-dimensional
+and
+\[
+ \dim_\kk(H_N)_\beta=\dim_\kk(B_N)_\beta
+ \qquad\bigl(\htop(\beta)\leq N\bigr).
+\]
+If $H_N$ is a bialgebra object, the $x_i$ are primitive, and $\rho_N$ is a
+bialgebra morphism, then $S_N$ is a sub-bialgebra, $\Phi_N$ and its inverse
+are bialgebra isomorphisms, and $H_N/\ker\rho_N\cong B_N$ as bialgebras.
+\end{proposition}
+
+\begin{proof}
+The composite in \eqref{splitPhi} fixes the unit and every generator $e_i$
+of $B_N$, hence is the identity.  It follows at once that $\rho_N$ is
+surjective and that $\Phi_N$ is injective.  Proposition
+\ref{associative-recognition} makes $\Phi_N$ surjective, so its left inverse
+$\rho_N|_{S_N}$ is its inverse.  For $h\in H_N$,
+\[
+ h-\jmath_N\Phi_N\rho_N(h)\in\ker\rho_N,
+\]
+and $S_N\cap\ker\rho_N=0$.  Hence $\ker\rho_N=0$ is equivalent to
+$H_N=S_N$.  The dimension criterion makes each surjective homogeneous
+component of $\rho_N$ injective.  Under the final hypotheses,
+$S_N$ is a sub-bialgebra and all the maps in \eqref{splitPhi} preserve the
+bialgebra operations.
+\end{proof}
+
+If $T_N$ is the free unital algebra object on the simple generators and
+$I_{B,N}$ and $I_{S,N}$ are the kernels of its maps to $B_N$ and $S_N$,
+then $\Phi_N$ records the inclusion
+\[
+ I_{B,N}\subseteq I_{S,N}.
+\]
+A reverse map fixing the generators requires the opposite inclusion.
+Thus neither \eqref{Phi} nor a scalar denominator constructs \eqref{rhoN}.
+PBW and a componentwise dimension equality can construct the inverse on
+$S_N$, but extending that inverse to $H_N$ still requires generation or an
+independent splitting.  On the spherical subalgebra, the existence of
+\eqref{rhoN} forces $I_{B,N}=I_{S,N}$.
+
 \begin{remark}[Lie PBW is not Hall PBW]
 For $A=(0)$, take
 \[
@@ -302,8 +369,10 @@ Nevertheless,
  e\longmapsto\varepsilon
 \]
 has kernel $(e^2)$.  Thus \eqref{dimensions} cannot replace the
-associative dimension comparison \eqref{associative-dimensions}.  To
-recognize all of $\mathcal H$, one must also prove
+associative dimension comparison \eqref{associative-dimensions}.  Moreover,
+for $N\geq2$ there is no map \eqref{rhoN} sending $\varepsilon$ to $e$,
+since it would send $\varepsilon^2=0$ to the nonzero element $e^2\in B_N$.
+To recognize all of $\mathcal H$, one must also prove
 $\mathcal H=\mathcal H^{\mathrm{sph}}$; this fails whenever, for example,
 $\mathcal H_0$ contains more than the unit.
 \end{remark}
@@ -360,6 +429,41 @@ formula denotes the height completion of the enveloping algebra; it does
 not assert that the enveloping functor commutes with inverse limits.
 \end{corollary}
 
+\begin{proposition}[Compatible reverse quotients]             \label{complete-quotients}
+Suppose that maps \eqref{rhoN} exist for every $N$ and, for $M\leq N$,
+\begin{equation}
+ \tau_{\leq M}(\rho_N)=\rho_M                              \label{rho-compatible}
+\end{equation}
+under the identifications \eqref{transition}.  Then inverse limits give a
+continuous split epimorphism
+\[
+ \widehat\rho:\widehat{\mathcal H}\twoheadrightarrow
+ \widehat{U(\mathfrak n_+(A))}
+\]
+whose compatible section is induced by the maps $\jmath_N\Phi_N$, and
+\[
+ \widehat{U(\mathfrak n_+(A))}
+ \xrightarrow{\ \sim\ }
+ \widehat{\mathcal H^{\mathrm{sph}}}.
+\]
+If every $\rho_N$ is injective, the full completed map is an isomorphism.
+If $\mathcal H$ is a graded bialgebra, the $x_i$ are primitive, and every
+$\rho_N$ is a bialgebra morphism, these conclusions respect the continuous
+bialgebra operations and the completed tensor product
+\eqref{completed-tensor}.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{rho-compatible} defines $\widehat\rho$ componentwise.
+The sections $\jmath_N\Phi_N$ are compatible and satisfy
+\eqref{splitPhi}, so their inverse limit is a section; no general
+preservation of epimorphisms by inverse limits is needed.  Proposition
+\ref{reverse-quotient} identifies every spherical window, and Proposition
+\ref{completion} extends the operations continuously.  If every
+$\rho_N$ is injective, every finite window and hence the inverse limit is
+identified.
+\end{proof}
+
 This formal conclusion applies to a single graded comparison, or to a
 compatible inverse system already known to arise from such graded objects.
 It does not identify an independently defined topological or derived Hall
@@ -410,9 +514,10 @@ $\mathcal P_{\beta,o}$.  A prospective cohomological carrier is
 \end{equation}
 For a moduli-like stack whose classical truncation is a quasi-separated
 Artin stack with affine stabilizers and is $\Theta$-reductive, and for which
-the unit inclusion is closed, a \emph{strong orientation datum} contains
-the compatibility with direct sums and the coherence for triple direct
-sums.  It yields maps of the form
+the unit inclusion is closed, a \emph{strong orientation datum} contains an
+orientation isomorphism at the zero object and its two unit coherences, as
+well as the compatibility with direct sums and the coherence for triple
+direct sums.  It yields maps of the form
 \begin{equation}
  m_{\beta,\gamma}:
  \mathcal H_\beta\otimes\mathcal H_\gamma
@@ -480,18 +585,31 @@ ordinary commutator $[x,y]=xy-yx$, prove the relations
  \Phi:U(\mathfrak n_+(A))\twoheadrightarrow
        \mathcal H^{\mathrm{sph}}.
 \]
-Prove \eqref{associative-dimensions} in every finite height, and prove
-$\mathcal H=\mathcal H^{\mathrm{sph}}$ if the intended target is the full
-Hall algebra.  A bialgebra comparison additionally requires a Hall
-coproduct for which the $x_i$ are primitive.
+Independently construct a Hall coproduct for which the $x_i$ are primitive
+and, for every $N$, a graded bialgebra epimorphism
+\begin{equation}
+ \rho_N:\tau_{\leq N}\mathcal H\twoheadrightarrow
+ \tau_{\leq N}U(\mathfrak n_+(A)),\qquad \rho_N(x_i)=e_i,    \label{open-rho}
+\end{equation}
+compatible as in \eqref{rho-compatible}.  Proposition
+\ref{reverse-quotient} then identifies every spherical window without a
+dimension calculation.  Determine $\ker\rho_N$.  If the intended target is
+the full Hall algebra, prove $\ker\rho_N=0$ in every window; by Proposition
+\ref{reverse-quotient}, this is equivalent to
+$\tau_{\leq N}\mathcal H=\tau_{\leq N}\mathcal H^{\mathrm{sph}}$.
+Componentwise finite-dimensional equality with $B_N$ is one possible proof
+of this last step.  Neither the scalar denominator nor the
+opposite-direction map $\Phi_N$ constructs \eqref{open-rho}.
 
 For a completed comparison, specify a separated complete Hall topology,
 continuous product and coproduct, transition morphisms realizing every
 finite window, and an identification of its completed tensor product with
-\eqref{completed-tensor}.  If the carrier is derived, also identify it with
-the derived inverse limit and justify the disappearance of higher inverse
-limits.  None of these comparison maps or completion statements is supplied
-by a scalar denominator.
+\eqref{completed-tensor}.  The compatible sections in
+Proposition~\ref{complete-quotients}, rather than a general exactness claim
+for inverse limits, then give the completed split epimorphism.  If the
+carrier is derived, also identify it with the derived inverse limit and
+justify the disappearance of higher inverse limits.  These requirements
+are not supplied by a scalar denominator.
 \end{problem}
 
 \begin{thebibliography}{9}
