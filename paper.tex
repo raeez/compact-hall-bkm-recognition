@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{problem}[theorem]{Open Problem}
+\title{Compact Hall-to-Borcherds--Kac--Moody Recognition}
+\author{Raeez Lorgat}
+\date{}
+\hypersetup{
+  pdftitle={Compact Hall-to-Borcherds--Kac--Moody Recognition},
+  pdfauthor={Raeez Lorgat},
+  pdfsubject={Finite-height data for Hall algebra recognition}
+}
+\begin{document}
+\maketitle
+\begin{abstract}
+A denominator records graded multiplicities but forgets the bracket and the
+geometric correspondences that should produce it.  We give the elementary
+non-recovery obstruction and formulate finite-height data sufficient for a
+genuine recognition theorem.  Constructing these data for a compact
+Calabi--Yau source remains open.
+\end{abstract}
+
+\section{Why the denominator is not the source}
+
+\begin{proposition}[Graded dimensions do not recover a bracket]
+There are nonisomorphic positively graded Lie algebras with identical graded
+dimensions.
+\end{proposition}
+
+\begin{proof}
+Let $L$ have basis $x,y$ in degree one and $z$ in degree two, with
+$[x,y]=z$ and $z$ central.  Let $L_0$ have the same graded vector space and
+zero bracket.  Their graded dimensions agree, while
+$[L,L]=\mathbb Cz$ and $[L_0,L_0]=0$, so they are not isomorphic as Lie
+algebras.
+\end{proof}
+
+Any product depending only on the dimensions of graded root spaces therefore
+cannot, by itself, construct the bracket.  A fortiori it does not construct
+Hall correspondences, orientation data, a coproduct, or PBW compatibility.
+
+\section{A finite-height recognition datum}
+
+Fix a height bound $N$.  A recognition datum consists of a graded source
+bialgebra $H_{\leq N}$ (in graded or super vector spaces), a graded Lie
+algebra $\mathfrak b_{\leq N}$, and a graded bialgebra surjection
+$\rho_N:H_{\leq N}\twoheadrightarrow U(\mathfrak b_{\leq N})$.  The source
+product and coproduct must be constructed from stated correspondences with
+the required orientation and pairing data.  The datum must also include a
+proof that $\rho_N$ respects the defining relations and a PBW comparison
+showing that its asserted kernel, and no larger one, has been imposed.
+
+\begin{problem}
+Construct such data from compact Hall correspondences through a nontrivial
+height, and construct transition maps in $N$.  For the inverse limit, prove
+separatedness, completeness, and the required derived-limit vanishing rather
+than replacing a derived limit by a strict one without justification.
+\end{problem}
+\end{document}
