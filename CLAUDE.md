@@ -1,7 +1,6 @@
 # Repository Instructions
 
-## Golden rule: no project management at any scale whatsoever in the manuscript
+Read and follow [AGENTS.md](AGENTS.md), the canonical local contract.
+It includes inherited safety rules, manuscript boundaries, and research standards.
 
-Follow `AGENTS.md`. A denominator or character is a nonfaithful scalar shadow;
-it cannot stand in for a Hall algebra, bracket, orientation, or recognition
-map. No project management may appear in manuscripts at any scale.
+For Claude model controls or loading behavior, consult `~/ecosystem/CLAUDE-HARNESS.md` when that guidance affects the task.
