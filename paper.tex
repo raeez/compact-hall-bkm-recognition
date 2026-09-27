@@ -1,0 +1,933 @@
+\pdfinfoomitdate=1
+\pdfsuppressptexinfo=-1
+\pdftrailerid{}
+\pdfomitinfodict=1
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[margin=1.15in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{problem}[theorem]{Open Problem}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\kk}{\Bbbk}
+\newcommand{\htop}{\operatorname{ht}}
+\newcommand{\Ire}{I^{\mathrm{re}}}
+\newcommand{\Iim}{I^{\mathrm{im}}}
+\title{Compact Hall Geometry and\\
+Finite-Height Positive Borcherds Recognition}
+\author{Raeez Lorgat}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Extensions of coherent sheaves provide the geometric input for a compact
+Hall algebra. We ask when specified classes in such an algebra realize
+the positive part of a Borcherds algebra. We first describe the extension
+correspondence, its critical coefficients, and the common translation
+torsor required for sheaves on a K3 surface times an elliptic curve.
+The translation quotient has zero-object carrier $BE$.
+We then prove finite-height recognition for a fixed, purely even
+Borcherds presentation in symmetric monoidal height truncations.
+Relations construct the canonical enveloping-to-generated-Hall
+surjection. Homogeneous dimensions can prove that it is an isomorphism.
+An independently constructed Hall-to-enveloping quotient gives another
+criterion and determines the additional kernel in the full Hall algebra.
+Compatible comparisons extend to the specified height completion.
+Scalar denominators alone determine none of these maps.
+Reduced critical coefficients, coherent orientations, and the compact
+bialgebra comparison remain necessary for the geometric realization.
+\end{abstract}
+
+\section{Extension correspondences and critical coefficients}
+\label{sec:compact-geometry}
+
+An extension combines two sheaves while retaining how they are joined.
+A Hall product must carry this extension data into its coefficients.
+The comparison with a Borcherds algebra therefore starts with the moduli
+stack and its extension correspondence.
+
+Throughout, $\kk$ is a field of characteristic zero.
+The geometric constructions take place over $\mathbb C$.
+Fix a finite set $I$ and the charge lattice
+\[
+ Q=\bigoplus_{i\in I}\mathbb Z\alpha_i,\qquad
+ Q_+=\bigoplus_{i\in I}\mathbb Z_{\geq0}\alpha_i.
+\]
+
+Let $X$ be a smooth projective complex Calabi--Yau threefold.  Choose an
+extension-closed subcategory $\mathcal A\subset\operatorname{Coh}(X)$,
+closed under direct sums, whose objects form an open derived substack of
+the derived moduli stack of perfect complexes on $X$.  Choose a charge map
+\[
+ \operatorname{cl}:K_0(\mathcal A)\longrightarrow Q
+\]
+which is locally constant in families and whose effective classes lie in
+$Q_+$.  Assume that the Euler form factors through an antisymmetric
+bilinear form $\chi:Q\times Q\to\mathbb Z$:
+\[
+ \chi(\operatorname{cl}E,\operatorname{cl}F)
+ =\sum_{r\in\mathbb Z}(-1)^r
+   \dim_{\mathbb C}\operatorname{Ext}^r(E,F).
+\]
+Let $\mathfrak M_\beta$ be the open-and-closed derived substack of objects
+of charge $\beta$.  With the convention that the first factor is the
+subobject, the stack
+$\mathfrak E_{\beta,\gamma}$ of short exact sequences
+\[
+ 0\longrightarrow E_\beta\longrightarrow E
+  \longrightarrow E_\gamma\longrightarrow0
+\]
+has the typed correspondence
+\begin{equation}
+ \mathfrak M_\beta\times\mathfrak M_\gamma
+ \xleftarrow{\ p_{\beta,\gamma}\ }
+ \mathfrak E_{\beta,\gamma}
+ \xrightarrow{\ q_{\beta,\gamma}\ }
+ \mathfrak M_{\beta+\gamma}.                                 \label{hallcorr}
+\end{equation}
+
+The $(-1)$-shifted symplectic structure supplies, after a choice of
+orientation $o$, Donaldson--Thomas coefficient complexes
+$\mathcal P_{\beta,o}$.  A prospective cohomological carrier is
+\begin{equation}
+ \mathcal H_\beta
+   =\mathbb H^\bullet(\mathfrak M_\beta,\mathcal P_{\beta,o}),
+ \qquad
+ \mathcal H=\bigoplus_{\beta\in Q_+}\mathcal H_\beta.         \label{hallcarrier}
+\end{equation}
+For a moduli-like stack whose classical truncation is a quasi-separated
+Artin stack with affine stabilizers and is $\Theta$-reductive, and for which
+the unit inclusion is closed, a \emph{strong orientation datum} contains an
+orientation isomorphism at the zero object and its two unit coherences, as
+well as the compatibility with direct sums and the coherence for triple
+direct sums.  It yields maps of the form
+\begin{equation}
+ m_{\beta,\gamma}:
+ \mathcal H_\beta\otimes\mathcal H_\gamma
+ \longrightarrow
+ \mathcal H_{\beta+\gamma}[\chi(\beta,\gamma)],               \label{hallproduct}
+\end{equation}
+where $\chi$ is the antisymmetric Euler pairing.  The shift in
+\eqref{hallproduct} is part of the structure: componentwise shifts cannot
+remove a nonzero antisymmetric bilinear degree.  Indeed, replacing
+$\mathcal H_\beta$ by $\mathcal H_\beta[s(\beta)]$ changes the degree to
+\[
+ \chi_s(\beta,\gamma)=\chi(\beta,\gamma)+s(\beta)+s(\gamma)
+ -s(\beta+\gamma),\qquad
+ \chi_s(\beta,\gamma)-\chi_s(\gamma,\beta)=2\chi(\beta,\gamma).
+\]
+Thus the product must be placed in its specified charge-twisted monoidal
+category.
+
+Kontsevich and Soibelman construct this structure for quivers with
+potential~\cite[\S7]{KontsevichSoibelman2011}.  In the general
+three-Calabi--Yau setting, the hypotheses above and strong orientation data
+give associativity
+by~\cite[Theorem A, Definition 8.4, Corollary 8.8]{KinjoParkSafronov2026}.
+Joyce and Upmeier construct canonical orientation data for smooth
+projective Calabi--Yau threefolds~\cite[Theorem 4.4]{JoyceUpmeier2021}.
+They identify the obstruction to a strong lift as a class in
+$H^3(K^{\mathrm{semi}}_0(X),\mathbb Z/2)$ and leave its vanishing
+open~\cite[Theorem 3.10, Question 3.11]{JoyceUpmeier2021}.
+Without that coherence, the product is associative only up to choices of
+sign~\cite[Remark 8.7]{KinjoParkSafronov2026}; the compactly supported
+construction of~\cite[Theorem 7.22]{Descombes2025} likewise assumes a
+strong orientation datum and records the unresolved lift in
+\cite[Remark 7.23]{Descombes2025}.  Thus
+\eqref{hallcorr} and \eqref{hallcarrier} do not yet furnish the required
+associative compact Hall algebra.
+
+\begin{remark}
+For the two-Calabi--Yau category of semistable coherent sheaves of fixed
+slope on a projective K3 surface, the $\psi$-sign-twisted BPS algebra is an
+enveloping algebra of a generalized Kac--Moody Lie algebra
+~\cite[\S6.3, Theorems 1.1 and 1.2]{DavisonHennecartSchlegelMejia2025}.
+This is a compact two-Calabi--Yau theorem with graded generator spaces.
+The BPS algebra embeds in the full cohomological Hall algebra
+~\cite[Proposition 6.4]{DavisonHennecartSchlegelMejia2025}, and twisting
+both multiplications preserves this inclusion.  After choosing a positive
+determinant line bundle, the PBW comparisons for the full algebra are not
+algebra morphisms
+~\cite[Theorem 1.7, Corollary 1.8, and the following paragraph]
+{DavisonHennecartSchlegelMejia2025}; they therefore do not supply the
+three-Calabi--Yau algebra or bialgebra surjection required in
+Proposition~\ref{reverse-quotient}.
+\end{remark}
+
+\subsection{Translation quotients retain one torsor}
+
+For $X=S\times E$, where $S$ is a projective K3 surface and $E$
+is an elliptic curve, translation changes the elliptic origin.
+An extension still depends on the relative positions of its endpoint
+sheaves. Quotienting the two origins independently loses this information.
+
+Work in the fppf topology, with 2-fibre products of stacks.
+The stack $BE$ classifies right $E$-torsors.
+For a stack $M$ with a left $E$-action, an object of $[M/E](T)$
+is a right torsor $P\to T$ and an equivariant map $m:P\to M$,
+with $m(pe)=e^{-1}m(p)$.
+For stack-valued maps this description includes their descent
+isomorphisms. Forgetting $m$ gives $[M/E]\to BE$.
+
+\begin{proposition}\label{common-torsor}
+For $E$-stacks $M,N$, there is a natural equivalence
+\[
+ [(M\times N)/E_{\mathrm{diag}}]
+ \simeq [M/E]\times_{BE}[N/E].
+\]
+These equivalences commute with regrouping any finite number of factors.
+\end{proposition}
+\begin{proof}
+An object on the right consists of $(P,m)$, $(Q,n)$, and a torsor
+isomorphism $\alpha:P\to Q$. Send it to $(P,m,n\alpha)$.
+Conversely, use the same torsor twice and its identity isomorphism.
+For a morphism, the relation $b\alpha=\alpha'a$ determines the second
+torsor map $b$ from the first map $a$.
+The constructions are inverse up to their specified isomorphisms
+and commute with base change.
+For several factors, every regrouping gives one torsor with the same
+equivariant maps. This also proves the regrouping coherence.
+\end{proof}
+
+For example, translation gives $[E/E]\simeq\operatorname{Spec}\mathbb C$,
+whereas
+\[
+ [(E\times E)/E_{\mathrm{diag}}]\simeq E,\qquad
+ (x,y)\longmapsto y-x.
+\]
+Thus the fibre product over $BE$ retains the relative translation.
+The ordinary product of the two quotient stacks is a point.
+
+Let $\mathfrak M$ be the stack of coherent sheaves on $X$, with families
+flat over the parameter scheme. Put $\mathfrak Q=[\mathfrak M/E]$.
+An object over $T$ is a torsor $P\to T$ and a flat coherent sheaf
+on $X_P=P\times^E X\simeq S\times P$.
+Choose an ample line bundle on $X$.
+Hilbert polynomials are invariant under the connected translation group,
+so they define substacks $\mathfrak Q_a$ independently of the local
+trivialization of $P$.
+
+Let $\mathfrak H_{a,b}$ classify a common torsor and a sequence
+\[
+ 0\longrightarrow A\longrightarrow F\longrightarrow B
+ \longrightarrow0
+\]
+on $X_P$, with flat terms of Hilbert polynomials $a,a+b,b$.
+The correspondence is
+\begin{equation}\label{relative-hallcorr}
+ \mathfrak Q_a\times_{BE}\mathfrak Q_b
+ \xleftarrow{\ p\ }\mathfrak H_{a,b}
+ \xrightarrow{\ q\ }\mathfrak Q_{a+b}.
+\end{equation}
+Here $p$ records the endpoint sheaves on their common torsor, and $q$
+records the middle sheaf.
+
+\begin{proposition}\label{relative-hall-flags}
+The correspondences \eqref{relative-hallcorr} define a coherently
+associative unital Hall object in the category of spans of stacks over
+$BE$, with tensor product $\times_{BE}$.
+Its unit is
+\[
+ BE\xleftarrow{\operatorname{id}}BE
+       \xrightarrow{0}\mathfrak Q.
+\]
+\end{proposition}
+\begin{proof}
+Both triple products classify a common torsor and a flag
+$0\subset A\subset D\subset F$.
+For the bracketing that first forms $F/A$, recover $D$ as the inverse
+image in $F$ of the prescribed subobject of $F/A$.
+Conversely, a flag gives both pairs of short exact sequences.
+These constructions preserve the endpoint sheaves, the middle sheaf,
+and base change. They identify the two composite spans.
+
+For any number of factors, every parenthesization reconstructs the
+same full flag by inclusions and inverse images.
+The resulting identifications preserve each subobject and specified
+quotient, so their composites agree.
+This gives the associativity coherences.
+The zero sheaf has no sheaf automorphisms, but retains its translation
+torsor. Its quotient is therefore $BE$.
+Inserting a zero step in a flag gives the two unit identities and their
+coherences.
+\end{proof}
+
+An $E$-invariant extension-closed sector inherits this construction
+when its families and admissible sequences satisfy descent and base
+change. Properness of the restricted map $q$ remains a separate
+condition.
+
+A cohomological realization of \eqref{relative-hallcorr} must specify
+coefficients, the pullback or Gysin map along $p$, pushforward along $q$,
+their shifts, and coherent base change on the flag diagrams.
+Its tensor comparison must realize the fibre product over $BE$.
+Applying such a monoidal realization to
+Proposition~\ref{relative-hall-flags} gives an associative unital algebra
+in its target category.
+
+The zero-object stabilizer is the elliptic curve $E$, which is not
+affine. Consequently, the affine-stabilizer hypothesis of the absolute
+critical Hall theorem cited above fails for $\mathfrak Q$.
+The geometric flag construction does not supply a relative critical
+coefficient theory over $BE$.
+Removing translation or trace directions also requires a reduced
+coefficient complex, with its own duality and extension comparisons.
+
+\subsection{The orientation cross line}
+
+Choose an $E$-invariant holomorphic volume form on $X=S\times E$.
+For perfect families on $\pi:X_P\to T$, suppose the complexes
+\[
+ C(A,B)=R\pi_*\operatorname{RHom}_{X_P}(A,B)
+\]
+are perfect over $T$.
+Write $L(A,B)=\det C(A,B)$ and $D(A)=L(A,A)$.
+The determinant convention is
+$\det C=\bigotimes_i(\det C^i)^{(-1)^i}$, with parity
+$\chi(C)\bmod2$.
+
+Relative Serre duality gives
+$C(B,A)\simeq C(A,B)^\vee[-3]$.
+Duality and the odd shift each invert the determinant line, hence
+$L(B,A)\simeq L(A,B)$.
+For an extension $0\to A\to F\to B\to0$, determinant additivity
+in the two variables gives
+\[
+ \begin{split}
+ D(F)
+ &\simeq L(B,A)\otimes D(A)\otimes D(B)\otimes L(A,B)\\
+ &\simeq D(A)\otimes D(B)\otimes L(A,B)^{\otimes2}.
+ \end{split}
+\]
+The second line uses the determinant symmetry, including its parity
+sign. This is the extension identity of
+\cite[equations (4.3)--(4.5)]{JoyceUpmeier2021}.
+
+An orientation line $o_A$ is a square root of $D(A)$.
+Extension compatibility requires an isomorphism
+\begin{equation}\label{orientation-cross-map}
+ o_A\otimes o_B\otimes L(A,B)\longrightarrow o_F
+\end{equation}
+whose square is the determinant comparison.
+For three successive quotients, both bracketings have cross factors
+$L(A,B)\otimes L(A,C)\otimes L(B,C)$.
+Agreement of their squares leaves a possible $\mu_2$ discrepancy.
+Strong orientation data require agreement of the square-root maps
+themselves, together with unit coherence.
+On the quotient they also require compatible $E$-linearizations.
+The displayed calculation concerns unreduced complexes.
+It does not construct these data for a reduced critical theory.
+
+The correspondences specify how a Hall multiplication must arise.
+Recognition of a Borcherds algebra then requires actual classes and
+relations in that multiplication.
+The following example shows why its graded dimensions cannot replace
+those operations.
+
+
+
+\section{Scalar denominators and Lie brackets}
+
+For a positively graded vector space $V=\bigoplus_{n\geq1}V_n$ with finite-dimensional
+components, write
+\[
+ D_V(t)=\prod_{n\geq1}(1-t^n)^{\dim_\kk V_n}.
+\]
+
+\begin{proposition}[The scalar shadow is not faithful]
+There are nonisomorphic positively graded Lie algebras $L$ and $L_0$ for
+which
+\[
+ D_L(t)=D_{L_0}(t)
+ \quad\text{and}\quad
+ \operatorname{Hilb}_t U(L)=\operatorname{Hilb}_t U(L_0).
+\]
+\end{proposition}
+
+\begin{proof}
+Let $L$ have basis $x,y$ in degree one and $z$ in degree two, with
+$[x,y]=z$ and $z$ central.  Let $L_0$ have the same graded vector space and
+zero bracket.  Then
+\[
+ [L,L]=\kk z,\qquad [L_0,L_0]=0,
+\]
+so the two Lie algebras are not isomorphic.  Their common scalar
+denominator is
+\[
+ D_L(t)=D_{L_0}(t)=(1-t)^2(1-t^2).
+\]
+The Poincar\'e--Birkhoff--Witt theorem gives
+\[
+ \operatorname{Hilb}_t U(L)
+ =\operatorname{Hilb}_t U(L_0)
+ =\frac{1}{(1-t)^2(1-t^2)}.
+\]
+Nevertheless, $U(L_0)$ is commutative, whereas $xy-yx=z\neq0$ in $U(L)$.
+\end{proof}
+
+Thus graded dimensions determine neither the Lie bracket nor the
+associative product of its enveloping algebra.  They also do not determine
+the correspondences, orientations, or functorial maps from which a Hall
+product is formed.
+
+\section{The positive Borcherds presentation}
+
+A comparison on generators requires a presentation of the target
+Lie algebra. Use the finite index set $I$ of the charge lattice.
+An \emph{integral symmetrizable
+Borcherds--Cartan matrix} is an integral matrix
+$A=(a_{ij})_{i,j\in I}$ such that
+\begin{enumerate}
+\item $a_{ii}=2$ or $a_{ii}\leq0$;
+\item $a_{ij}\leq0$ for $i\neq j$, and $a_{ij}=0$ if and only if
+      $a_{ji}=0$;
+\item there are positive integers $d_i$ for which
+      $d_i a_{ij}=d_j a_{ji}$.
+\end{enumerate}
+Put
+\[
+ \Ire=\{i\in I:a_{ii}=2\},\qquad
+ \Iim=\{i\in I:a_{ii}\leq0\}.
+\]
+The symmetric form on
+$Q=\bigoplus_{i\in I}\mathbb Z\alpha_i$ is
+$(\alpha_i,\alpha_j)=d_i a_{ij}$.  Thus the simple roots indexed by
+$\Ire$ have positive square and those indexed by $\Iim$ have nonpositive
+square.  We work in ordinary vector spaces: every simple generator is even,
+and no Lie-superalgebra signs occur.
+
+Write $Q_+=\bigoplus_{i\in I}\mathbb Z_{\geq0}\alpha_i$ and
+\[
+ \htop\left(\sum_i n_i\alpha_i\right)=\sum_i n_i.
+\]
+Let $\mathfrak F$ be the free $Q_+$-graded Lie algebra on generators $e_i$
+of degree $\alpha_i$.  Let $R_A\subset\mathfrak F$ be the homogeneous ideal
+generated by
+\begin{align}
+ (\operatorname{ad}e_i)^{1-a_{ij}}e_j&=0
+ &&(i\in\Ire,\ j\neq i),                                    \label{serre}\\
+ [e_i,e_j]&=0
+ &&(i\neq j,\ a_{ij}=0).                                    \label{orthogonal}
+\end{align}
+The positive Borcherds Lie algebra considered here is
+\[
+ \mathfrak n_+(A)=\mathfrak F/R_A.
+\]
+These are the normalized positive relations in Borcherds'
+presentation~\cite[\S1]{Borcherds1988}.  A simple imaginary generator
+$e_i$, $i\in\Iim$, imposes no relation
+$(\operatorname{ad}e_i)^m e_j=0$ unless the orthogonality relation
+\eqref{orthogonal} applies.  A relation based at a real index $j$ may still
+constrain $e_i$.  For example, for
+\[
+ A=\begin{pmatrix}2&-1\\-1&0\end{pmatrix}
+\]
+the relation based at $1$ is
+$(\operatorname{ad}e_1)^2e_2=0$, and there is no converse Serre relation
+based at $2$.
+
+Finiteness of $I$ implies that every $Q_+$-homogeneous component of
+$\mathfrak F$, and hence of $\mathfrak n_+(A)$, is finite-dimensional.
+
+\begin{remark}[What the positive presentation does not recover]
+The matrix $A$ is fixed input.  Its positive Lie algebra need not determine
+$A$: the rank-one matrices $(0)$ and $(-2)$ both give
+$\mathfrak n_+=\kk e$.  Recognition of $\mathfrak n_+(A)$ therefore does
+not recover the Cartan matrix, the Cartan and negative summands, or the full
+Borcherds algebra.  The present formulation also assumes a finite set of
+independent simple charges, one even generator for each charge.  Charged
+generator spaces, odd simple roots, and Borcherds--Bozec generators in
+multiple degrees are outside its scope.
+\end{remark}
+
+\section{Finite-height recognition}
+\label{sec:finite-height}
+
+A finite charge calculation retains products only when their total
+height stays within the chosen bound.
+To retain the coproduct as well, the tensor product must impose the
+same total-height condition.
+
+For $N\geq1$, let $\mathsf{Gr}_{\leq N}(Q_+)$ be the category of
+$Q_+$-graded $\kk$-vector spaces supported in heights at most $N$.  Its
+tensor product is
+\[
+ (V\mathbin{\bar\otimes_N}W)_\beta
+   =\bigoplus_{\gamma+\delta=\beta}V_\gamma\otimes W_\delta,
+ \qquad \htop(\beta)\leq N.
+\]
+With the usual symmetry this is a symmetric monoidal category.  The functor
+\[
+ \tau_{\leq N}V=\bigoplus_{\htop(\beta)\leq N}V_\beta
+\]
+from nonnegatively $Q_+$-graded vector spaces to
+$\mathsf{Gr}_{\leq N}(Q_+)$ is strong symmetric monoidal.  Indeed, if
+$\beta=\gamma+\delta$ and $\htop(\beta)\leq N$, then both $\gamma$ and
+$\delta$ have height at most $N$.  It therefore carries Lie algebras,
+associative algebras, coalgebras, and bialgebras to objects of the same kind.
+For $M\leq N$,
+\begin{equation}
+ \tau_{\leq M}\tau_{\leq N}=\tau_{\leq M}.                  \label{transition}
+\end{equation}
+In particular, $\tau_{\leq N}U(\mathfrak g)$ is a bialgebra object in the
+truncated category.  The ordinary algebra quotient obtained by killing
+heights above $N$ need not be an ordinary coalgebra quotient.
+
+\begin{theorem}[Finite-height Lie recognition]                \label{lie-recognition}
+Let
+\[
+ L=\bigoplus_{\beta\in Q_+\setminus\{0\}}L_\beta
+\]
+be a $Q_+$-graded Lie algebra with finite-dimensional homogeneous pieces.
+Suppose that elements $x_i\in L_{\alpha_i}$ generate $L$ and satisfy
+\eqref{serre} and \eqref{orthogonal}, with $e_i$ replaced by $x_i$.
+Then there is a unique surjective graded Lie homomorphism
+\begin{equation}
+ \pi:\mathfrak n_+(A)\longrightarrow L,\qquad e_i\longmapsto x_i.
+                                                               \label{pi}
+\end{equation}
+If, for every $\beta\in Q_+\setminus\{0\}$ with
+$\htop(\beta)\leq N$,
+\begin{equation}
+ \dim_\kk L_\beta=\dim_\kk\mathfrak n_+(A)_\beta,             \label{dimensions}
+\end{equation}
+then
+\[
+ \tau_{\leq N}\pi:\tau_{\leq N}\mathfrak n_+(A)
+       \xrightarrow{\ \sim\ }\tau_{\leq N}L
+\]
+is an isomorphism of Lie algebra objects in
+$\mathsf{Gr}_{\leq N}(Q_+)$.  Moreover,
+\begin{equation}
+ \tau_{\leq N}U(\pi):\tau_{\leq N}U(\mathfrak n_+(A))
+       \xrightarrow{\ \sim\ }\tau_{\leq N}U(L)               \label{pbwiso}
+\end{equation}
+is an isomorphism of bialgebra objects in that category.
+\end{theorem}
+
+\begin{proof}
+The assignment $e_i\mapsto x_i$ gives a surjection
+$\mathfrak F\twoheadrightarrow L$.  The displayed relations place $R_A$ in
+its kernel, so it factors through the unique surjection \eqref{pi}.  For
+each $\beta$ of height at most $N$, the map $\pi_\beta$ is a surjection
+between finite-dimensional spaces of the same dimension and hence is an
+isomorphism.
+
+Give both enveloping algebras the PBW filtration.  The associated graded map
+of $U(\pi)$ is
+\[
+ \operatorname{Sym}(\pi):
+ \operatorname{Sym}(\mathfrak n_+(A))\longrightarrow
+ \operatorname{Sym}(L).
+\]
+In a $Q_+$-degree $\beta$ of height at most $N$, every symmetric monomial
+uses only Lie components of height at most $N$; hence
+$\operatorname{Sym}(\pi)_\beta$ is an isomorphism.  The PBW filtration in a
+fixed positive height is finite, so $U(\pi)_\beta$ is an isomorphism.
+Functoriality of the standard primitive coproduct makes $U(\pi)$ a
+bialgebra map, and strong monoidality of $\tau_{\leq N}$ gives
+\eqref{pbwiso}.
+\end{proof}
+
+\begin{remark}
+The dimensions in \eqref{dimensions} do not create a bracket.  The
+relations and the chosen generators first produce the surjection \eqref{pi};
+the dimensions only show that its kernel vanishes through height $N$.
+\end{remark}
+
+\section{Associative recognition and reverse quotients}
+\label{sec:associative-comparison}
+
+A recognized Lie algebra acts through its enveloping algebra.
+Its image in a Hall algebra can satisfy additional associative
+relations. The comparison must therefore identify that image and
+its kernel separately.
+
+Let $\mathcal H=\bigoplus_{\beta\in Q_+}\mathcal H_\beta$ be a unital
+$Q_+$-graded associative algebra, and let
+$x_i\in\mathcal H_{\alpha_i}$.  Denote by $L\subset\mathcal H$ the Lie
+subalgebra generated by the $x_i$ under the commutator, and by
+$\mathcal H^{\mathrm{sph}}\subset\mathcal H$ the unital associative
+subalgebra generated by the same elements.  The inclusion
+$L\hookrightarrow\mathcal H$ induces an algebra map
+\[
+ U(L)\longrightarrow\mathcal H^{\mathrm{sph}},
+\]
+but Lie recognition alone says nothing about its kernel.
+
+\begin{proposition}[Finite-height associative recognition]    \label{associative-recognition}
+If the $x_i$ satisfy \eqref{serre} and \eqref{orthogonal}, there is a unique
+surjective graded algebra map
+\begin{equation}
+ \Phi:U(\mathfrak n_+(A))\twoheadrightarrow
+       \mathcal H^{\mathrm{sph}},\qquad e_i\longmapsto x_i.    \label{Phi}
+\end{equation}
+If
+\begin{equation}
+ \dim_\kk\mathcal H^{\mathrm{sph}}_\beta
+ =\dim_\kk U(\mathfrak n_+(A))_\beta
+ \qquad\bigl(\htop(\beta)\leq N\bigr),                        \label{associative-dimensions}
+\end{equation}
+then $\tau_{\leq N}\Phi$ is an isomorphism of associative algebra objects
+in $\mathsf{Gr}_{\leq N}(Q_+)$.  If $\mathcal H$ is a graded bialgebra and
+the $x_i$ are primitive, then $\mathcal H^{\mathrm{sph}}$ is a graded
+sub-bialgebra, $\Phi$ is a bialgebra map, and the same conclusion holds for
+bialgebra objects.
+\end{proposition}
+
+\begin{proof}
+The relations give a Lie map
+$\mathfrak n_+(A)\to\mathcal H$ with image $L$.  Its enveloping map has
+image exactly the unital algebra generated by the $x_i$, proving
+\eqref{Phi}.  Under \eqref{associative-dimensions}, every homogeneous
+component through height $N$ is a surjection between finite-dimensional
+spaces of equal dimension.  If the $x_i$ are primitive, the standard
+coproduct on $U(\mathfrak n_+(A))$ and the coproduct on $\mathcal H$ agree
+on the algebra generators, which proves the bialgebra assertion.
+\end{proof}
+
+For $N\geq1$, put
+\[
+ B_N=\tau_{\leq N}U(\mathfrak n_+(A)),\qquad
+ S_N=\tau_{\leq N}\mathcal H^{\mathrm{sph}},\qquad
+ H_N=\tau_{\leq N}\mathcal H,
+\]
+and write $\jmath_N:S_N\hookrightarrow H_N$ for the inclusion and
+$\Phi_N=\tau_{\leq N}\Phi$.
+
+\begin{proposition}[The reverse quotient is additional data] \label{reverse-quotient}
+Assume the hypotheses producing \eqref{Phi}.  If there is a unital graded
+algebra morphism in $\mathsf{Gr}_{\leq N}(Q_+)$
+\begin{equation}
+ \rho_N:H_N\longrightarrow B_N,\qquad \rho_N(x_i)=e_i,       \label{rhoN}
+\end{equation}
+then $\rho_N$ is surjective and
+\begin{equation}
+ \rho_N\jmath_N\Phi_N=\operatorname{id}_{B_N}.              \label{splitPhi}
+\end{equation}
+Consequently, $\Phi_N:B_N\to S_N$ is an isomorphism with inverse
+$\rho_N|_{S_N}$, and
+\[
+ H_N/\ker\rho_N\cong B_N.
+\]
+The map $\rho_N$ is an isomorphism precisely when $H_N=S_N$.  In
+particular, this holds if all homogeneous components are finite-dimensional
+and
+\[
+ \dim_\kk(H_N)_\beta=\dim_\kk(B_N)_\beta
+ \qquad\bigl(\htop(\beta)\leq N\bigr).
+\]
+If $H_N$ is a bialgebra object, the $x_i$ are primitive, and $\rho_N$ is a
+bialgebra morphism, then $S_N$ is a sub-bialgebra, $\Phi_N$ and its inverse
+are bialgebra isomorphisms, and $H_N/\ker\rho_N\cong B_N$ as bialgebras.
+\end{proposition}
+
+\begin{proof}
+The composite in \eqref{splitPhi} fixes the unit and every generator $e_i$
+of $B_N$, hence is the identity.  It follows at once that $\rho_N$ is
+surjective and that $\Phi_N$ is injective.  Proposition
+\ref{associative-recognition} makes $\Phi_N$ surjective, so its left inverse
+$\rho_N|_{S_N}$ is its inverse.  For $h\in H_N$,
+\[
+ h-\jmath_N\Phi_N\rho_N(h)\in\ker\rho_N,
+\]
+and $S_N\cap\ker\rho_N=0$.  Hence $\ker\rho_N=0$ is equivalent to
+$H_N=S_N$.  The dimension criterion makes each surjective homogeneous
+component of $\rho_N$ injective.  Under the final hypotheses,
+$S_N$ is a sub-bialgebra and all the maps in \eqref{splitPhi} preserve the
+bialgebra operations.
+\end{proof}
+
+If $T_N$ is the free unital algebra object on the simple generators and
+$I_{B,N}$ and $I_{S,N}$ are the kernels of its maps to $B_N$ and $S_N$,
+then $\Phi_N$ records the inclusion
+\[
+ I_{B,N}\subseteq I_{S,N}.
+\]
+A reverse map fixing the generators requires the opposite inclusion.
+Thus neither \eqref{Phi} nor a scalar denominator constructs \eqref{rhoN}.
+PBW and a componentwise dimension equality can construct the inverse on
+$S_N$, but extending that inverse to $H_N$ still requires generation or an
+independent splitting.  On the spherical subalgebra, the existence of
+\eqref{rhoN} forces $I_{B,N}=I_{S,N}$.
+
+\begin{remark}[Lie PBW is not Hall PBW]
+For $A=(0)$, take
+\[
+ \mathcal H=\kk[\varepsilon]/(\varepsilon^2),\qquad
+ \deg\varepsilon=\alpha,\qquad x=\varepsilon.
+\]
+Then $L=\kk\varepsilon\cong\mathfrak n_+(A)$, so
+Theorem~\ref{lie-recognition} recognizes the Lie algebra in every height.
+Nevertheless,
+\[
+ U(\mathfrak n_+(A))=\kk[e]\longrightarrow\mathcal H,\qquad
+ e\longmapsto\varepsilon
+\]
+has kernel $(e^2)$.  Thus \eqref{dimensions} cannot replace the
+associative dimension comparison \eqref{associative-dimensions}.  Moreover,
+for $N\geq2$ there is no map \eqref{rhoN} sending $\varepsilon$ to $e$,
+since it would send $\varepsilon^2=0$ to the nonzero element $e^2\in B_N$.
+To recognize all of $\mathcal H$, one must also prove
+$\mathcal H=\mathcal H^{\mathrm{sph}}$; this fails whenever, for example,
+$\mathcal H_0$ contains more than the unit.
+\end{remark}
+
+\section{Compatible height completion}
+
+A comparison in every finite height determines a completed map only
+when the comparisons agree under truncation.
+The relevant topology and tensor product can be stated directly.
+
+For a nonnegatively $Q_+$-graded vector space $V$, set
+\[
+ F^{N+1}V=\bigoplus_{\htop(\beta)>N}V_\beta,\qquad
+ \widehat V=\varprojlim_N V/F^{N+1}V
+            =\prod_{\beta\in Q_+}V_\beta.
+\]
+The transition maps are the projections in \eqref{transition}.  The tensor
+product appropriate to this topology is
+\begin{equation}
+ \widehat V\mathbin{\widehat\otimes_{\mathrm{ht}}}\widehat W
+ =
+ \prod_{\beta\in Q_+}
+ \left(\bigoplus_{\gamma+\delta=\beta}
+ V_\gamma\otimes W_\delta\right).                            \label{completed-tensor}
+\end{equation}
+Each inner sum is finite because $I$ is finite.
+
+\begin{proposition}[Formal height completion]                 \label{completion}
+Let $f:V\to W$ be a graded linear map.  If
+$\tau_{\leq N}f$ is an isomorphism for every $N$, then $f$ is a
+componentwise isomorphism and extends to a continuous isomorphism
+\[
+ \widehat f:\widehat V\xrightarrow{\ \sim\ }\widehat W.
+\]
+If $V$ and $W$ are graded Lie algebras, associative algebras, or bialgebras
+and $f$ is a morphism of the corresponding kind, then $\widehat f$ respects
+the continuous operations; for bialgebras the completed coproduct takes
+values in \eqref{completed-tensor}.
+\end{proposition}
+
+\begin{proof}
+For a fixed $\beta$, any $N\geq\htop(\beta)$ shows that $f_\beta$ is an
+isomorphism.  Taking the product of the maps $f_\beta$ gives
+$\widehat f$.  A graded product, bracket, or coproduct has only finitely
+many summands in each fixed total degree, so its continuous extension is
+defined componentwise and is preserved by $\widehat f$.
+\end{proof}
+
+\begin{corollary}
+If the hypotheses of Theorem~\ref{lie-recognition} and
+\eqref{dimensions} hold in every degree, then
+\[
+ \widehat{\mathfrak n_+(A)}\cong\widehat L,\qquad
+ \widehat{U(\mathfrak n_+(A))}\cong\widehat{U(L)}
+\]
+as complete Lie algebras and complete bialgebras, respectively.  The second
+formula denotes the height completion of the enveloping algebra; it does
+not assert that the enveloping functor commutes with inverse limits.
+\end{corollary}
+
+\begin{proposition}[Compatible reverse quotients]             \label{complete-quotients}
+Suppose that maps \eqref{rhoN} exist for every $N$ and, for $M\leq N$,
+\begin{equation}
+ \tau_{\leq M}(\rho_N)=\rho_M                              \label{rho-compatible}
+\end{equation}
+under the identifications \eqref{transition}.  Then inverse limits give a
+continuous split epimorphism
+\[
+ \widehat\rho:\widehat{\mathcal H}\twoheadrightarrow
+ \widehat{U(\mathfrak n_+(A))}
+\]
+whose compatible section is induced by the maps $\jmath_N\Phi_N$, and
+\[
+ \widehat{U(\mathfrak n_+(A))}
+ \xrightarrow{\ \sim\ }
+ \widehat{\mathcal H^{\mathrm{sph}}}.
+\]
+If every $\rho_N$ is injective, the full completed map is an isomorphism.
+If $\mathcal H$ is a graded bialgebra, the $x_i$ are primitive, and every
+$\rho_N$ is a bialgebra morphism, these conclusions respect the continuous
+bialgebra operations and the completed tensor product
+\eqref{completed-tensor}.
+\end{proposition}
+
+\begin{proof}
+Equation \eqref{rho-compatible} defines $\widehat\rho$ componentwise.
+The sections $\jmath_N\Phi_N$ are compatible and satisfy
+\eqref{splitPhi}, so their inverse limit is a section; no general
+preservation of epimorphisms by inverse limits is needed.  Proposition
+\ref{reverse-quotient} identifies every spherical window, and Proposition
+\ref{completion} extends the operations continuously.  If every
+$\rho_N$ is injective, every finite window and hence the inverse limit is
+identified.
+\end{proof}
+
+This formal conclusion applies to a single graded comparison, or to a
+compatible inverse system already known to arise from such graded objects.
+It does not identify an independently defined topological or derived Hall
+carrier with that inverse limit.
+
+\section{Compact realization and amplitude comparisons}
+\label{sec:compact-realization}
+
+The algebraic results identify the maps needed from the geometric
+construction.
+Relations first give the enveloping-to-spherical map $\Phi$.
+A reverse quotient $\rho_N$ is additional data.
+Its kernel measures the part of the finite Hall window outside the
+recognized spherical subalgebra.
+
+For the translation quotient, the coefficient realization must first
+apply to \eqref{relative-hallcorr} and its unit $BE$.
+For the chosen reduced complexes, establish a determinant identity and
+coherent square-root maps analogous to \eqref{orientation-cross-map},
+including their relation to the unreduced cross line and the corresponding
+flag coherences.
+The following comparison problem includes this quotient case only
+after those data have been constructed.
+
+\begin{problem}[Compact Hall--Borcherds comparison]
+For a smooth projective Calabi--Yau threefold and a specified
+extension-closed sector, construct strong orientation data and the
+associative product \eqref{hallproduct} in an explicit charge-twisted
+monoidal realization, together with a strong monoidal totalization to the
+ordinary $Q_+$-graded vector spaces of
+Section~\ref{sec:associative-comparison}.  In the resulting
+degree-zero associative algebra, choose a finite multiplicity-one
+Borcherds datum $A$ and classes
+$x_i\in\mathcal H_{\alpha_i}$ of even cohomological parity.  With the
+ordinary commutator $[x,y]=xy-yx$, prove the relations
+\eqref{serre}--\eqref{orthogonal}.  This must first produce the surjection
+\[
+ \Phi:U(\mathfrak n_+(A))\twoheadrightarrow
+       \mathcal H^{\mathrm{sph}}.
+\]
+Independently construct a Hall coproduct for which the $x_i$ are primitive
+and, for every $N$, a graded bialgebra epimorphism
+\begin{equation}
+ \rho_N:\tau_{\leq N}\mathcal H\twoheadrightarrow
+ \tau_{\leq N}U(\mathfrak n_+(A)),\qquad \rho_N(x_i)=e_i,    \label{open-rho}
+\end{equation}
+compatible as in \eqref{rho-compatible}.  Proposition
+\ref{reverse-quotient} then identifies every spherical window without a
+dimension calculation.  Determine $\ker\rho_N$.  If the intended target is
+the full Hall algebra, prove $\ker\rho_N=0$ in every window; by Proposition
+\ref{reverse-quotient}, this is equivalent to
+$\tau_{\leq N}\mathcal H=\tau_{\leq N}\mathcal H^{\mathrm{sph}}$.
+Componentwise finite-dimensional equality with $B_N$ is one possible proof
+of this last step.  Neither the scalar denominator nor the
+opposite-direction map $\Phi_N$ constructs \eqref{open-rho}.
+
+For a completed comparison, specify a separated complete Hall topology,
+continuous product and coproduct, transition morphisms realizing every
+finite window, and an identification of its completed tensor product with
+\eqref{completed-tensor}.  The compatible sections in
+Proposition~\ref{complete-quotients}, rather than a general exactness claim
+for inverse limits, then give the completed split epimorphism.  If the
+carrier is derived, also identify it with the derived inverse limit and
+justify the disappearance of higher inverse limits.  These requirements
+are not supplied by a scalar denominator.
+For $X=S\times E$ modulo translation, construct these coefficients
+and operations on the common-torsor quotient over $BE$.
+Specify the realization of its unit and its relative tensor product.
+Any passage to ordinary graded vector spaces must preserve these
+operations. The absolute affine-stabilizer theorem does not supply
+this passage.
+\end{problem}
+
+A representation introduces a further map
+\[
+ r:\mathcal H\longrightarrow\operatorname{End}(V),
+\]
+where the space $V$, its grading, and any completion must be specified.
+The root operator is then $r(x_i)$.
+Its algebra relations follow from a constructed algebra map $r$.
+A scalar generating series does not specify this representation.
+
+An amplitude also requires a trace or pairing on a declared domain.
+For example, fix a subalgebra
+$\mathcal D\subseteq\operatorname{End}(V)$ and a linear map
+$\lambda:\mathcal D\to\Lambda$ to a one-dimensional value space.
+If $\lambda$ is a trace, it must satisfy
+$\lambda(ab)=\lambda(ba)$ on its domain.
+For a graded trace, the corresponding Koszul sign is required.
+The amplitude of an allowed Hall element $h$ is
+$\lambda(r(h))$.
+Infinite sums require a topology in which both the representation
+and the trace are defined.
+
+For an automorphic comparison in a parameter family $T$, the Hall
+construction must produce a section $s_{\mathrm H}$ of a line bundle
+$\mathcal L_{\mathrm H}$.
+An independently defined automorphic section $s_{\mathrm{aut}}$
+belongs to its own line bundle $\mathcal L_{\mathrm{aut}}$.
+The required comparison is an isomorphism
+\[
+ \eta:\mathcal L_{\mathrm H}\xrightarrow{\ \sim\ }
+       \mathcal L_{\mathrm{aut}},
+ \qquad \eta(s_{\mathrm H})=s_{\mathrm{aut}},
+\]
+with the specified group actions and normalization.
+Finite-height recognition supplies neither this line isomorphism nor
+the trace that defines $s_{\mathrm H}$.
+It supplies the algebraic comparison to which those additional
+constructions must be attached.
+
+\begin{thebibliography}{9}
+
+\bibitem{Borcherds1988}
+R.~E. Borcherds,
+\emph{Generalized Kac--Moody algebras},
+J. Algebra \textbf{115} (1988), 501--512.
+\href{https://doi.org/10.1016/0021-8693(88)90275-X}
+{doi:10.1016/0021-8693(88)90275-X}.
+
+\bibitem{DavisonHennecartSchlegelMejia2025}
+B.~Davison, L.~Hennecart, and S.~Schlegel Mejia,
+\emph{BPS algebras and generalised Kac--Moody algebras from
+2-Calabi--Yau categories},
+arXiv:2303.12592v5 (2025).
+\href{https://arxiv.org/abs/2303.12592}
+{arXiv:2303.12592}.
+
+\bibitem{Descombes2025}
+P.~Descombes,
+\emph{Hyperbolic localization in Donaldson--Thomas theory},
+arXiv:2506.22400v1 (2025).
+\href{https://arxiv.org/abs/2506.22400}
+{arXiv:2506.22400}.
+
+\bibitem{JoyceUpmeier2021}
+D.~Joyce and M.~Upmeier,
+\emph{Orientation data for moduli spaces of coherent sheaves over
+Calabi--Yau 3-folds},
+Adv. Math. \textbf{381} (2021), 107627.
+\href{https://doi.org/10.1016/j.aim.2021.107627}
+{doi:10.1016/j.aim.2021.107627}.
+
+\bibitem{KinjoParkSafronov2026}
+T.~Kinjo, H.~Park, and P.~Safronov,
+\emph{Cohomological Hall algebras for 3-Calabi--Yau categories},
+arXiv:2406.12838v2 (2026).
+\href{https://arxiv.org/abs/2406.12838}
+{arXiv:2406.12838}.
+
+\bibitem{KontsevichSoibelman2011}
+M.~Kontsevich and Y.~Soibelman,
+\emph{Cohomological Hall algebra, exponential Hodge structures and motivic
+Donaldson--Thomas invariants},
+Commun. Number Theory Phys. \textbf{5} (2011), 231--352.
+\href{https://doi.org/10.4310/CNTP.2011.v5.n2.a1}
+{doi:10.4310/CNTP.2011.v5.n2.a1}.
+
+\end{thebibliography}
+
+\end{document}
