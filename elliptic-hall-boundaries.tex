@@ -1,0 +1,268 @@
+\section{Euler localization and support collisions}
+\label{sec:elliptic-hall-localization}
+
+Direct sum also gives a different coproduct after multiplication by
+the Euler class of the curve Hom complex. The global diagonal
+determines this factor. It produces coherent identities in explicit
+localizations, but it changes the coproduct even on the constant
+charge-two class.
+
+\subsection{The global Hom complex}
+
+On $E_1\times E_2\times B\mathbb G_m^2$, let $L_i$ be the two
+universal line bundles and let $D_i$ be the graph of the $i$th point
+in the additional geometric curve. The universal length-one sheaf
+is $\mathcal O_{D_i}\otimes L_i$.
+Put $L=L_1^\vee\otimes L_2$ and $w=z_2-z_1=c_1(L)$.
+Resolve the first sheaf by
+$[\mathcal O(-D_1)\otimes L_1\to\mathcal O\otimes L_1]$ in
+degrees $-1,0$. Applying Hom into the second and pushing along the
+geometric curve gives the actual perfect complex
+\begin{equation}\label{gh:global-hom}
+ [\,L\longrightarrow L(\Delta_{12})\,]_{0,1}.
+\end{equation}
+Its differential is the canonical diagonal section. It is acyclic
+away from the diagonal and has both Hom and Ext$^1$ at coincident
+points. Thus replacing it by its generic value zero would lose the
+collision.
+
+Its K-class is $[L]-[L(\Delta_{12})]$, so its localized Euler class
+and Chern ratio are
+\begin{equation}\label{gh:euler}
+ e(D_{12})=\frac{w}{w+\delta_{12}}
+        =1-\frac{\delta_{12}}w,\qquad
+ \Psi(D_{12},t)=\frac{t+w}{t+w+\delta_{12}}
+        =1-\frac{\delta_{12}}{t+w}.
+\end{equation}
+Here $\delta_{12}^2=\Delta_*(c_1(T_E))=0$.
+The odd cohomology terms of the diagonal in
+\eqref{gh:diagonal} are part of these formulas.
+
+\subsection{An Euler-corrected coproduct}
+
+For ordered blocks $A,B$ define
+\[
+ D_{A,B}=\prod_{i\in A,\ j\in B}(z_j-z_i),\qquad
+ E_{A,B}=K_{A,B}^{-1}.
+\]
+The cross resultant $D_{A,B}$ is invariant under permutations
+inside each block. It is a nonzero divisor on the polynomial
+module with exterior coefficients. Inverting it also inverts
+each $z_j-z_i+\delta_{ij}$, by a finite nilpotent expansion.
+The universal curve Hom complex on
+$\mathcal M_a\times\mathcal M_b$ restricts under ordered direct
+sum to the sum of the complexes \eqref{gh:global-hom}.
+Thus $E_{A,B}$ is its actual localized Euler class.
+
+Define
+\begin{equation}\label{gh:localized-coproduct}
+ \Delta^{\mathrm{loc}}_{a,b}(F)
+   =E_{A,B}\,s_{a,b}^*F
+   \ \in\
+   (\mathsf B_a\otimes\mathsf B_b)[D_{A,B}^{-1}].
+\end{equation}
+This uses ordinary cohomological direct-sum pullback and the
+specified Euler factor. It has no additional exceptional trace.
+For several blocks, comparisons are made in the common
+localization by all cross resultants that occur.
+
+Let $\sigma_{A,B}$ be the ordinary Koszul block swap, including
+the Chern variables. The localized crossing is
+\begin{equation}\label{gh:localized-crossing}
+ \beta^{\mathrm{loc}}_{A,B}
+    =\sigma_{A,B}\circ M_{K_{A,B}/K_{B,A}},
+\end{equation}
+where $M_f$ denotes multiplication by $f$.
+Equivalently, with the swapped output labels fixed, it is
+$M_{K_{B,A}/K_{A,B}}\circ\sigma_{A,B}$.
+For one label in each block this output formula is
+$(1-2\delta_{12}/w)\sigma$.
+The side on which the multiplier acts is part of the formula.
+
+\begin{proposition}\label{gh:localized-identities}
+The maps \eqref{gh:localized-coproduct} are coassociative with
+identity zero-endpoint components and charge-zero counit.
+With the crossings \eqref{gh:localized-crossing}, they satisfy
+the bialgebra interchange identities for the actual Hall product
+in the stated common localizations, in every charge.
+The localized crossings satisfy the block hexagons, braid
+identities and involution.
+\end{proposition}
+\begin{proof}
+For three blocks,
+\[
+ E_{A,B}E_{A\cup B,C}
+ =E_{A,B}E_{A,C}E_{B,C}
+ =E_{B,C}E_{A,B\cup C}.
+\]
+Together with direct-sum associativity, this proves coassociativity.
+An empty block has Euler factor one and its direct-sum map is the
+identity.
+
+The ratios of $K$ factors multiply under disjoint block unions.
+This proves the two hexagons. On three blocks both braid
+composites have the same permuted, even scalar factors.
+Swapping the two blocks exchanges numerator and denominator,
+proving the involution.
+
+For interchange, split the first input into blocks $A,B$ and the
+second into blocks $C,D$. The outputs receive $A\cup C$ and
+$B\cup D$. A term of
+$\Delta^{\mathrm{loc}}(F*G)$ has coefficient
+\[
+ \begin{split}
+ \frac{K_{A\cup B,C\cup D}}{K_{A\cup C,B\cup D}}
+ &=\frac{K_{A,C}K_{A,D}K_{B,C}K_{B,D}}
+         {K_{A,B}K_{A,D}K_{C,B}K_{C,D}}\\
+ &=\frac{K_{A,C}K_{B,D}}{K_{A,B}K_{C,D}}\,
+                           \frac{K_{B,C}}{K_{C,B}}.
+ \end{split}
+\]
+On the other route, the two coproducts contribute
+$1/(K_{A,B}K_{C,D})$, the middle crossing contributes
+$K_{B,C}/K_{C,B}$ in these labels, and the output Hall products
+contribute $K_{A,C}K_{B,D}$.
+The coefficients agree.
+Choosing the two input splits and then the two output shuffles
+is the same indexing as an input shuffle followed by the output
+split. The resulting permutations, and therefore all Koszul
+signs, agree.
+
+Initially make the comparison after inverting every Chern
+difference on these labels. The left side lies in the stated
+output localization, so the identity shows cancellation of the
+additional intermediate denominators in the complete sum.
+Localization is injective on the polynomial ring tensored with
+$H^*(E^n;\mathbb Q)$, since it is a free module over the
+polynomial ring. Nilpotent or odd cohomological coefficients do
+not change this argument. This proves the asserted identities
+without claiming that each intermediate term is polynomial.
+\end{proof}
+
+The proposition specifies maps and their identities in localized
+tensor recipients. It does not assert an antipode in an unstated
+completion. Its crossing is a rational multiplier followed by a
+swap, whereas \eqref{gh:polynomial-R} is a polynomial
+divided-difference operator.
+
+\begin{example}[Two coproducts on the same Hall algebra]
+\label{gh:two-coproducts}
+The geometric direct-sum coproduct of
+Theorem~\ref{gh:global-hopf} and the Euler-corrected coproduct
+satisfy
+\[
+ d_{1,1}(\mathbf1_2)=1\otimes1,\qquad
+ \Delta^{\mathrm{loc}}_{1,1}(\mathbf1_2)
+                   =1-\frac{\delta_{12}}{z_2-z_1}.
+\]
+Thus the identity on the Hall carrier is not a coalgebra
+comparison between these maps into the same localized tensor.
+No assertion about a different tensor functor follows from this
+calculation.
+The relation $r=z_1-z_2+\delta_{12}$ of
+Proposition~\ref{gh:ordinary-obstruction} obeys
+$\beta^{\mathrm{loc}}r=-r$; hence
+$(1+\beta^{\mathrm{loc}})r=0$.
+This explains how the localized crossing avoids that ordinary
+interchange obstruction.
+
+The degree-zero quotient of Corollary~\ref{gh:fibre-quotient}
+does not extend coefficient-linearly through this tensor
+localization: it sends $z_2-z_1$ to zero, while that element has
+been made invertible. The ordinary polynomial quotient belongs
+to the polynomial-crossing construction with the direct-sum
+coproduct.
+\end{example}
+
+\subsection{Nonsplit fibres and support parameters}
+
+The global operation comparison includes the proper flag traces,
+but it is a statement after direct image to $BE$. It does not by
+itself identify an operation over a moving support divisor.
+The following local models display the coefficient and trace
+information that such a comparison must retain.
+
+After fixing the first point by translation, let
+$\delta=e_2-e_1\in E$. The position part of
+\eqref{gh:global-hom} is
+\[
+ [\,\mathcal O_E\xrightarrow{s_0}\mathcal O_E(0)\,]_{0,1},
+\]
+with $s_0$ vanishing at the origin. Its derived fibre has one copy
+of $\mathbb C$ in degrees zero and one at the collision and is
+acyclic elsewhere. Its determinant is $\mathcal O_E(-0)$.
+The $S$-factor contributes the even degree-two copy, so the
+threefold cross determinant has degree $-2$.
+For a split pair the two opposite cross blocks give determinant
+degree $-4$ and root degree $-2$.
+Ordinary restriction of the degree-one skyscraper representing
+this complex would omit its degree-zero Tor term.
+
+On a local parameter chart the extension family is
+\[
+ Z=\begin{pmatrix}y&t\\0&x\end{pmatrix},\qquad
+ g=\begin{pmatrix}1&h\\0&1\end{pmatrix},\qquad
+ g^{-1}Zg=
+ \begin{pmatrix}y&t+(y-x)h\\0&x\end{pmatrix}.
+\]
+With endpoint trivializations fixed, the extension groupoid is
+$[\mathbb A^1_t/\mathbb G_a]$, where
+$h$ acts by $t\mapsto t+(y-x)h$.
+Away from $x=y$ it is a point; at $x=y$ it is
+$\mathbb A^1\times B\mathbb G_a$.
+The nonzero values of $t$ there are nonsplit extensions.
+Its dimension is zero throughout, as required by
+Proposition~\ref{gh:sector}.
+
+\begin{example}[The binary Quot fibre]\label{gh:double-fibre}
+For $T=\mathbb C[\zeta]/\zeta^2$, choose
+$Z=\left(\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\right)$.
+A line $[u:v]$ is $Z$-invariant precisely when
+\[
+ \det\begin{pmatrix}u&v\\v&0\end{pmatrix}=-v^2=0.
+\]
+The actual binary Quot fibre is therefore the double point
+$\operatorname{Spec}\mathbb C[v]/(v^2)$ in the chart $u=1$.
+It has one geometric point and length two.
+For two distinct support points the fibre consists of two
+reduced points, whereas for $k_e\oplus k_e$ it is
+$\mathbb P^1$.
+These are fibres of the same proper correspondence.
+The coefficient map is the identity, while its proper trace on
+the constant class is multiplication by two, by
+Proposition~\ref{gh:constants}. The trace is not the count of
+geometric points in a singular fibre.
+\end{example}
+
+The full flag coefficient map also exists on a nonsplit
+three-step family. On $T=\mathbb A^3_{r,s,t}$ take
+\[
+ Z=\begin{pmatrix}0&r&t\\0&0&s\\0&0&0\end{pmatrix}.
+\]
+Since $Z^3=0$, this is a flat rank-three family on the third
+infinitesimal neighbourhood of an actual point of $E$.
+The first line and first plane are invariant and give a full
+flag. At $(r,s,t)=(1,1,0)$ it is the cyclic module
+$\mathbb C[\zeta]/\zeta^3$, while at the origin it is split.
+The entry $(Z^2)_{13}=rs$ distinguishes them.
+Proposition~\ref{gh:coefficient-maps} gives two composites equal
+to $\operatorname{id}_{\mathbb Q_T}$ on this family, with their
+specified common source and recipient. Changing the sign of
+only the $(2,1)$ coefficient map changes one composite by
+$-2\operatorname{id}_{\mathbb Q_T}$.
+Thus a coefficient flag equation has content beyond its binary
+and unit normalizations.
+
+The proper trace of three constant inputs is
+$6\mathbf1_3$, and the global four-block identity is proved in
+Theorem~\ref{gh:global-hopf}. To compare the operations over moving
+support, the scalar trace must be replaced by its coefficient
+sheaf and its collision maps. Section~\ref{sec:companion-family}
+computes these maps on the cyclic length-three family and proves
+an obstruction to extending the proper trace to its ordinary
+decomposition image. Section~\ref{sec:support-coalgebra} then
+constructs the coefficient coalgebra over support.
+Section~\ref{sec:supported-springer} supplies the supported
+crossing and Hall interchange from proper flags and compares
+their actual evaluations on that family. The strict-splitting
+trace obstruction remains in its stated recipient.

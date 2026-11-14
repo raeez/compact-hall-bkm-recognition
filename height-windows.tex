@@ -1,0 +1,208 @@
+The primitive coproduct of an even polynomial generator already determines
+which tensor product a finite-height calculation needs.  Give $x$ charge
+$\alpha_i$, hence height one, and use the ordinary Hopf algebra $\kk[x]$.
+Then
+\begin{equation}
+ \Delta(x^2)=x^2\otimes1+2x\otimes x+1\otimes x^2.
+ \label{polynomial-cross-term}
+\end{equation}
+The algebra projection $p:\kk[x]\to\kk[x]/(x^2)$ kills $x^2$, but
+$(p\otimes p)\Delta(x^2)=2x\otimes x\neq0$ in the ordinary tensor square.
+It is therefore not a coalgebra quotient there.  The surviving term has
+total height two.  Discarding that total height in the tensor target
+preserves the coproduct identity through height one.
+
+\subsection{The total-height tensor}
+\label{sec:height-tensor}
+
+Let $\mathcal V$ be ordinary vector spaces, super vector spaces, or cochain
+complexes over $\kk$.  In the super case morphisms preserve parity.
+In the cochain case the differential has degree $+1$, and morphisms are
+degree-zero chain maps.  A $Q_+$-graded object is a family
+$(V_\beta)_{\beta\in Q_+}$ in $\mathcal V$, and its morphisms preserve charge.
+For complexes this means $d(V_\beta^j)\subseteq V_\beta^{j+1}$.
+For homogeneous vectors, write $p(a)\in\mathbb Z/2$ for super parity and
+$|a|\in\mathbb Z$ for cohomological degree.  The symmetries are
+\[
+ \sigma(a\otimes b)=
+ \begin{cases}
+ b\otimes a,&\text{ordinary vector spaces},\\
+ (-1)^{p(a)p(b)}b\otimes a,&\text{super vector spaces},\\
+ (-1)^{|a||b|}b\otimes a,&\text{cochain complexes}.
+ \end{cases}
+\]
+For complexes the tensor differential is
+$d(a\otimes b)=da\otimes b+(-1)^{|a|}a\otimes db$.
+Height is a function of charge, independent of these sign conventions.
+In particular, an even vector can have height one.
+
+For $N\geq0$, let $\mathsf{Gr}_{\leq N}(Q_+;\mathcal V)$ consist of such
+objects supported in heights at most $N$.  Define
+\begin{equation}
+ (V\mathbin{\bar\otimes_N}W)_\beta
+ =\bigoplus_{\gamma+\delta=\beta}V_\gamma\otimes W_\delta,
+ \qquad \htop(\beta)\leq N.\label{finite-tensor}
+\end{equation}
+The tensor unit is $\kk$ in charge zero, with even parity or cohomological
+degree zero and zero differential as appropriate.  Write
+$\mathsf{Gr}_{\leq N}(Q_+)$ for the ordinary case.
+The super and cochain constructions extend the tensor formalism.
+The Borcherds recognition statements use the ordinary category.
+
+\begin{proposition}[Monoidal height restriction]\label{monoidal-restriction}
+Formula~\eqref{finite-tensor}, with the stated unit and symmetry, defines
+a symmetric monoidal category.  Truncation
+\[
+ \tau_{\leq N}V=\bigoplus_{\htop(\beta)\leq N}V_\beta
+\]
+from nonnegatively $Q_+$-graded objects is strong symmetric monoidal.
+Restriction from height $N$ to $M\leq N$ is also strong symmetric
+monoidal, and the restrictions satisfy
+\begin{equation}
+ \tau_{\leq M}\tau_{\leq N}=\tau_{\leq M}.\label{transition}
+\end{equation}
+Their monoidal comparisons agree under successive restrictions.
+\end{proposition}
+
+\begin{proof}
+In charge $\beta$, both parenthesizations of a triple tensor product
+identify with
+\[
+ \bigoplus_{\gamma+\delta+\epsilon=\beta}
+ U_\gamma\otimes V_\delta\otimes W_\epsilon,
+ \qquad \htop(\beta)\leq N.
+\]
+Nonnegative height ensures that every intermediate sum has height at
+most $\htop(\beta)$.  Thus both parenthesizations retain exactly these
+summands.  Use the associator of $\mathcal V$ on each summand.
+The pentagon on four factors is the base pentagon on each retained
+quadruple.  The unit maps are the base unit maps on the summands of
+charge zero in the unit factor.  Their triangle holds summandwise.
+The stated symmetry exchanges the two charge indices, and its hexagons
+and square hold by the same argument.  In complexes all these maps
+commute with the charge-preserving differential.
+
+If $\gamma+\delta=\beta$ and $\htop(\beta)\leq N$, both inputs have
+height at most $N$.  Consequently the canonical comparison
+\[
+ \tau_{\leq N}V\bar\otimes_N\tau_{\leq N}W
+ \longrightarrow\tau_{\leq N}(V\otimes W)
+\]
+is the identity on every retained summand.  The unit comparison is also
+the identity.  These comparisons commute with the associators, unit maps
+and symmetries just described.  For $M\leq N$, the same argument gives
+\[
+ \tau_{\leq M}(V\bar\otimes_N W)
+ \cong\tau_{\leq M}V\bar\otimes_M\tau_{\leq M}W.
+\]
+Both composites of comparisons under three successive bounds are the
+identity on each retained summand.  This proves the final assertion.
+\end{proof}
+
+These categories are truncated in height, without a dimension bound on
+their objects.  They are generally not finite tensor categories in the
+rigid sense.  Indeed, if $V$ is nonzero and supported in one positive
+charge, every charge-preserving evaluation $V\bar\otimes_N W\to\kk$
+is zero.  It cannot satisfy the duality triangle for $V$.
+
+\subsection{Bialgebra identities in a window}
+
+A bialgebra object $C$ has charge-preserving maps
+\[
+ m:C\bar\otimes_N C\to C,\quad \eta:\kk\to C,\quad
+ \Delta:C\to C\bar\otimes_N C,\quad \varepsilon:C\to\kk.
+\]
+With associators and unit identifications understood, the algebra and
+coalgebra axioms are
+\begin{align*}
+ m(m\bar\otimes_N1)&=m(1\bar\otimes_N m),&
+ m(\eta\bar\otimes_N1)&=1_C=m(1\bar\otimes_N\eta),\\
+ (\Delta\bar\otimes_N1)\Delta&=(1\bar\otimes_N\Delta)\Delta,&
+ (\varepsilon\bar\otimes_N1)\Delta&=1_C
+   =(1\bar\otimes_N\varepsilon)\Delta.
+\end{align*}
+The four compatibility identities are
+\begin{align}
+ \Delta m&=(m\bar\otimes_N m)
+ (1\bar\otimes_N\sigma\bar\otimes_N1)
+ (\Delta\bar\otimes_N\Delta),\label{bialgebra-identities}\\
+ \Delta\eta&=\eta\bar\otimes_N\eta,\notag\\
+ \varepsilon m&=\varepsilon\bar\otimes_N\varepsilon,
+ \qquad \varepsilon\eta=1_\kk.\notag
+\end{align}
+For example, coassociativity on three specified output charges reads
+\[
+ (\Delta_{\alpha,\beta}\otimes1)\Delta_{\alpha+\beta,\gamma}
+ =(1\otimes\Delta_{\beta,\gamma})\Delta_{\alpha,\beta+\gamma},
+ \qquad \htop(\alpha+\beta+\gamma)\leq N.
+\]
+In complexes every structure map is a chain map.  Thus $d1=0$,
+$\varepsilon d=0$, $d$ is a derivation, and
+$\Delta d=d_{C\bar\otimes_N C}\Delta$ is the coderivation identity.
+
+Strong monoidality transports all these identities under truncation.
+It likewise transports Lie and associative algebra structures separately.
+For a nonnegatively graded Lie algebra $\mathfrak g$,
+$\tau_{\leq N}U(\mathfrak g)$ is therefore a bialgebra object in the
+height category.  Its underlying ordinary vector space has two distinct
+descriptions: it is the algebra quotient by heights above $N$, and it
+embeds as a subcoalgebra of $U(\mathfrak g)$.
+The quotient projection need not preserve the ordinary coproduct.
+The algebra quotient and subcoalgebra structures need not form an
+ordinary bialgebra together.
+
+\begin{remark}[Two successive polynomial windows]\label{polynomial-window}
+Put $C_N=\bigoplus_{n=0}^N\kk x^n$, with $|x|=0$,
+$\deg_Qx=\alpha_i$, and $d=0$.  Polynomial multiplication where the total
+height is at most $N$, together with
+\[
+ \Delta_N(x^n)=\sum_{r+s=n}\binom nr x^r\otimes x^s,
+ \qquad \varepsilon_N(x^n)=\delta_{n0},\qquad \eta_N(1)=1,
+\]
+makes $C_N$ a bialgebra object by
+Proposition~\ref{monoidal-restriction}.
+At height one, $x\otimes x$ is absent from $C_1\bar\otimes_1C_1$.
+At height two it occurs with coefficient two in
+\eqref{polynomial-cross-term}.  The tensor restriction
+\[
+ Q:C_2\bar\otimes_2C_2\longrightarrow C_1\bar\otimes_1C_1
+\]
+discards all total-height-two terms.  For $p:C_2\to C_1$, this gives
+$Q\Delta_2=\Delta_1p$ on $1,x,x^2$.
+The ordinary rectangular projection $p\otimes p$ instead retains
+$2x\otimes x$ on $x^2$, while $\Delta_1p(x^2)=0$.
+\end{remark}
+
+\begin{remark}[Unit normalization]\label{unit-normalization}
+Multiplicativity of $\Delta$ does not imply the other three compatibility
+identities.  Concentrate $C=\kk e\oplus\kk f$ in charge zero and set
+\[
+ e^2=e,\quad f^2=f,\quad ef=fe=0,\quad 1=e+f,
+\]
+\[
+ \Delta e=e\otimes e,\quad \Delta f=f\otimes f,
+ \qquad\varepsilon(e)=\varepsilon(f)=1.
+\]
+Products of basis idempotents vanish unless their indices agree, which
+proves associativity and multiplicativity of $\Delta$.
+The diagonal coproduct is coassociative, and both counit identities hold
+on $e,f$.  Multiplication by $e+f$ gives both unit identities.  Nevertheless,
+\[
+ \Delta1=e\otimes e+f\otimes f\neq1\otimes1,\qquad
+ \varepsilon(1)=2,\qquad
+ \varepsilon(ef)=0\neq\varepsilon(e)\varepsilon(f).
+\]
+
+Suppose instead that $C_0=\kk1$ and all maps preserve the nonnegative
+charge grading.  Assume associativity, coassociativity, both unit
+identities, both counit identities and multiplicativity of $\Delta$.
+Write $\Delta1=c(1\otimes1)$ and $\varepsilon(1)=a$.
+The counit identity gives $ca=1$, while multiplicativity gives $c^2=c$.
+Thus $c=a=1$.  The counit vanishes in positive charge, so
+$\varepsilon m=\varepsilon\otimes\varepsilon$ holds there and on
+$C_0\otimes C_0$.  This restores all omitted normalizations.
+Here $C_0$ means charge zero, and in the cochain case it is the complex
+$\kk$ concentrated in cohomological degree zero.
+A chosen unit line, or a statement about $H^0(C)$, does not give this
+hypothesis.
+\end{remark}

@@ -1,0 +1,345 @@
+\section{Flags and decompositions in a cyclic family}
+\label{sec:companion-family}
+
+A proper flag and a direct-sum decomposition agree on a cyclic module
+with distinct support, but they have different extensions across a
+collision. We compute this difference for the length-three family.
+The calculation concerns the actual ordinary direct images and their
+base-change map. It also explains why the proper flag trace cannot be
+recovered from the ordinary decomposition image.
+
+Throughout this section the coefficient is the normalized constant
+rational coefficient of \eqref{gh:relative-coefficient}. Fix a coordinate
+disk $D$ in one common elliptic torsor and put
+\[
+ X=D^3,\qquad Y=\operatorname{Sym}^3D,\qquad m:X\longrightarrow Y.
+\]
+Let $U\subset X$ be the ordered distinct-root locus, let $V=m(U)$,
+and write $j:U\hookrightarrow X$ and $j_V:V\hookrightarrow Y$.
+The finite map $m$ has degree six. On $Y$ the universal cyclic module is
+\[
+ \mathcal T=\mathcal O_Y[\zeta]/(f_{\mathrm{univ}}(\zeta)).
+\]
+Its pullback to $X$ is
+$\mathcal O_X[\zeta]/\prod_{i=1}^3(\zeta-t_i)$.
+The variables $t_i$ are support coordinates; they are distinct from
+the stabilizer Chern classes $z_i$.
+
+Define ordinary derived direct images and their restriction map by
+\begin{equation}\label{cf:images}
+ \mathcal F=Rm_*\mathbb Q_X,\qquad
+ \mathcal G=R(mj)_*\mathbb Q_U,\qquad
+ r:\mathcal F\longrightarrow\mathcal G.
+\end{equation}
+The map $r$ is induced by $\mathbb Q_X\to Rj_*\mathbb Q_U$.
+To distinguish a labelled family from the ordered cover defining
+these images, let $T$ be a second copy of $X$ and write $g=m:T\to Y$.
+Set
+\[
+ Z=T\times_YX,\quad p:Z\to T,\quad
+ \mathcal D_T=T\times_YU,\quad
+ \mathcal F_T=Rp_*\mathbb Q_Z,\quad
+ \mathcal G_T=R(\mathcal D_T\to T)_*\mathbb Q.
+\]
+Proper base change identifies $\mathcal F_T$ with $g^*\mathcal F$.
+There is an ordinary base-change transformation
+\begin{equation}\label{cf:base-change}
+ b:g^*\mathcal G\longrightarrow\mathcal G_T.
+\end{equation}
+The construction and adjunctions for these derived images are the
+usual ones for rational constructible complexes
+\cite[\S\S3.4,4.1.4,4.3.2--4.3.3]{deCataldoMigliorini2007}.
+
+\subsection{The two correspondence families}
+
+\begin{proposition}\label{cf:families}
+The complete proper flag family of $\mathcal T$ is $m:X\to Y$,
+including its nonreduced fibres. Its complete ordered direct-sum
+decomposition family is $mj:U\to Y$.
+The two parenthesizations of either complete correspondence are
+canonically identified. After pullback to $T$, the decomposition
+family is
+\[
+ \mathcal D_T\simeq\coprod_{\sigma\in S_3}U,
+\]
+where the component $\sigma$ assigns ordered endpoints
+$t_{\sigma(1)},t_{\sigma(2)},t_{\sigma(3)}$.
+\end{proposition}
+\begin{proof}
+For a cyclic module $A=R[\zeta]/(f)$, every endomorphism is
+multiplication by an element of $A$. A decomposition therefore gives
+orthogonal idempotents. If the three roots are distinct, the Chinese
+remainder theorem gives the three line summands in any prescribed
+order. At a repeated root the corresponding local algebra has no
+nontrivial idempotent. Its cyclic Jordan block cannot be a sum of
+length-one modules at that point.
+
+This argument also identifies the family, rather than only its closed
+points. Project the cyclic generator $1$ onto the three rank-one
+endpoints. It generates each endpoint and hence trivializes it.
+In these trivializations the images of $1,\zeta,\zeta^2$ form a
+Vandermonde matrix. It is invertible precisely when every difference
+of two endpoint roots is a unit. Chinese remainders then give the
+inverse decomposition on exactly that open locus. Thus the Cartesian
+pullback of the decomposition correspondence, with its identification
+of the middle object with $\mathcal T$, is $U$. Endpoint automorphisms
+are cancelled by that identification; no additional
+$B\mathbb G_m$ factors remain.
+
+Flags require no idempotents. A monic factorization $f=gh$ gives
+\[
+ 0\longrightarrow (g)/(gh)\longrightarrow R[\zeta]/(gh)
+       \longrightarrow R[\zeta]/(g)\longrightarrow0.
+\]
+Conversely, a locally free quotient of a cyclic module is cyclic.
+Its characteristic polynomial is monic; division by this polynomial
+identifies its kernel with the corresponding ideal. Applying this
+argument successively identifies a full flag with an ordered monic
+factorization into three linear factors. These constructions commute
+with base change and include infinitesimal factorizations. Their
+parameter scheme is $X$ over $Y$. In particular, the flag fibre at
+$3[0]$ has one geometric point and scheme length six.
+
+Both iterated decompositions specify the same three ordered orthogonal
+idempotents. Both proper flag refinements specify the same ideal
+filtration. The resulting identifications hold on the schemes of
+families. Composition of ordinary direct images identifies the two
+decomposition images; composition of proper traces identifies the two
+flag traces. Finally, pulling the ordered-root covering back to $T$
+over $U$ gives its six permutation graphs, as asserted.
+\end{proof}
+
+\subsection{Ordinary stalks and ramified base change}
+
+Write $y_0=3[0]\in Y$ and $t_0=(0,0,0)\in T$. All cohomological
+degrees in the following statement are ordinary cochain degrees.
+
+\begin{theorem}\label{cf:comparison}
+The central stalk of $\mathcal F$ is $\mathbb Q$ in degree zero.
+The central stalk of $\mathcal G$ has cohomology algebra
+\begin{equation}\label{cf:arrangement-ring}
+ H=\Lambda_{\mathbb Q}(a,b,c)/(ab-ac+bc),\qquad
+ |a|=|b|=|c|=1.
+\end{equation}
+Its dimensions in degrees $0,1,2$ are $(1,3,2)$, and $r$ sends
+the degree-zero unit to the unit. The central cohomology dimensions
+of $\mathcal G_T$ are $(6,18,12)$. Under these identifications,
+\begin{equation}\label{cf:actual-base-change}
+ H^*(b_{t_0}):H\longrightarrow\bigoplus_{\sigma\in S_3}H,
+ \qquad v\longmapsto(\sigma^*v)_{\sigma\in S_3},
+\end{equation}
+where $S_3$ permutes the three unordered edge classes $a,b,c$.
+Consequently the cohomology dimensions of $\operatorname{Cone}(b)$
+at $t_0$ are $(5,15,10)$ in degrees $0,1,2$. Those of the cone of
+\begin{equation}\label{cf:composite}
+ \mathcal F_T\simeq g^*\mathcal F
+       \xrightarrow{g^*r}g^*\mathcal G
+       \xrightarrow{b}\mathcal G_T
+\end{equation}
+are $(5,18,12)$ in those degrees. Neither map is an equivalence.
+\end{theorem}
+\begin{proof}
+The inverse images
+$m^{-1}(\operatorname{Sym}^3D_\epsilon)=D_\epsilon^3$ form
+cofinal neighbourhoods of $m^{-1}(y_0)$. Intersecting with $U$
+gives a central hyperplane-arrangement complement in a polydisk.
+Positive radial rescaling identifies its homotopy type with that
+of the full complement. Thus the neighbourhood definition of an
+ordinary direct-image stalk gives
+\[
+ \mathcal G_{y_0}\simeq
+ R\Gamma(\operatorname{Conf}_3(\mathbb C),\mathbb Q).
+\]
+No proper base-change statement has been applied to $mj$.
+
+The coordinate change
+\[
+ (t_1,t_2,t_3)\longmapsto
+ \left(t_1,\ x=t_2-t_1,\ v=\frac{t_3-t_1}{t_2-t_1}\right)
+\]
+identifies this configuration space with
+$\mathbb C\times\mathbb C^*\times(\mathbb C\setminus\{0,1\})$.
+The last factor retracts onto a wedge of two circles. Let $A$ be
+the degree-one generator of $\mathbb C^*$ and let $P,Q$ be the
+two punctured-line generators. Normalize logarithmic classes by
+$1/(2\pi i)$ and set
+\[
+ a=[d\log(t_2-t_1)],\quad
+ b=[d\log(t_3-t_1)],\quad
+ c=[d\log(t_3-t_2)].
+\]
+Then $a=A$, $b=A+P$, and $c=A+Q$. The relations
+$A^2=P^2=Q^2=PQ=0$ give $ab-ac+bc=0$.
+These classes generate the product cohomology, whose dimensions
+are $(1,3,2)$, proving \eqref{cf:arrangement-ring}.
+Reversing an edge multiplies its difference by the constant $-1$
+and hence leaves its logarithmic class unchanged. The permutation
+action therefore permutes the three unordered edges and induces
+the two-dimensional standard representation in degree two.
+
+Proper base change applies to $m$. Its central fibre has one
+underlying point, so $\mathcal F_{y_0}=\mathbb Q$. Restriction
+preserves the unit. In particular, the cone of $r$ has dimensions
+three and two in degrees one and two.
+
+Proposition~\ref{cf:families} gives
+$\mathcal G_T=\bigoplus_{\sigma\in S_3}Rj_*\mathbb Q_U$.
+On every small configuration neighbourhood the component of the
+base-change map labelled by $\sigma$ is pullback by that root
+permutation. This proves \eqref{cf:actual-base-change}; replacing
+$\sigma$ by its inverse merely reorders the summands.
+The identity component makes this map injective in every degree,
+with ranks $(1,3,2)$. Its cokernel dimensions are therefore
+$(5,15,10)$. The source of \eqref{cf:composite} has only its
+degree-zero unit, which maps to the diagonal unit in six summands.
+Its cone has dimensions $(5,18,12)$.
+\end{proof}
+
+The unlabelled nearby covering is connected, while its labelled
+strict pullback has six components. Neither the empty strict central
+decomposition fibre nor a six-dimensional degree-zero vector space
+computes these ordinary derived images.
+
+\subsection{The proper collision coefficient and its trace}
+
+Let $H_{ij}\subset T$ be the diagonal $t_i=t_j$.
+The reduced space underlying $Z$ is the union of its six permutation
+graphs. On $H_{ij}$, the labels $\sigma$ and $(ij)\sigma$ have the
+same root values. Define a sheaf on $T$ by
+\begin{equation}\label{cf:collision-kernel}
+ \mathcal K=\ker\left[
+ \bigoplus_{\sigma\in S_3}\mathbb Q_T
+ \xrightarrow{\ d\ }
+ \bigoplus_{i<j}\ \bigoplus_{\{\sigma,(ij)\sigma\}}
+                         \mathbb Q_{H_{ij}}\right].
+\end{equation}
+Each diagonal contributes three unordered pairs of labels.
+Here $\mathbb Q_{H_{ij}}$ denotes closed direct image to $T$,
+and each component of $d$ is the difference of the two entries
+restricted to that diagonal. No surjectivity of $d$ is asserted.
+
+\begin{proposition}\label{cf:proper-coefficient}
+There is a canonical isomorphism $\mathcal F_T\simeq\mathcal K$
+in degree zero. Its ranks are six at distinct roots, three at a
+generic double collision, and one at the triple collision.
+The proper trace and unit are
+\begin{equation}\label{cf:trace}
+ \mathcal K\hookrightarrow\bigoplus_{\sigma\in S_3}\mathbb Q_T
+       \xrightarrow{\ \sum\ }\mathbb Q_T,
+ \qquad
+ \mathbb Q_T\longrightarrow\mathcal K,\quad
+       1\longmapsto(1)_\sigma.
+\end{equation}
+Their composite is $6\operatorname{id}_{\mathbb Q_T}$.
+Both proper parenthesizations retain these maps and all their
+collision restrictions.
+\end{proposition}
+\begin{proof}
+Pull a locally constant function on $Z$ to its six graph components.
+The entries agree on every graph intersection. These agreements
+are generated by the transpositions in \eqref{cf:collision-kernel}.
+Conversely, compatible local constants glue on the finite union
+of closed graphs. This identifies $p_*\mathbb Q_Z$ with
+$\mathcal K$. The finite proper fibres have no higher rational
+cohomology, so $Rp_*\mathbb Q_Z=p_*\mathbb Q_Z$.
+
+At a double collision the labels form three pairs, and at the triple
+collision they all agree. The sum in \eqref{cf:trace} thus weights
+the three values by two at a double collision and the single value
+by six at the triple collision. These are exactly the pullbacks of
+the finite proper trace: its local degree is the multiplicity of
+the corresponding sheets. The diagonal unit proves the composite
+formula. Proposition~\ref{cf:families} identifies both refinements
+as the same proper map, so functoriality of the trace gives the
+last assertion.
+\end{proof}
+
+The partial ordered decomposition of type $1+2$ isolates one root.
+Its three components on $T$ are
+\[
+ U_i=\{t_i\ne t_j\text{ for every }j\ne i\},\qquad i=1,2,3.
+\]
+Writing $j_i:U_i\hookrightarrow T$, its ordinary image is
+$\bigoplus_iR(j_i)_*\mathbb Q_{U_i}$.
+Each central local complement has homotopy type $(\mathbb C^*)^2$,
+so the central cohomology dimensions are $(3,6,3)$.
+The proper partial flag has a one-dimensional central stalk and
+generic degree three; refining its length-two factor has degree two.
+Both proper refinements therefore give the same trace of degree six
+and the same collision agreements in \eqref{cf:collision-kernel}.
+
+The endpoint lines retain their quotient-first order. For an
+invertible cyclic coefficient $N$, let $e_i$ be evaluation at the
+$i$th ordered root and put $\ell_i=c_1(e_i^*N)$. The lines are
+\begin{equation}\label{cf:endpoint-lines}
+ L_i=e_i^*N\otimes
+       \mathcal O\left(-\sum_{j<i}\Delta_{ji}\right).
+\end{equation}
+Indeed, each successive ideal quotient contributes the earlier
+linear factors; restriction to the next graph gives the displayed
+diagonal divisors. Thus a polynomial insertion $P$ has cyclic trace
+\[
+ m_*P(\ell_1,\ell_2-\Delta_{12},
+                \ell_3-\Delta_{13}-\Delta_{23}).
+\]
+In particular, the third endpoint contains both preceding diagonals.
+Although the local support diagonals are principal and their ordinary
+divisor Chern classes can vanish on a polydisk, their defining sections,
+the incidence maps of \eqref{cf:collision-kernel}, the logarithmic
+classes of \eqref{cf:arrangement-ring}, and the global endpoint
+formula remain distinct pieces of the geometry.
+
+\subsection{The obstruction to extending the trace}
+
+\begin{theorem}\label{cf:no-trace}
+There is no degree-zero morphism $\mathcal G\to\mathbb Q_Y$
+extending the generic proper flag trace. There is likewise no
+morphism $\mathcal G_T\to\mathbb Q_T$ extending generic summation
+over the six ordered decompositions. Consequently the proper traces
+cannot factor through $r$ or through \eqref{cf:composite}.
+\end{theorem}
+\begin{proof}
+On $V$ let $\mathcal L=(m|_U)_*\mathbb Q_U$, the rank-six
+permutation local system. Then
+$\mathcal G=R(j_V)_*\mathcal L$.
+The unit $\eta:\mathbb Q_Y\to\mathcal G$ restricts on $V$ to
+the vector of six ones. If $t:\mathcal G\to\mathbb Q_Y$
+extended summation, $t\eta$ would restrict to $6\operatorname{id}$.
+Since $Y$ is connected and
+$\operatorname{End}(\mathbb Q_Y)=H^0(Y;\mathbb Q)=\mathbb Q$,
+we would have $t\eta=6\operatorname{id}_{\mathbb Q_Y}$.
+
+Choose a closed point $i:\{y\}\hookrightarrow Y\setminus V$.
+For every complex $C$ on the point, adjunction gives
+\[
+ \begin{split}
+ \operatorname{Hom}(C,i^!R(j_V)_*\mathcal L)
+ &\simeq\operatorname{Hom}(i_*C,R(j_V)_*\mathcal L)\\
+ &\simeq\operatorname{Hom}(j_V^*i_*C,\mathcal L)=0.
+ \end{split}
+\]
+Hence $i^!\mathcal G=0$. On the other hand, $Y$ is a smooth
+complex threefold, and relative cohomology of a small real six-ball
+and its punctured ball gives $i^!\mathbb Q_Y=\mathbb Q[-6]$.
+Applying $i^!$ to $t\eta$ would factor the nonzero map
+$6\operatorname{id}_{\mathbb Q[-6]}$ through zero, a contradiction.
+The same argument on $T$ uses
+$\mathcal G_T=Rj_*(\mathbb Q_U^{\oplus6})$ and proves the
+labelled assertion.
+\end{proof}
+
+This obstruction is a statement about morphisms of constructible
+complexes, not only stalk dimensions. A linear projection from the
+central cohomology $(6,18,12)$ to $\mathbb Q$ does not supply the
+missing trace. The proper coefficient $\mathcal F$, and its explicit
+pullback $\mathcal K$, retain the trace but are not equivalent to
+the ordinary decomposition images.
+
+Theorem~\ref{cf:no-trace} concerns the strict pullback fixing a
+cyclic middle object. The next section constructs the coefficient
+sheaf over support and its direct-sum coalgebra.
+Section~\ref{sec:supported-springer} constructs the proper
+Springer action and the supported Hall Hopf comparison, then
+compares their evaluations with $\mathcal F$ and $\mathcal G$.
+These maps retain the nonsplit cyclic fibre and do not extend
+the forbidden trace.

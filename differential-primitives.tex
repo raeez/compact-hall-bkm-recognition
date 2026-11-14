@@ -1,0 +1,373 @@
+\section{Differentials, primitives, and quotients}
+
+For a differential graded Hall construction, each charge carries an
+entire cochain complex.  Primitivity of a cycle is an equation between
+cochains.  Primitivity of its cohomology class only requires that equation
+to hold modulo boundaries.  Height truncation respects both constructions
+when the differential preserves charge, but it does not identify them.
+
+\begin{example}[A differential that does not descend]\label{differential-height}
+Take
+\[
+ C=\kk[t]\otimes\Lambda(u),\qquad |t|=0,\quad |u|=1,
+ \qquad dt=u,\quad du=0,
+\]
+with both generators primitive and $\varepsilon(t)=\varepsilon(u)=0$.
+This is a differential graded Hopf algebra.  Indeed,
+$d(t^m)=mt^{m-1}u$ and $d(t^mu)=0$, so $d^2=0$.
+The differential preserves the supercommutative relations.
+The coproduct is a chain map on generators and hence on products.
+Now assign heights $h(t)=2$ and $h(u)=1$ to the underlying Hopf algebra.
+The differential lowers height, and
+\[
+ t\in F^2C,\qquad dt=u\notin F^2C.
+\]
+Thus the quotient through height one has no induced differential.
+If both generators instead have height one, the differential preserves
+height.  Yet the ideal $(t)$ remains unstable, since $dt=u\notin(t)$.
+Height preservation and differential stability of a further quotient
+ideal are separate requirements.
+\end{example}
+
+Let $C=\bigoplus_{\beta\in Q_+}C_\beta$ now be a connected,
+coaugmented, counital differential graded coalgebra with
+$C_0=\kk1$.  Its differential preserves charge, and
+$\Delta1=1\otimes1$, $\varepsilon(1)=1$.
+Set $C_+=\ker\varepsilon=\bigoplus_{\beta\neq0}C_\beta$ and
+$q=1_C-\eta\varepsilon$.
+The reduced coproduct and strict primitive complex are
+\begin{equation}
+ \bar\Delta=(q\otimes q)\Delta|_{C_+}:C_+\to C_+\otimes C_+,
+ \qquad P(C)=\ker\bar\Delta.\label{strict-primitives}
+\end{equation}
+For $x\in C_+$ this says
+$\bar\Delta x=\Delta x-1\otimes x-x\otimes1$.
+Taking the kernel on all of $C$ would also include the unit.
+
+\begin{proposition}[Primitive truncation and cohomology]
+\label{primitive-comparison}
+Put
+\[
+ P_\beta=\ker\left(C_\beta\xrightarrow{\bar\Delta}
+ \bigoplus_{\substack{\gamma+\delta=\beta\\\gamma,\delta\neq0}}
+ C_\gamma\otimes C_\delta\right).
+\]
+Strict primitives commute with height restriction and completion:
+\[
+ P(\tau_{\leq N}C)=\bigoplus_{0<\htop(\beta)\leq N}P_\beta,
+ \qquad P(\widehat C)=\prod_{\beta\neq0}P_\beta.
+\]
+These are identities of complexes, with the product taken degreewise.
+The full cohomology $H^*(C)$ is a charge-graded cohomological coalgebra.
+For every $p\in\mathbb Z$ and $\beta\neq0$ there is a natural map
+\begin{equation}
+ \kappa_\beta^p:H^p(P_\beta)
+ \longrightarrow\bigl(P(H^*(C))\bigr)^p_\beta.
+ \label{cohomological-primitives}
+\end{equation}
+Its target is the kernel of the map
+\begin{equation}
+ H^p(C_\beta)\longrightarrow
+ \bigoplus_{\substack{\gamma+\delta=\beta,\ \gamma,\delta\neq0\\r+s=p}}
+ H^r(C_\gamma)\otimes H^s(C_\delta)
+ \label{full-cohomology-target}
+\end{equation}
+induced by $\bar\Delta$ and the K\"unneth isomorphism.
+The map $\kappa_\beta^p$ need not be injective.
+If $C$ is also a differential graded bialgebra, $P(C)$ is a differential
+graded Lie algebra under the supercommutator, and the maps $\kappa$ form
+a morphism of graded Lie algebras.
+\end{proposition}
+
+\begin{proof}
+The reduced coproduct is a chain map, so its kernel is a subcomplex.
+The primitive equation in charge $\beta$ loses no summand in any window
+containing $\beta$.  On the completion, it holds if and only if it holds
+in each charge.  These observations prove both identities.
+
+Lemma~\ref{sp:kunnethtensor} gives the natural cohomology cross-product
+isomorphism, also for unbounded complexes with the ordinary cochain
+tensor product. Applying it to the coproduct defines
+\eqref{full-cohomology-target}.  A strict primitive cycle maps to a
+primitive class.  A boundary within $P_\beta$ maps to a boundary in
+$C_\beta$, which defines \eqref{cohomological-primitives}.
+Example~\ref{bar-primitive-example} proves failure of injectivity.
+
+If $x,y$ are homogeneous primitives in a bialgebra, multiplication of
+their coproducts with the Koszul interchange gives
+\[
+ \Delta[x,y]=[x,y]\otimes1+1\otimes[x,y],
+ \qquad [x,y]=xy-(-1)^{|x||y|}yx.
+\]
+The two mixed terms cancel.  Associativity gives graded Jacobi, and
+the derivation identity makes $d$ a Lie differential.
+Passing to cohomology preserves these identities and the comparison.
+\end{proof}
+
+Iterated reduced coproducts with $r$ factors vanish on height $n<r$:
+each output factor has positive height.  This is finite-height
+conilpotence.  On the completion it holds in every fixed height.
+A single infinite series need not have a uniformly vanishing reduced
+iterate.  The antipode from Proposition~\ref{connected-antipode} satisfies
+$S(x)=-x$ for every primitive.  It preserves charge and does not reverse
+a positive root into a negative root.
+
+\subsection{An ordered bar calculation}
+
+Let $D$ be an augmented charge-graded differential graded algebra with
+$D_0=\kk$.  Put $D_+=\ker\varepsilon$ and let $sD_+=D_+[1]$, with
+$|sa|=|a|-1$.  Its ordered reduced bar construction through height $N$ is
+\[
+ B_{\leq N}(D)=\kk\oplus
+ \bigoplus_{\substack{r\geq1,\ \beta_j\neq0\\
+                    \sum_j\htop(\beta_j)\leq N}}
+ sD_{\beta_1}\otimes\cdots\otimes sD_{\beta_r}.
+\]
+All words have length at most $N$. Give this space the differential
+and deconcatenation coproduct of Section~\ref{sec:olb-ordered-bar}.
+
+\begin{proposition}[Bar restriction]\label{bar-restriction}
+The height restriction $B_{\leq N}(D)=\tau_{\leq N}B_-(D)$ is a
+differential graded coalgebra in the total-height tensor category.
+These constructions commute with further height restriction.
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:olb-bar} proves the differential and coalgebra
+identities before truncation. Every local differential operation and
+every cut preserves total charge. Proposition~\ref{monoidal-restriction}
+therefore restricts the identities, and successive restrictions agree.
+\end{proof}
+
+\begin{example}[A strict primitive that becomes a boundary]
+\label{bar-primitive-example}
+Take $D=\kk[x]$ with $|x|=0$, $h(x)=1$, and $d=0$.
+Through height two, its bar coalgebra has
+\[
+ B^{-2}=\kk[x|x],\qquad
+ B^{-1}=\kk[x]\oplus\kk[x^2],\qquad B^0=\kk1,
+ \qquad b[x|x]=[x^2].
+\]
+Both words of length one are strict primitives.
+The word $[x|x]$ is not primitive, since
+$\bar\Delta[x|x]=[x]\otimes[x]\neq0$.
+Thus the strict primitive complex has zero differential, and
+$[x^2]$ is nonzero in its degree $-1$ cohomology.
+Its image in the full bar cohomology is zero.
+This proves the noninjectivity assertion in
+Proposition~\ref{primitive-comparison}.
+
+For $D=\kk[x]/(x^2)$ the same deconcatenation term survives, but the
+bar differential is zero.  Restriction $B_{\leq2}(D)\to B_{\leq1}(D)$
+kills $[x|x]$.  Ordinary tensor projection retains
+$[x]\otimes[x]$, with coefficient one, in every characteristic.
+Total-height tensor restriction kills this term and commutes with
+the coproduct.  This is an ordered associative bar coalgebra.
+For a word $[a|b]$ in two independent elements, its reduced coproduct is
+$[a]\otimes[b]$, so it need not be cocommutative.
+An identification with a chiral coalgebra requires a separate comparison
+of tensor categories and operations.
+\end{example}
+
+\subsection{Primitive ideals and exact enveloping quotients}
+
+The same failure occurs on a differential graded Hopf carrier.
+Let $C=T(\kk a\oplus\kk b\oplus\kk w)$ be the free unital
+associative algebra with
+\[
+ (h(a),h(b),h(w))=(1,2,2),\qquad
+ (|a|,|b|,|w|)=(-1,-1,-2),
+ \qquad da=db=0,\quad dw=b.
+\]
+Make $a,b$ primitive and define
+\[
+ \Delta w=w\otimes1+1\otimes w+a\otimes a.
+\]
+Extend the differential as a derivation and the coproduct as an algebra
+map with Koszul interchange.  Coassociativity on $w$ follows because
+both iterates have the extra terms
+$a\otimes a\otimes1+a\otimes1\otimes a+1\otimes a\otimes a$.
+The chain identity holds on $w$ because $b$ is primitive and $da=0$.
+It holds on all generators and therefore on the free algebra.
+With augmentation killing the three generators, $C$ is a connected
+differential graded bialgebra, hence Hopf.
+Its height-two component has basis $a^2,b,w$.
+Since $a$ is odd, $\bar\Delta(a^2)=0$, while
+$\bar\Delta w=a\otimes a\neq0$.
+Thus $P(C)_2=\kk a^2\oplus\kk b$, with zero differential.
+The class of $b$ is nonzero in $H^{-1}(P(C)_2)$ but equals the boundary
+$dw$ in $C$.  This gives noninjectivity of
+\eqref{cohomological-primitives} even for a connected differential
+graded Hopf algebra.
+
+\begin{theorem}[Differential-stable primitive quotients]
+\label{primitive-quotient}
+Let $C$ be a connected charge-graded differential graded bialgebra over
+$\kk$.  Let $R\subseteq P(C)$ be homogeneous in charge and cohomological
+degree.  Let $J=(R)$ be its two-sided associative ideal.
+Assume $dJ\subseteq J$.  Then $C/J$ is a connected differential graded
+Hopf algebra, and the quotient preserves antipodes.
+The condition $dR\subseteq R$ is sufficient for differential stability.
+Its completion is the topological differential graded Hopf quotient
+\begin{equation}
+ \widehat{C/J}\cong\widehat C/\overline J,
+ \qquad \overline J=\prod_{\beta\in Q_+}J_\beta.
+ \label{completed-primitive-quotient}
+\end{equation}
+Finite height restrictions commute with this quotient in their
+truncated tensor categories.
+\end{theorem}
+
+\begin{proof}
+For $r\in R$, $\Delta r=r\otimes1+1\otimes r$ and
+$\varepsilon(r)=0$.  Multiplicativity gives
+\[
+ \Delta J\subseteq J\otimes C+C\otimes J,
+ \qquad \varepsilon J=0.
+\]
+These inclusions hold termwise on each product $arb$, with the Koszul
+signs.  Thus coproduct and counit descend to the associative quotient.
+The assumed differential stability makes it a differential graded
+bialgebra.  If $dR\subseteq R$, the Leibniz rule proves $dJ\subseteq J$.
+Since $R$ has positive height, $J_0=0$, so the quotient is connected.
+Proposition~\ref{connected-antipode} supplies its antipode.
+The quotient map intertwines antipodes by uniqueness of convolution
+inverses in the convolution algebra of maps $C\to C/J$.
+
+The product of the componentwise quotient maps is surjective, with
+kernel $\prod_\beta J_\beta$.  Its target has the quotient height
+topology.  This kernel is the closure of $\bigoplus_\beta J_\beta$,
+since every finite truncation of a point in the product belongs to $J$.
+This proves \eqref{completed-primitive-quotient}, including the
+continuous structure maps.  Every finite component of $J$ is generated
+using factors of no greater height, so truncation commutes with forming
+the indicated quotient ideal.
+\end{proof}
+
+\begin{example}[New primitives after quotient]\label{new-primitives}
+Consider the ordinary commutative algebra $C=\kk[x,y,z]$, with
+$h(x)=h(y)=1$ and $h(z)=2$.  Give $x,y$ primitive coproducts and put
+\[
+ \Delta z=z\otimes1+1\otimes z+x\otimes y,
+ \qquad\varepsilon(x)=\varepsilon(y)=\varepsilon(z)=0.
+\]
+Extend $\Delta$ as an algebra map.  Both iterated coproducts of $z$
+contain, besides its three primitive terms,
+\[
+ x\otimes y\otimes1+x\otimes1\otimes y+1\otimes x\otimes y.
+\]
+Thus $C$ is a connected graded bialgebra and hence Hopf.
+In the height-two basis $(x^2,xy,y^2,z)$, the four reduced coproducts are
+\[
+ 2x\otimes x,\quad x\otimes y+y\otimes x,\quad
+ 2y\otimes y,\quad x\otimes y.
+\]
+They are linearly independent, so there are no height-two primitives.
+In the Hopf quotient $C/(x)=\kk[y,z]$, the class of $z$ becomes
+primitive.  Therefore the primitive ideal theorem alone does not
+identify $P(C/J)$ with a quotient of $P(C)$.
+\end{example}
+
+An enveloping presentation supplies the missing comparison.
+The characteristic-zero hypothesis is decisive here.
+
+\begin{proposition}[Primitives of an enveloping quotient]
+\label{enveloping-quotient}
+Let $\mathfrak g$ be a positively charge-graded differential graded Lie
+algebra over $\kk$.  Let $\mathfrak r$ be a homogeneous differential
+graded Lie ideal.  Give $U(\mathfrak g)$ its primitive coproduct.
+There are natural isomorphisms
+\begin{align*}
+ U(\mathfrak g)/(\mathfrak r)&\cong U(\mathfrak g/\mathfrak r),\\
+ P\bigl(U(\mathfrak g)/(\mathfrak r)\bigr)&\cong
+ \mathfrak g/\mathfrak r,\\
+ P\bigl(\widehat{U(\mathfrak g)/(\mathfrak r)}\bigr)&\cong
+ \prod_{\beta\neq0}(\mathfrak g/\mathfrak r)_\beta.
+\end{align*}
+The first is a differential graded Hopf isomorphism.  The second and
+third preserve Lie brackets and differentials, with the height topology
+in the third case.
+\end{proposition}
+
+\begin{proof}
+Corollary~\ref{sp:quotient} constructs the inverse differential graded
+Hopf maps in the first line. Theorem~\ref{sp:primitives} identifies the
+primitives with $\mathfrak g/\mathfrak r$ using the signed PBW
+symmetrization. Proposition~\ref{sp:completion} gives the degreewise
+height product in the third line. All identifications preserve the
+Lie bracket and differential.
+\end{proof}
+
+\subsection{Relation ideals and the choice of coproduct}
+\label{sec:olb-relation-ideals}
+
+For a coalgebra $A$, a subspace $J$ is a coideal when
+$\Delta J\subseteq J\otimes A+A\otimes J$ and
+$\varepsilon(J)=0$.  An associative ideal need not satisfy
+these conditions.  A quotient of a bialgebra $A$ by an ideal
+$J$ inherits its coproduct and counit precisely when
+\[
+ \Delta J\subseteq J\otimes A+A\otimes J,
+ \qquad \varepsilon(J)=0.
+\]
+Writing $q:A\to A/J$ for the quotient, these conditions say that
+$(q\otimes q)\Delta$ and $\varepsilon$ vanish on $J$. They therefore
+factor through $q$ to give the quotient coproduct and counit.  In the differential graded case one
+also needs $dJ\subseteq J$ to define the quotient differential.
+
+Take $A=\kk[x]$, with $x$ even and primitive.
+The ideal $(x^2)$ is an associative ideal, but
+\[
+ \Delta(x^2)=x^2\otimes1+2x\otimes x+1\otimes x^2.
+\]
+Modulo that ideal in both factors, the middle term is nonzero.
+Indeed $1,x$ are independent in $\kk[x]/(x^2)$, and $2\ne0$.
+Thus the quotient does not inherit the primitive coproduct.
+
+For the odd-square algebra $x^2=t$, the ideal $(t-1)$ fails
+even the augmentation condition, since $\varepsilon(t-1)=-1$.
+Both quotients exist as associative algebras.
+
+The special quotient in Corollary~\ref{sp:quotient} has a
+different hypothesis: its ideal is generated by a differential
+graded Lie ideal of primitive elements.
+The primitive equations give the coideal condition directly,
+and stability of that Lie ideal gives differential stability.
+That is why the conclusion is an enveloping Hopf quotient.
+
+This distinction also applies to differential algebras with
+nonzero odd squares.  For $r\geq1$, form
+\[
+ A_r=\kk[t]\langle\tau\rangle[z]/(z^2),\qquad
+ |t|=0,\quad|\tau|=-1,\quad|z|=2,
+\]
+where $t,z$ commute with every element.
+Its basis consists of $t^a\tau^bz^c$, with $a,b\geq0$ and
+$c=0,1$.  Define
+\[
+ d\tau=t^r-2\tau^2z,\qquad dt=dz=0.
+\]
+The right side commutes with $\tau$, so $d(\tau^2)=0$ and
+$d^2\tau=0$.
+
+The differential preserves all the relations, giving a unital
+differential graded algebra. Its augmentation sends $t,\tau,z$ to
+zero. This map commutes with the differential because $r\geq1$.
+Making all three displayed generators primitive would not
+give a differential graded Hopf presentation.
+Already the relation $z^2=0$ would have reduced coproduct
+$2z\otimes z\ne0$.
+Thus the enveloping cohomology theorem does not replace the
+associative higher-operation analysis of this algebra.
+
+There is nevertheless an actual functorial implication for
+Lie comparisons.  If $f:\mathfrak g\to\mathfrak h$ is a
+quasi-isomorphism of differential graded Lie algebras over
+$\kk$, then $U(f)$ is a quasi-isomorphism.
+Indeed the natural isomorphisms of Theorem~\ref{sp:cohomology}
+identify its cohomology map with $U(H(f))$, which is an
+isomorphism because $H(f)$ has an inverse Lie map.
+A Lie quasi-isomorphism is therefore sufficient input.
+A vector-space identification of cohomology, without that
+Lie map, is different data.
+

@@ -1,0 +1,848 @@
+\section{Ordered bar coalgebras and Lie chains}
+\label{chap:ordered-lie-bar}
+
+The enveloping coproduct identifies the Lie generators as primitives.
+The ordered associative bar has another coproduct, obtained by cutting
+a tensor into a prefix and a suffix. We construct its differential and
+the explicit map from Lie chains, including the signs and factorials.
+The map is a coalgebra quasi-isomorphism, but it does not identify the
+strict primitive complexes. This is a classical comparison of an
+enveloping algebra with its ordered bar; it does not identify either
+construction with an associative chiral duality.
+
+\subsection{Products transported through the ordered basis}
+\label{sec:olb-transported-product}
+
+Let $\mathfrak g$ be a differential graded Lie algebra over $\kk$.
+The symmetrization map of
+Proposition~\ref{sp:symmetrization-theorem} is an isomorphism of
+coalgebra complexes
+$\sigma:S(\mathfrak g)\to U(\mathfrak g)$.
+To retain the associative product as well, define
+\begin{equation}
+ a\star b=\sigma^{-1}\bigl(\sigma(a)\sigma(b)\bigr).
+ \label{eq:olb-transported-product}
+\end{equation}
+This is an actual operation on the symmetric vector space.
+It depends on the Lie bracket through the ordered relations.
+
+\begin{proposition}\label{prop:olb-transported-product}
+With this product, $S(\mathfrak g)$ is a differential graded Hopf
+algebra and $\sigma$ is a Hopf isomorphism.
+Its unit, counit, differential and coproduct are the ones already
+defined on $S(\mathfrak g)$.
+The product respects the increasing symmetric-length filtration.
+For homogeneous $x,y\in\mathfrak g$,
+\[
+ x\star y=xy+\tfrac12[x,y].
+\]
+\end{proposition}
+
+\begin{proof}
+Applying $\sigma$ to $(a\star b)\star c$ and $a\star(b\star c)$
+gives the same product $\sigma(a)\sigma(b)\sigma(c)$.
+Injectivity proves associativity.  The same calculation with the
+unit proves its two identities.
+Since $\sigma$ commutes with the differential, applying it to the
+graded Leibniz equation for $\star$ gives that equation in
+$U(\mathfrak g)$.
+
+The coalgebra identity for $\sigma$ transports bialgebra
+compatibility, and its counit remains multiplicative.
+Transporting the antipode gives the two antipode equations.
+Both $\sigma$ and its inverse preserve the filtration, so the
+product has the stated bound.
+Finally,
+\[
+ \sigma(xy)=\tfrac12\bigl(xy+(-1)^{|x||y|}yx\bigr)
+            =xy-\tfrac12[x,y]
+\]
+in the enveloping algebra.  Since $\sigma$ fixes each Lie element,
+this proves the displayed formula.
+\end{proof}
+
+A graded vector-space identification therefore need not preserve
+the product that enters an iterated multiplication.
+The half-bracket is already visible on two inputs.
+It will also be visible in the differential of an ordered bar word.
+
+\subsection{Augmentation and the ordered bar differential}
+\label{sec:olb-ordered-bar}
+
+Let $A$ be a unital differential graded associative algebra over $\kk$.
+An augmentation is a unital algebra chain map
+$\varepsilon:A\to \kk$, where $\kk$ has degree zero and zero differential.
+Its kernel $\bar A$ is an ideal preserved by the differential.
+The splitting by the unit gives $A=\kk1\oplus\bar A$ as complexes.
+Write $sa$ for the downward shift of $a\in\bar A$,
+so $|sa|=|a|-1$ and the shift differential is $d(sa)=-s(da)$.
+
+Define the ordered bar coalgebra
+\[
+ B_-(A)=\kk\oplus\bigoplus_{r\geq1}(s\bar A)^{\otimes r}.
+\]
+The subscript records the minus sign in the shifted differential.
+All elements have finite word support and all tensors are algebraic.
+Write $[a_1|\cdots|a_r]=sa_1\otimes\cdots\otimes sa_r$.
+
+The empty word is its coaugmentation and its counit kills nonempty
+words.  Deconcatenation cuts every word at each gap:
+\begin{equation}
+ \Delta[a_1|\cdots|a_r]
+ =\sum_{j=0}^r[a_1|\cdots|a_j]\otimes[a_{j+1}|\cdots|a_r].
+ \label{eq:olb-deconcatenation}
+\end{equation}
+In \eqref{eq:olb-deconcatenation}, two successive cuts amount to
+the same ordered pair of gaps in either order, proving coassociativity.
+
+Define degree-one local operations by
+\[
+ b_1(sa)=-s(da),\qquad
+ b_2(sa\otimes sb)=(-1)^{|a|}s(ab).
+\]
+Insert either operation after a prefix of shifted degree $q$ with
+the sign $(-1)^q$.
+In particular,
+\begin{equation}
+ b_{\mathrm{mult}}[a_1|\cdots|a_r]
+ =\sum_{i=1}^{r-1}
+ (-1)^{\sum_{j<i}(|a_j|-1)+|a_i|}
+ [a_1|\cdots|a_ia_{i+1}|\cdots|a_r].
+ \label{eq:olb-bar-faces}
+\end{equation}
+Multiplicativity of the augmentation ensures that every merged
+output still belongs to $\bar A$.
+
+\begin{proposition}\label{prop:olb-bar}
+The sum $b_-=b_1+b_{\mathrm{mult}}$, zero on the empty word,
+makes $B_-(A)$ a differential graded coalgebra.
+An augmented algebra chain map $f:A\to A'$ induces a coalgebra
+chain map by applying $f$ to every tensor factor.
+These maps preserve identities and compositions.
+\end{proposition}
+
+\begin{proof}
+Two internal differentials on the same factor give zero.
+Two operations on disjoint intervals cancel in the square because
+both have odd degree.
+For three overlapping inputs, the multiplication contribution is
+\[
+ b_{\mathrm{mult}}^2[a|b|c]
+ =(-1)^{|b|}s\bigl((ab)c-a(bc)\bigr)=0.
+\]
+
+For example, when $a,b,c$ all have odd degree,
+\[
+ b_{\mathrm{mult}}[a|b|c]=-[ab|c]-[a|bc],\qquad
+ b_{\mathrm{mult}}^2[a|b|c]=-[(ab)c]+[a(bc)]=0.
+\]
+Here $ab$ has even degree, which gives the opposite signs in the
+second equality.
+
+For the mixed operations on a pair, put $p=|a|$. The Leibniz rule gives
+\begin{align*}
+ b_1b_2(sa\otimes sb)&=(-1)^{p+1}s((da)b)-s(a\,db),\\
+ b_2b_1(sa\otimes sb)&=(-1)^ps((da)b)+s(a\,db).
+\end{align*}
+Their sum is zero.
+These cases account for every term of $b_-^2$ using
+\eqref{eq:olb-bar-faces}.
+
+A cut outside a local operation survives before or after that
+operation with the same sign.
+A cut inside a merged pair survives in neither expression.
+Thus $\Delta b_-=(b_-\otimes1+1\otimes b_-)\Delta$.
+Applying $f$ to tensor factors commutes with $b_1$, with multiplication,
+and with every cut.  The same formulas prove the assertions about
+identities and compositions.
+\end{proof}
+
+This ordered coproduct differs from the primitive coproduct of an
+enveloping algebra.  In fact,
+\begin{equation}
+ P(B_-(A))=s\bar A
+ \label{eq:olb-bar-primitives}
+\end{equation}
+as complexes.  To prove it, project the reduced coproduct of a
+length-$r$ word to $s\bar A\otimes(s\bar A)^{\otimes(r-1)}$.
+For $r\geq2$ this projection is the original word with its first
+factor separated, hence is injective.
+Different lengths have different total output lengths.
+Only length one remains primitive, with differential $-sd$.
+
+For $A=\kk[x]$, with $|x|=0$ and zero differential,
+$[x^2]$ is a nonzero class in $H^{-1}(P(B_-(A)))$.
+Nevertheless,
+\[
+ b_-[x|x]=[x^2],\qquad
+ \bar\Delta[x|x]=[x]\otimes[x]\ne0.
+\]
+Thus the map from cohomology of strict bar primitives to primitives
+in full bar cohomology is not injective.
+Theorem~\ref{sp:cohomology} applies to the enveloping Hopf
+coproduct. It does not imply the corresponding assertion for the
+deconcatenation coproduct of the bar.
+
+Applying Proposition~\ref{prop:olb-bar} to the product
+\eqref{eq:olb-transported-product} gives an actual chain isomorphism
+\[
+ B_-(S(\mathfrak g),\star)\xrightarrow{B_-(\sigma)}B_-(U(\mathfrak g)).
+\]
+If the source instead uses the ordinary symmetric product, its
+chain defect in length two on $[x|y]$ is
+\[
+ (-1)^{|x|}s\bigl(\sigma(x)\sigma(y)-\sigma(xy)\bigr)
+ =\tfrac12(-1)^{|x|}s[x,y].
+\]
+This computes the missing term without identifying two different
+bar differentials.
+
+\subsection{The sign convention for higher operations}
+\label{sec:olb-sign-convention}
+
+The positive-length part of an ordered tensor coalgebra has no
+counit.  Its reduced coproduct cuts only into two nonempty words.
+For a graded space $V$, write it as
+$T^c(sV)=\bigoplus_{r\geq1}(sV)^{\otimes r}$.
+A degree-one map on this coalgebra is a coderivation if
+\[
+ \bar\Delta b=(b\otimes1+1\otimes b)\bar\Delta.
+\]
+A map from $(sV)^{\otimes n}$ to $sV$ extends to a coderivation by
+inserting it into every consecutive interval, with its degree-one
+prefix sign.  Cuts before and after that interval prove the
+coderivation identity.
+
+Conversely these components determine a coderivation.
+Indeed, the difference on a shortest word where two such maps
+disagree has zero coproduct.  It is therefore a word of length one,
+by the first-cut argument proving \eqref{eq:olb-bar-primitives}.
+Its projection to length one is zero, a contradiction.
+
+An uncurved $A_\infty$-structure on $V$ is a degree-one coderivation
+on $T^c(sV)$ with square zero. There is no zero-input operation in
+this definition. Define its unshifted operations by
+\[
+ b_n s^{\otimes n}=s m_n,\qquad |m_n|=2-n.
+\]
+For homogeneous maps, the convention is
+$(F\otimes G)(v\otimes w)=(-1)^{|G||v|}F(v)\otimes G(w)$.
+It gives
+\[
+ s^{\otimes n}(x_1\otimes\cdots\otimes x_n)
+ =(-1)^{\sum_j(n-j)|x_j|}sx_1\otimes\cdots\otimes sx_n.
+\]
+
+For a differential graded algebra with operations $m_1=d$ and
+$m_2=\mu$, this convention has
+$b_1(sa)=+s(da)$ and the same binary operation
+$b_2(sa,sb)=(-1)^{|a|}s(ab)$.
+Call this differential $b_+$.
+Its square vanishes: changing the unary sign multiplies every
+mixed cancellation above by minus one and preserves the other
+zero sums.
+
+If the algebra is augmented, $T^c(s\bar A)$ is a subcoalgebra
+preserved by this differential, since $d$ and products preserve
+$\bar A$.  Adjoining the empty word gives a counital coalgebra
+$B_+(A)$.  The algebra unit as an input of $T^c(sA)$ is not that
+empty word, and is excluded on restriction to $s\bar A$.
+
+For a degree-zero coalgebra map
+$\Phi:T^c(sV)\to T^c(sW)$, let $\Phi_n$ be its projection to
+one output factor on $n$ inputs.  Define its unshifted component by
+$\Phi_n s^{\otimes n}=s f_n$.  It has degree $1-n$.
+
+\begin{proposition}[Changing the unary sign]
+\label{prop:olb-sign-change}
+The formula
+\[
+ R[a_1|\cdots|a_r]=(-1)^{\sum_i|a_i|}[a_1|\cdots|a_r],
+ \qquad R(1)=1,
+\]
+defines a degree-zero coalgebra involution and a chain isomorphism
+$R:B_-(A)\to B_+(A)$.
+For general higher operations on $T^c(sV)$, conjugation by $R$
+changes $m_n$ to $(-1)^n m_n$.
+For a coalgebra morphism with unshifted component $f_n$ of degree
+$1-n$, conjugating its source and target changes that component
+to $(-1)^{n-1}f_n$.
+\end{proposition}
+
+\begin{proof}
+The exponent splits additively at each cut, so $R$ preserves the
+coproduct.  It squares to the identity.
+An internal differential increases the sum of unshifted degrees
+by one, whereas a multiplication preserves that sum.
+Therefore $Rb_-R=b_+$.
+
+More generally, an $n$-ary operation changes the sum by $2-n$.
+The signs on its inputs and output have ratio
+$(-1)^{2-n}=(-1)^n$.
+For a morphism component the same ratio is
+$(-1)^{1-n}=(-1)^{n-1}$.
+Conjugation preserves the square-zero and chain-map equations,
+so these formulas hold at every arity.
+\end{proof}
+
+For $da=b$, with $|a|=0$ and $|b|=1$, one has
+$b_-[a]=-[b]$, $R[a]=[a]$, and $R[b]=-[b]$.
+Thus both sides of $Rb_-[a]=b_+R[a]$ equal $[b]$.
+In higher arity, a fourth or sixth operation retains its sign,
+while a second comparison component changes sign.
+The translation must therefore include the comparison maps, not
+only the multiplication.
+
+\subsection{Relative coefficients and parity base change}
+\label{sec:olb-relative-signs}
+
+Let $C$ be a commutative differential graded $\kk$-algebra.
+Let $A$ be a differential graded algebra with graded central
+$C$-action and an augmentation $A\to C$ splitting its unit.
+Thus $ac=(-1)^{|a||c|}ca$ for homogeneous elements and
+$A=C\oplus\bar A$ as $C$-complexes.
+
+The shifted scalar action is
+$s(ca)=(-1)^{|c|}c\,sa$.
+
+The relative bar is
+\[
+ B_C(A)=C\oplus\bigoplus_{r\geq1}(s\bar A)^{\otimes_C r}.
+\]
+It has the coefficient differential on length zero and the
+operations $-sd$ and $(-1)^{|a|}s(ab)$ on shifted inputs.
+The proof of Proposition~\ref{prop:olb-bar} uses the coefficient
+Leibniz rule as well, and applies term by term over $C$.
+Its coproduct takes values in a tensor product over $C$.
+
+Put $C^-=(C,-d_C)$ and $A^-=(A,-d_A)$, retaining the products
+and gradings.  The sign change preserves the Leibniz equation.
+Define parity maps
+\[
+ \pi_C(c)=(-1)^{|c|}c,\qquad \pi_A(a)=(-1)^{|a|}a.
+\]
+They are algebra isomorphisms, with
+$(-d_C)\pi_C=\pi_Cd_C$ and
+$(-d_A)\pi_A=\pi_Ad_A$.
+They also preserve the augmentation through the base map $\pi_C$.
+
+\begin{proposition}\label{prop:olb-relative-parity}
+Applying these parity maps to coefficients and every tensor factor gives
+an isomorphism of relative coalgebra complexes
+\[
+ B_C(A)\longrightarrow B_{C^-}(A^-).
+\]
+The map is semilinear over $\pi_C$: it sends $cv$ to
+$\pi_C(c)$ times the image of $v$.
+The target unary operation is $+s d_A$, and its length-zero
+differential is $-d_C$.
+\end{proposition}
+
+\begin{proof}
+The parity map intertwines the module actions by
+$\pi_A(ca)=\pi_C(c)\pi_A(a)$.
+It therefore defines maps on balanced tensor products over the
+displayed base isomorphism.
+Compatibility with the shifted scalar action follows from
+$s(ca)=(-1)^{|c|}c\,sa$ on both sides.
+The algebra and chain identities for $\pi_A$ show that the maps
+commute with the two local bar operations.
+They commute with cuts because they act on each tensor factor.
+The same maps applied again give the inverse.
+
+Finally the standard target unary sign is
+$-s(-d_A)=+s d_A$, while its coefficient differential is $-d_C$.
+\end{proof}
+
+Changing only the unary formula while silently fixing an odd
+coefficient is not this base change.
+For example, a degree-one coefficient $\omega$ is sent to
+$-\omega$, and a map to a field concentrated in degree zero
+must kill $\omega$ altogether.
+Thus a field-valued specialization cannot retain a nonzero
+degree-one collision coefficient.
+The relative bar keeps that coefficient in its own differential
+graded base algebra and its tensor products over that base.
+
+A map of commutative differential graded algebras $C\to E$
+has a different, covariant bar operation.
+Writing $A_E=E\otimes_C A$, the split augmentation gives
+$\overline{A_E}=E\otimes_C\bar A$.
+The balanced tensor identifications then define
+\[
+ E\otimes_C B_C(A)\xrightarrow{\sim}B_E(A_E).
+\]
+They send each word to the same word with extended coefficients.
+The differential formulas and every cut agree, so this is an
+isomorphism of coalgebra complexes.
+
+This is an assertion about the ordinary split tensor construction.
+If a derived coefficient extension is intended, it requires an
+appropriate resolution before tensoring.
+
+\subsection{Lie chains inside ordered bar words}
+\label{sec:olb-lie-chains}
+
+For $A=U(\mathfrak g)$, the augmentation kills every Lie
+generator.  The inclusion $\mathfrak g\hookrightarrow\bar A$
+therefore gives shifted Lie elements inside its bar coalgebra.
+The Lie bracket controls a cocommutative subcoalgebra of these
+ordered words.
+
+Put $W=s\mathfrak g$ and give $S(W)$ its primitive-generator
+symmetric coproduct.  Define
+\begin{equation}
+ \chi(w_1\cdots w_r)=
+ \sum_{\pi\in\mathfrak S_r}\epsilon(\pi;w)
+ w_{\pi(1)}|\cdots|w_{\pi(r)},\qquad \chi(1)=1,
+ \label{eq:olb-lie-bar-map}
+\end{equation}
+where the shifted Lie elements on the right are included in
+$s\overline{U(\mathfrak g)}$.
+The signs are the Koszul signs of the shifted degrees
+$|sx|=|x|-1$.  There is no factorial denominator in this formula.
+Reindexing permutations shows that it is well-defined on $S(W)$.
+In a repeated shifted element of odd degree the terms cancel, as required
+by the symmetric relation on $W$.
+
+Cutting a permuted word separates its labels into a subset and
+its complement, each with an internal order.
+These are exactly the terms obtained from the symmetric
+coproduct and two applications of $\chi$.
+The subset and internal permutation signs multiply to the
+original permutation sign.  Thus \eqref{eq:olb-lie-bar-map}
+is a coalgebra map.
+It is injective: the quotient from $W^{\otimes r}$ to $S^r(W)$
+composed with its permutation sum is $r!$ times the identity.
+The inclusion of Lie elements in the bar is injective by
+Theorem~\ref{sp:pbw}, and tensors of vector-space injections
+are injective by extension of bases.
+
+Define degree-one maps on one and two symmetric shifted inputs by
+\[
+ \ell_1(sx)=-s(dx),\qquad
+ \ell_2(sx\,sy)=(-1)^{|x|}s[x,y].
+\]
+Graded skew symmetry of the bracket makes the second map
+symmetric with the signs of the shifted inputs.
+
+For $n=1,2$, extend it to $S(W)$ by
+\begin{equation}
+ D_n(w_1\cdots w_r)=
+ \sum_{\substack{J\subseteq\{1,\ldots,r\}\\|J|=n}}
+ \epsilon(J,J^c;w)\ell_n(w_J)w_{J^c}.
+ \label{eq:olb-lie-chain-differential}
+\end{equation}
+The entries in each subset keep their original order.
+Set the result to zero when $r<n$, and set $D_n(1)=0$.
+Reindexing labeled factors proves compatibility with the
+symmetric relations.  Each summand has degree one.
+
+The extensions \eqref{eq:olb-lie-chain-differential} are coderivations.  A term of $\Delta D_n$
+selects the contracted subset and then separates all remaining
+labels into two sets.  If the contracted output lies on the
+left, it is the corresponding term of $(D_n\otimes1)\Delta$.
+If it lies on the right, moving the degree-one operation past
+the left factors gives exactly the tensor sign of
+$(1\otimes D_n)\Delta$.
+Every term occurs in one of these two cases.
+
+A chain map is a quasi-isomorphism if it induces an isomorphism
+in every cohomological degree.
+
+\begin{theorem}[Lie chains and the enveloping bar]
+\label{thm:olb-lie-bar}
+The operator $D=D_1+D_2$ has square zero on $S(s\mathfrak g)$.
+With this differential, the map
+\[
+ \chi:(S(s\mathfrak g),D)\longrightarrow B_-(U(\mathfrak g))
+\]
+is a natural injective coalgebra chain map and a quasi-isomorphism.
+The source is the Chevalley--Eilenberg chain coalgebra of
+$\mathfrak g$ with the displayed suspension convention.
+All tensors and sums here are algebraic, and $\mathfrak g$
+may be unbounded and infinite-dimensional.
+\end{theorem}
+
+\begin{proof}[Proof of the chain identity]
+On one shifted Lie element the two differentials agree.
+On two inputs, put $p=|x|$ and $q=|y|$.
+The length-one part of the bar differential is
+\begin{align*}
+ b_{\mathrm{mult}}\chi(sx\,sy)
+ &=(-1)^p s(xy)
+   +(-1)^{(p-1)(q-1)+q}s(yx)\\
+ &=(-1)^p s\bigl(xy-(-1)^{pq}yx\bigr)
+  =(-1)^p s[x,y].
+\end{align*}
+It equals the length-one part of $\chi D$.
+For more than two inputs both length-one parts vanish.
+
+To see that these checks prove the full equation, put
+$E=b_-\chi-\chi D$.
+The coderivation identities and the coalgebra identity for
+$\chi$ give
+\[
+ \bar\Delta E=(E\otimes\chi+\chi\otimes E)\bar\Delta.
+\]
+If $E$ vanishes in all smaller symmetric lengths, its value in
+the next length has zero reduced coproduct.
+It is then a bar element of length one, by the first-cut argument.
+Its projection to length one was just proved to be zero.
+Induction proves $E=0$.
+
+Now $\chi D^2=b_-^2\chi=0$, and injectivity of $\chi$ gives
+$D^2=0$.  The formulas commute with differential graded Lie
+maps, proving naturality.
+\end{proof}
+
+The quasi-isomorphism requires more than this chain identity.
+An explicit resolution proves it for an abelian graded Lie
+algebra, and finite filtrations then add the differential and
+the bracket.
+
+Here a resolution of the augmentation module $\kk$ means an
+augmented complex $P\to \kk$ inducing a cohomology isomorphism.
+A chain homotopy from $G$ to $F$ is a degree-minus-one map $L$
+satisfying $dL+Ld=F-G$.  For maps of graded left $A$-modules,
+its linearity is $L(av)=(-1)^{|a|}aL(v)$.
+
+\begin{lemma}[The abelian bar comparison]
+\label{lem:olb-abelian-bar}
+For a graded vector space $V$ with zero differential,
+\[
+ (S(sV),0)\xrightarrow{\chi}B_-(S(V))
+\]
+is a quasi-isomorphism.  It preserves total polynomial weight,
+where every vector of $V$ has weight one.
+\end{lemma}
+
+\begin{proof}
+Write $A=S(V)$ and consider the graded commutative algebra
+$K=A\otimes S(sV)$.
+Give it the degree-one derivation $\partial$ defined by
+\[
+ \partial x=0,\qquad \partial(sx)=-x.
+\]
+Its square is zero on the generators, and the mixed Leibniz
+terms cancel, so its square is zero everywhere.
+
+Let $h$ be the degree-minus-one derivation defined by
+$h(x)=-sx$ and $h(sx)=0$.
+The anticommutator $\partial h+h\partial$ is a degree-zero
+derivation that fixes each generator.
+It consequently acts by multiplication by $N$ on total
+polynomial weight $N$.
+
+Thus $h/N$ contracts every positive weight, while weight zero
+is $\kk$.  Projection $K\to \kk$ is a resolution of the augmentation
+module, free as a graded left $A$-module on the ordered
+monomials of $S(sV)$.
+
+There is also an ordered bar resolution
+$P=A\otimes B_-(A)$.
+Its differential consists of the bar multiplication on the
+second factor, with the tensor sign, and the leading face
+\[
+ a_0\otimes[a_1|\cdots|a_r]
+ \longmapsto-(-1)^{|a_0|}a_0a_1\otimes[a_2|\cdots|a_r].
+\]
+The leading face is zero in length zero.
+Its square cancels with the first internal bar face by
+associativity.  Disjoint faces cancel by their odd degrees.
+The augmentation $P\to \kk$ is the usual augmentation on
+length zero and is zero on nonempty bar words.
+
+Put $\bar a_0=a_0-\varepsilon(a_0)1$.
+The degree-minus-one map
+\[
+ H_P(a_0\otimes[a_1|\cdots|a_r])
+ =-1\otimes[\bar a_0|a_1|\cdots|a_r]
+\]
+contracts this augmentation as a $\kk$-complex.
+The leading face contributes $\bar a_0\otimes[a_1|\cdots|a_r]$.
+All faces strictly to its right cancel in the two compositions.
+
+When $r>0$, the next face contributes the remaining
+$\varepsilon(a_0)\otimes[a_1|\cdots|a_r]$.
+Indeed the coefficient can be nonzero only in degree zero,
+and its two appearances agree by the augmentation splitting.
+In length zero the result is $a_0-\varepsilon(a_0)1$.
+Thus $d_PH_P+H_Pd_P$ is the identity minus the projection to
+the constant summand.
+
+Both this contraction and $h/N$ preserve polynomial weight
+and the sum of unshifted degrees.
+
+Define $i:K\to P$ by $1_A\otimes\chi$.
+It preserves the augmentation.  Its internal bar contribution
+vanishes because $V$ is abelian, by the chain identity already
+proved.  Selecting the first tensor factor of a permuted word gives
+the terms of $\partial$ with their graded Leibniz signs.
+Hence $i$ is an $A$-linear chain map.
+
+Here is an explicit comparison argument that permits tensoring
+these resolutions with $\kk$.
+Give their free generators an auxiliary resolution length:
+the number of shifted factors in $K$ and the bar length in $P$.
+Both differentials decrease this nonnegative length by one.
+In length zero both modules are $A$, and take the comparison
+inverse $j:P\to K$ to be the identity there.
+
+If $j$ is defined on all shorter free generators, then
+$j(d_Pw)$ is a cycle with zero augmentation.
+Set $j(w)$ equal to its image under the contraction $h/N$
+in its polynomial weight $N>0$.
+It satisfies $\partial j(w)=j(d_Pw)$.
+Extend over $A$ and repeat in increasing resolution length.
+Every value is a finite expression.
+
+The same induction constructs homotopies from $ji$ and $ij$
+to the respective identities.
+For two augmentation-preserving chain maps $F,G$ and a free
+generator $w$, suppose the homotopy $L$ has been defined in
+smaller lengths.
+The element
+\[
+ z=(F-G)(w)-L(dw)
+\]
+is a cycle with zero augmentation, because the homotopy
+equation already holds on $dw$.
+Apply the target contraction to $z$ to define $L(w)$.
+
+Then $dL(w)+L(dw)=(F-G)(w)$.
+Extend this degree-minus-one map by
+$L(aw)=(-1)^{|a|}aL(w)$.
+This verifies the homotopy equation on all free-module elements.
+The construction respects polynomial weight and unshifted degree.
+
+Thus $i$ is an $A$-linear homotopy equivalence.
+Tensor it over $A$ with the right augmentation module $\kk$.
+The resulting maps and homotopies remain defined and retain
+their equations.  The resulting complexes are $S(sV)$ with
+zero differential and $B_-(A)$ with its bar differential.
+The resulting map is exactly $\chi$, proving the lemma.
+\end{proof}
+
+\begin{proof}[Proof of the quasi-isomorphism in
+Theorem~\ref{thm:olb-lie-bar}]
+First let $\mathfrak g=V$ have zero bracket but a possibly
+nonzero differential.  Fix total polynomial weight $N$.
+The source has $N$ shifted factors.  Every target bar word has
+at most $N$ factors, because each augmentation-ideal factor
+has positive polynomial weight.
+Separate the internal differential from the bar multiplication.
+They anticommute by the mixed part of the bar square calculation.
+
+The cone of $\chi$ has two corresponding differentials.
+One consists of multiplication faces and the comparison map,
+and the other is the internal differential.
+Here the cochain cone of $f:X\to Y$ is
+$\operatorname{Cone}(f)^n=Y^n\oplus X^{n+1}$, with
+$d(y,x)=(d_Yy+f(x),-d_Xx)$.
+The first differential preserves the sum $p$ of unshifted
+degrees.  In each such degree its complex is acyclic by
+Lemma~\ref{lem:olb-abelian-bar}.
+
+The internal differential increases $p$ by one.
+In total cochain degree $n$, the range of $p$ is finite.
+The bar length lies between zero and $N$, and the cone adds
+at most one additional shift.
+
+For a cycle, take its smallest $p$ component.
+It is a cycle for the first differential.
+Choose a primitive for it using that acyclic complex and
+subtract its full differential.
+This removes the smallest component, and the extra internal
+differential has strictly larger $p$.
+
+The process terminates because the possible $p$ values in
+degree $n$ form a finite interval.
+It expresses every cone cycle as a boundary, proving the
+comparison for an abelian differential graded Lie algebra.
+This finite elimination works even when $V$ is unbounded.
+
+For a nonzero bracket, filter $S(s\mathfrak g)$ by symmetric
+length.  Filter the bar target by the sum of the word
+filtrations of its enveloping-algebra factors.
+Each factor in the augmentation ideal has filtration at
+least one.  The differential preserves these filtrations,
+and $D_2$ lowers the source filtration by one.
+
+Theorem~\ref{sp:pbw} identifies the associated graded target
+with the bar of $S(\mathfrak g)$, retaining the internal
+differential.  This follows on tensor powers from the ordered
+bases, with the sum filtration on their factors.
+The associated graded comparison is precisely the abelian
+differential graded comparison just proved.
+
+A cycle in the cone has finite greatest filtration degree.
+Its highest component has a primitive in the associated
+graded cone.  Lift that primitive to the filtered cone and
+subtract its differential.  The greatest degree decreases.
+Induction terminates at degree zero and proves acyclicity.
+
+Finally an acyclic cone makes $\chi$ a quasi-isomorphism.
+Its two component equations give surjectivity on cohomology
+when applied to a target cycle. Applying them to a source
+cycle whose image is a boundary gives injectivity.
+This proves the theorem without an unbounded convergence claim.
+\end{proof}
+
+\begin{example}[The odd self-bracket in the bar comparison]
+Take $|x|=1$, $|t|=2$, $[x,x]=2t$, with $t$ central and
+zero differential.  Then $sx$ is even and $st$ is odd.
+The formulas give
+\[
+ \chi((sx)^2)=2[x|x],\qquad
+ b_-\bigl(2[x|x]\bigr)=-2[t],\qquad
+ D((sx)^2)=-2st.
+\]
+Thus the nonzero odd square appears in both chain complexes
+with the same coefficient and sign.
+
+For an abelian even generator $e$, the Lie chain coalgebra
+is $\kk\oplus \kk(se)$, since $se$ is odd.
+For an abelian odd generator $\theta$, it is instead
+$\kk[s\theta]$, and
+\[
+ \chi((s\theta)^n)=n![\theta|\cdots|\theta].
+\]
+The factorial explains both the characteristic-zero
+isomorphism and its behavior under weight completion.
+\end{example}
+
+The chain equivalence in Theorem~\ref{thm:olb-lie-bar} does
+not make strict primitives invariant under a coalgebra
+quasi-isomorphism.  For $U(\kk e)=\kk[e]$ with $e$ even, the strict
+primitive complex of the bar contains $[e^m]$ for every
+$m\geq1$. Its Lie chain source has primitive space $\kk(se)$.
+The polynomial bar calculation above exhibits a class killed on passing
+from strict primitive cohomology to full cohomology.
+
+\subsection{Signed characters and primitive recognition}
+\label{sec:olb-characters}
+
+Give $e$ and $\theta$ from Section~\ref{sp:section} charge one,
+independently of their cohomological degrees zero and one.
+Charge adds under multiplication.
+For a charge-graded super vector space with finite pieces,
+its unsigned dimension series is
+$\sum_n(\dim V_{n,\bar0}+\dim V_{n,\bar1})z^n$.
+Its signed dimension series is
+$\sum_n(\dim V_{n,\bar0}-\dim V_{n,\bar1})z^n$.
+Both are formal power series.
+
+The ordered basis of $\kk[e]\otimes\Lambda(\theta)$ gives
+\[
+ \sum_n\dim A_n\,z^n=\frac{1+z}{1-z},\qquad
+ \sum_n(\dim A_{n,\bar0}-\dim A_{n,\bar1})z^n=1.
+\]
+For every $n>0$, the even basis vector is $e^n$ and the odd
+basis vector is $e^{n-1}\theta$.
+Give both generators primitive coproducts.
+With zero differential, the primitive Lie algebra is
+$\kk e\oplus \kk\theta$ by Theorem~\ref{sp:primitives}.
+It is nonzero although the signed series equals that of $\kk$.
+
+On the same algebra put $de=\theta$ and $d\theta=0$.
+Then
+\[
+ d(e^n)=ne^{n-1}\theta,\qquad d(e^n\theta)=0.
+\]
+This preserves charge and the primitive coproduct.
+Every positive-charge odd vector is a boundary, and no
+positive-charge even vector is a cycle.
+Thus its cohomology is $\kk$, and its primitive cohomology is
+zero.  The underlying signed series has not changed.
+
+The unsigned series likewise fails to determine the bracket, as the
+Heisenberg and abelian algebras in Proposition~\ref{scalar-not-faithful}
+show. Thus a character identity does not specify the bracket, the
+differential, or a primitive recognition map.
+
+\subsection{Finite charge bounds and completed bar maps}
+\label{sec:olb-finite-completion}
+
+Use the charge monoid $Q_+$ and the total-height tensor
+$\bar\otimes_N$ of Section~\ref{sec:height-tensor}.
+Proposition~\ref{monoidal-restriction} makes height restriction
+symmetric monoidal. In the bar, every insertion and every cut preserves
+total charge, so the equations of Proposition~\ref{prop:olb-bar}
+restrict in these categories. All differentials must preserve charge.
+
+Now let $\mathfrak g$ have positive $Q_+$-charges, a
+charge-preserving differential, and charge-additive bracket.
+Every homogeneous element of its augmentation ideal has positive height.
+Consequently a bar word in charge $\beta$ has at most
+$\htop(\beta)$ factors, and its total enveloping word filtration
+is at most $\htop(\beta)$.
+The same bound applies to $S(s\mathfrak g)_\beta$.
+The maps $D$, $b_-$, $\chi$, and both coproducts
+preserve charge.
+
+For either chain coalgebra $C=\bigoplus_\beta C_\beta$,
+define its completion by
+\[
+ (\widehat C)^n=\prod_\beta C_\beta^n,
+ \qquad
+ \widehat C=\bigoplus_n(\widehat C)^n,
+\]
+and define its tensor target by the same degreewise convention
+on $\prod_{\beta,\gamma}(C_\beta\otimes C_\gamma)$.
+Each internal tensor product still uses a direct sum of
+cochain degrees.
+All structure equations can be checked charge by charge,
+with finitely many decompositions of each total charge.
+
+\begin{corollary}\label{cor:olb-completed-lie-bar}
+Under these positive-charge hypotheses, the Lie-chain map
+extends to a coalgebra quasi-isomorphism
+\[
+ \widehat{(S(s\mathfrak g),D)}
+ \xrightarrow{\ \widehat\chi\ }
+ \widehat{B_-(U(\mathfrak g))}.
+\]
+It also restricts to every finite total-height tensor category.
+\end{corollary}
+
+\begin{proof}
+All maps and filtrations in the proof of
+Theorem~\ref{thm:olb-lie-bar} preserve charge.
+Its quasi-isomorphism is therefore a quasi-isomorphism in
+each charge, either by that proof componentwise or by taking
+the summands of its cohomology isomorphism.
+
+Proposition~\ref{cohomology-completion} shows that taking these
+products preserves the quasi-isomorphism.
+The coproduct identity holds in each pair of charges.
+The proved monoidal restriction gives the finite-height
+assertion with its specified tensor target.
+\end{proof}
+
+For a charge-one abelian odd generator $\theta$ of degree one,
+$s\theta$ has degree zero.  The completed map sends the
+allowed degree-zero series
+\[
+ \sum_{n\geq0}\frac{(s\theta)^n}{n!}
+ \quad\longmapsto\quad
+ \sum_{n\geq0}[\theta|\cdots|\theta].
+\]
+For an even generator $e$ of degree zero, the analogous bar
+series has one term in every nonpositive cochain degree.
+It is excluded by the direct sum over degrees.
+Finite charge support, degreewise charge completion, and an
+unrestricted product over word lengths are distinct choices.
+
+In a relative bar construction with differential graded
+coefficients, extension of coefficients is performed at each
+specified finite weight before any completed product.
+The ordinary tensor identity in
+Section~\ref{sec:olb-relative-signs} does not assert that a
+derived extension commutes with an unrestricted product.
+A comparison over different coefficient algebras must therefore specify
+the augmentations, base change and tensor targets.
+An abstract enveloping realization supplies Lie and primitive
+operations.  A geometric Hall realization must additionally
+construct the geometric carrier and show that its product,
+coproduct, differential and charge maps agree with them.

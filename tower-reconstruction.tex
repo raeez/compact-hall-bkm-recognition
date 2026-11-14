@@ -1,0 +1,281 @@
+\subsection{Reconstruction from compatible restrictions}
+
+Finite windows determine a single graded object only after their
+restrictions have been identified.  A \emph{compatible tower} consists
+of bialgebra objects $C^{(N)}$ in
+$\mathsf{Gr}_{\leq N}(Q_+;\mathcal V)$ and supplied bialgebra
+isomorphisms
+\[
+ \theta_N:\tau_{\leq N}C^{(N+1)}\xrightarrow{\sim}C^{(N)}
+ \qquad(N\geq0).
+\]
+Their composites define
+$\theta_{M,N}:\tau_{\leq M}C^{(N)}\xrightarrow{\sim}C^{(M)}$
+for $M\leq N$, with $\theta_{N,N}=1$.
+They satisfy
+\[
+ \theta_{L,N}=\theta_{L,M}\,\tau_{\leq L}(\theta_{M,N})
+ \qquad(L\leq M\leq N).
+\]
+A morphism of towers $f:C^{(\bullet)}\to D^{(\bullet)}$ is a family
+of bialgebra maps $f_N:C^{(N)}\to D^{(N)}$ satisfying
+\begin{equation}
+ f_N\theta_N^C=\theta_N^D\,\tau_{\leq N}(f_{N+1}).
+ \label{tower-morphism}
+\end{equation}
+
+A \emph{complete graded bialgebra} here has a specified product
+decomposition $\widehat C=\prod_{\beta\in Q_+}C_\beta$, the height
+topology and tensor product~\eqref{completed-tensor}.
+Its multiplication, unit, coproduct and counit are continuous and
+preserve total charge.  Morphisms are continuous charge-preserving
+bialgebra maps.  These definitions use the chosen ordinary, super or
+cochain base category, with its stated symmetry.
+
+\begin{theorem}[Reconstruction from compatible windows]\label{tower-theorem}
+The following categories are equivalent:
+\begin{enumerate}
+\item nonnegatively $Q_+$-graded bialgebras in $\mathcal V$;
+\item compatible towers with the supplied restriction isomorphisms;
+\item complete graded bialgebras with the specified product decomposition,
+height topology and tensor product~\eqref{completed-tensor}.
+\end{enumerate}
+In the cochain case, products and inverse limits are taken in each
+cohomological degree.  No finite-dimensionality hypothesis is required.
+\end{theorem}
+
+\begin{proof}
+A graded bialgebra gives a tower by Proposition~\ref{monoidal-restriction}.
+Conversely, for $h=\htop(\beta)$ put $C_\beta=C^{(h)}_\beta$.
+For $N\geq h$, write
+\[
+ u_{\beta,N}=(\theta_{h,N})_\beta:C^{(N)}_\beta
+          \xrightarrow{\sim}C_\beta.
+\]
+For $\gamma+\delta=\beta$ and $N\geq\htop(\beta)$ define
+\begin{align*}
+ m_{\gamma,\delta}
+ &=u_{\beta,N}m^{(N)}_{\gamma,\delta}
+           (u_{\gamma,N}^{-1}\otimes u_{\delta,N}^{-1}),\\
+ \Delta_{\gamma,\delta}
+ &=(u_{\gamma,N}\otimes u_{\delta,N})
+           \Delta^{(N)}_{\gamma,\delta}u_{\beta,N}^{-1}.
+\end{align*}
+The isomorphism $\theta_N$ preserves both operations, and
+$u_{\beta,N+1}=u_{\beta,N}(\theta_N)_\beta$.
+Substitution in either formula cancels the two adjacent $\theta_N$
+factors.  The value at stage $N+1$ therefore equals the value at stage
+$N$.  Induction proves independence of every later stage.
+
+Transport the unit by $u_{0,N}\eta^{(N)}$, and the charge-zero counit by
+$\varepsilon^{(N)}u_{0,N}^{-1}$.  The same cancellation proves their
+independence.  The counit is zero in every positive charge.
+In the cochain case transport the differential by
+$u_{\beta,N}d^{(N)}u_{\beta,N}^{-1}$.  Each $\theta_N$ is a chain map,
+so this too is stage independent, has degree $+1$ and squares to zero.
+In the super case the transports preserve parity.
+
+The maps above define multiplication and coproduct on
+$C=\bigoplus_\beta C_\beta$.  For each $\beta$, only finitely many
+pairs $\gamma+\delta=\beta$ occur, so the coproduct of an element has
+finite support.  Each associativity, coassociativity or compatibility
+identity has a fixed total charge.  Choose a stage containing that
+charge and transport its identity to $C$.
+This proves all identities in~\eqref{bialgebra-identities}, as well as
+the algebra and coalgebra axioms.  It also proves both unit and counit
+comparisons and all chain-map identities, including the derivation and
+coderivation equations.
+
+For a tower morphism, set
+\[
+ f_\beta=u^D_{\beta,N}(f_N)_\beta(u^C_{\beta,N})^{-1}
+ \qquad(N\geq\htop(\beta)).
+\]
+Equation~\eqref{tower-morphism} proves independence of $N$ by the same
+adjacent-stage cancellation.  Transport of the structure-map squares
+shows that $\bigoplus_\beta f_\beta$ is a bialgebra map, and a chain map
+when appropriate.  This construction preserves identities and
+composition componentwise.  The maps $u_{\beta,N}$ assemble to natural
+bialgebra isomorphisms
+$C^{(N)}\xrightarrow{\sim}\tau_{\leq N}C$ commuting with the
+$\theta_N$.  Starting from a graded object recovers its original
+components and maps.  This proves the equivalence of the first two
+categories, on objects and morphisms.
+
+On $\widehat C=\prod_\beta C_\beta$ define
+\begin{equation}
+ (ab)_\beta=\sum_{\gamma+\delta=\beta}
+ m_{\gamma,\delta}(a_\gamma,b_\delta),\qquad
+ (\widehat\Delta a)_{\gamma,\delta}
+   =\Delta_{\gamma,\delta}(a_{\gamma+\delta}).
+ \label{reconstructed-operations}
+\end{equation}
+The multiplication extends linearly from the completed tensor product
+by the same finite sum in each charge.  The unit and counit use charge
+zero, and the differential acts componentwise.
+Each output through total height $N$ depends only on input components
+through height $N$.  Thus these linear structure maps are continuous.
+For multiplication of elements, the subspaces of heights greater than
+$N$ are two-sided ideals, which also proves joint continuity.
+Every identity holds after projection to each total-height window,
+hence in the separated completion.  The tensor associators and symmetry
+extend for the same reason.
+
+Conversely, restrict the structure maps of a complete graded bialgebra
+to homogeneous components.  Total-charge preservation and the finite
+number of decompositions of a charge give a graded bialgebra on their
+direct sum.  That direct sum is dense in the product, so continuity
+recovers exactly the original maps by~\eqref{reconstructed-operations}.
+For morphisms, taking the product of the reconstructed component maps
+is continuous and preserves every operation.  Restriction and completion
+are inverse on these maps and preserve identities and composition.
+This proves the third equivalence.
+\end{proof}
+
+The supplied isomorphisms are essential.  The existence of a bialgebra
+in each height does not identify its restriction with the preceding one.
+Nor does the theorem identify an arbitrary complete topological object
+with a product of prescribed homogeneous pieces.
+
+Finite-dimensional homogeneous vector spaces give finite-dimensional
+windows because there are only finitely many charges below each bound.
+Their completion is then linearly compact over the discrete field.
+Neither property is needed above.  For complexes, degreewise finiteness
+means $\dim C_\beta^j<\infty$ for each $j$.
+It gives finite-dimensional windows in each cohomological degree, but
+need not give finite total dimension or bounded complexes.
+The completion satisfies $\widehat C^j=\prod_\beta C_\beta^j$.
+It imposes no completion in cohomological degree.
+
+\subsection{Rectangular coproduct targets}
+
+A coproduct with separate bounds on its two outputs retains more terms
+than a tensor window with one total bound.  The completed tensor also
+records these separate bounds.
+
+\begin{proposition}[Ordinary tensor targets]\label{rectangular-tensor}
+There is a canonical identification
+\[
+ \widehat V\widehat\otimes_{\mathrm{ht}}\widehat W
+ \cong\varprojlim_{r,s}
+ \bigl(\tau_{\leq r}V\otimes\tau_{\leq s}W\bigr).
+\]
+The finite-output coproduct of a reconstructed bialgebra has the type
+\begin{equation}
+ \Delta_{r,s}:\tau_{\leq r+s}C
+ \longrightarrow\tau_{\leq r}C\otimes\tau_{\leq s}C.
+ \label{rectangular-coproduct}
+\end{equation}
+For $r\leq R$ and $s\leq S$, write $p_a^b$ for height projection
+from bound $b$ to bound $a$.  Then
+\begin{equation}
+ (p_r^R\otimes p_s^S)\Delta_{R,S}
+   =\Delta_{r,s}p_{r+s}^{R+S}.
+ \label{rectangular-restriction}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Triangular and rectangular height regions are cofinal, since
+\[
+ \{i+j\leq N\}\subseteq\{i,j\leq N\}
+ \subseteq\{i+j\leq2N\},
+\]
+and any rectangle with bounds $r,s$ lies in the triangle of bound $r+s$.
+Both inverse limits consequently specify one element of
+$V_\gamma\otimes W_\delta$ for every pair of charges.
+Each finite region has finitely many charge pairs.  Tensor products
+distribute over these finite sums without any dimension hypothesis.
+For complexes this argument applies in each cohomological degree,
+using the ordinary tensor complex inside each charge pair.
+
+The map $\Delta_{r,s}$ retains precisely those components
+$\Delta_{\gamma,\delta}$ with
+$\htop(\gamma)\leq r$ and $\htop(\delta)\leq s$.
+Their input charge is $\gamma+\delta$, of height at most $r+s$.
+Equation~\eqref{rectangular-restriction} retains the same components
+in either order.  Equivalently, the rectangular projection of
+$\widehat\Delta$ factors through input height $r+s$.
+\end{proof}
+
+The polynomial formula~\eqref{polynomial-cross-term} shows why this
+input bound matters.  With $r=s=1$, the output retains $2x\otimes x$
+and therefore needs the charge-two input $x^2$.
+
+\subsection{Antipodes}
+
+An antipode is a two-sided inverse of the identity under convolution.
+The connected graded construction and its finite sum formula are given
+in~\cite[Propositions 1.4.14 and 1.4.22, pp.~15, 17]{GrinbergReiner}.
+The height grading makes that construction compatible with the windows.
+
+\begin{proposition}[Connected antipodes]\label{connected-antipode}
+Suppose the reconstructed bialgebra is connected, meaning $C_0=\kk1$
+in the selected base category.  It has a unique charge-preserving
+antipode.  Its finite restrictions and continuous extension to the
+completion are compatible antipodes.  In complexes they are chain maps.
+\end{proposition}
+
+\begin{proof}
+For endomorphisms define convolution by
+$f*g=m(f\otimes g)\Delta$, with unit $e=\eta\varepsilon$.
+Put $q=1_C-e$, so $q$ vanishes in charge zero.
+In an iterated coproduct of an element of height $n$, any term with
+$r>n$ factors has a height-zero factor.  Applying $q$ in every factor
+kills it.  Thus
+\[
+ q^{*r}|_{C_\beta}=0\quad(r>\htop(\beta)),\qquad
+ S=\sum_{r\geq0}(-1)^rq^{*r},\quad q^{*0}=e,
+\]
+is finite on each component.  Since $1_C=e+q$, cancellation of the
+geometric series gives $S*1_C=1_C*S=e$.
+Two-sided inverses are unique.  In height $N$ the sum stops at $r=N$,
+and restriction preserves every convolution term.
+The product of these compatible component maps is the continuous
+completed antipode.  All factors preserve charge and parity, and in
+complexes they commute with the differential.
+\end{proof}
+
+\begin{proposition}[The charge-zero Hopf condition]\label{degree-zero-hopf}
+A reconstructed nonnegatively graded bialgebra is Hopf if and only if
+its charge-zero bialgebra $C_0$ is Hopf.  The resulting antipodes are
+compatible with finite restriction and height completion.
+\end{proposition}
+
+\begin{proof}
+This is the degree-zero extension of the preceding construction
+\cite[Exercise 1.4.31(b), p.~19]{GrinbergReiner}.
+Let $\pi:C\to C_0$ and $\iota:C_0\to C$ be projection and inclusion.
+Nonnegative grading makes both bialgebra maps.
+Write $e=\eta\varepsilon$ for the convolution unit.
+Given an antipode $S_0$ on $C_0$, set
+\[
+ a=\iota\pi,\qquad j=\iota S_0\pi,\qquad
+ t=j*1_C-e.
+\]
+Then $j*a=a*j=e$, $t|_{C_0}=0$, and $1_C=a*(e+t)$.
+The height argument in Proposition~\ref{connected-antipode} makes
+$u=\sum_{r\geq0}(-1)^rt^{*r}$ locally finite and gives
+$u*(e+t)=(e+t)*u=e$.  Hence $S=u*j$ satisfies
+\[
+ S*1_C=u*j*a*(e+t)=e,\qquad
+ 1_C*S=a*(e+t)*u*j=e.
+\]
+The construction preserves charge and the base-category structure, and
+therefore restricts and extends continuously as before.
+Conversely, if $S$ is an antipode on $C$, composing its two identities
+with $\pi$ and $\iota$ gives the antipode $\pi S\iota$ on $C_0$.
+No assumption that $S$ initially preserves charge is needed for this
+necessity.  The constructed inverse and uniqueness then imply charge
+preservation.
+\end{proof}
+
+Finite dimension does not imply this condition.  Concentrate
+$\kk[t]/(t^2-t)$ in charge zero and set
+\[
+ \Delta t=t\otimes t,\qquad\varepsilon(t)=1,\qquad\Delta1=1\otimes1.
+\]
+These algebra maps respect $t^2=t$, and the coalgebra identities hold
+on $1,t$, so this is a two-dimensional bialgebra.
+An antipode would satisfy $tS(t)=1$.
+Multiplication by the nonzero element $1-t$ gives a contradiction.

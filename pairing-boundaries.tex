@@ -1,0 +1,135 @@
+\section{Pairings and the positive-root restriction}
+
+An ambient Hopf pairing and an invariant form on a primitive Lie algebra
+have different compatibility equations.  Their distinction becomes
+visible on a product of two primitives.
+
+Let $C,D$ be ordinary connected positively graded bialgebras.
+An indexed pairing is a family
+$\langle-,-\rangle_n:C_n\otimes D_n\to\kk$, where the second index
+is interpreted as dual height.  Extend it to $C\times D$ by zero on
+unequal heights.  Suppose it is normalized by
+\[
+ \langle1,z\rangle=\varepsilon_D(z),\qquad
+ \langle x,1\rangle=\varepsilon_C(x),
+\]
+and satisfies the ambient product--coproduct identity
+\begin{equation}
+ \langle xy,z\rangle
+ =\langle x\otimes y,\Delta_Dz\rangle,
+ \quad
+ \langle x\otimes y,u\otimes v\rangle
+ =\langle x,u\rangle\langle y,v\rangle.
+ \label{ambient-adjointness}
+\end{equation}
+For a super pairing the tensor pairing includes the Koszul interchange.
+A pairing defined only on primitives does not type
+\eqref{ambient-adjointness}, since neither $xy$ nor the two factors of
+$\Delta z$ need be primitive.
+
+\begin{proposition}[The primitive restriction of a Hopf pairing]
+\label{primitive-pairing}
+Under these hypotheses,
+\[
+ \langle[P(C),P(C)],P(D)\rangle=0.
+\]
+Thus the quotient of $P(C)$ by the left radical of its pairing with
+$P(D)$ is abelian.  The same conclusion holds with supercommutators
+and a normalized super pairing.
+\end{proposition}
+
+\begin{proof}
+For primitives $x,y\in C$ and $z\in D$, the right side of
+\eqref{ambient-adjointness} is
+\[
+ \langle x,z\rangle\varepsilon_C(y)
+ +\varepsilon_C(x)\langle y,z\rangle=0.
+\]
+Reversing $x,y$ gives zero again, so their commutator pairs to zero.
+In the super case the possible interchange signs multiply zero terms.
+The left radical contains the entire derived Lie algebra, so it is a
+Lie ideal and its quotient is abelian.
+\end{proof}
+
+Consequently, a nonabelian Borcherds recognition cannot obtain its
+nondegenerate primitive form by restricting this same ambient pairing.
+An invariant Lie form needs its own construction.  A Hall double may
+use pairings between separately specified positive and negative halves,
+with a proved comparison to the Lie form.
+
+There are two further type restrictions.  A morphism
+$C\bar\otimes_ND\to\kk$ in the positive-height category vanishes on
+every positive total height.  It cannot realize a nonzero indexed
+root pairing.  Also, indexed pairings define the evaluation
+\[
+ \prod_{n\geq0}C_n\ \times\ \bigoplus_{n\geq0}D_n
+ \longrightarrow\kk
+\]
+by a finite sum.  They need not define a pairing between two products.
+If a bilinear extension between the two products were jointly continuous
+over discrete $\kk$, it would vanish on $F^r\widehat C\times
+F^s\widehat D$ for some $r,s$.
+It would then vanish on all paired components of height
+$n\geq\max(r,s)$.  This contradicts a nonzero diagonal pairing in
+infinitely many heights.  A continuous/discrete dual pairing or an
+explicit summability condition is therefore part of a completed double.
+
+\begin{proposition}[Even primitives in ordinary finite bialgebras]
+\label{finite-primitive-obstruction}
+A finite-dimensional super bialgebra over a characteristic-zero field
+has no nonzero even primitive.  Its primitive Lie superalgebra is abelian.
+\end{proposition}
+
+\begin{proof}
+Let $x$ be such a primitive, and let $f$ be its monic minimal polynomial,
+of degree $n$.  A primitive scalar is zero, since applying the counit to
+its primitive equation gives zero counit.  Hence $n\geq2$.
+The vectors $1,x,\ldots,x^{n-1}$ are linearly independent.
+As $x$ is even,
+\[
+ 0=\Delta f(x)=f(x\otimes1+1\otimes x).
+\]
+In this tensor basis the coefficient of $x^{n-1}\otimes x$ is $n$.
+Reducing the two pure $x^n$ terms contributes only tensors having a unit
+factor.  Lower terms of $f$ have total exponent at most $n-1$ and cannot
+contribute.  Thus $n=0$ in the field, a contradiction.
+Every odd--odd bracket is an even primitive, so these brackets vanish
+as well.  With no even primitives, this proves the second assertion.
+\end{proof}
+
+This obstruction applies to ordinary tensor-valued finite bialgebras.
+The total-height windows of Remark~\ref{polynomial-window} retain an
+even primitive because their bialgebra equation is imposed in a different
+tensor category.  In characteristic $p$, the ordinary algebra
+$\kk[x]/(x^p)$ does admit the primitive coproduct: all intermediate
+binomial coefficients in $\Delta(x^p)$ vanish.
+An odd exterior generator also gives a finite-dimensional super Hopf
+algebra in characteristic zero.
+The monoidal restriction, tower reconstruction, antipode, and
+differential-stable quotient proofs themselves hold over every field.
+The even-primitive obstruction and the enveloping primitive comparison
+use characteristic zero.
+
+The positive cone itself is necessary for this truncation construction.
+More generally, it works for a commutative monoid $M$ with an additive
+height $h:M\to\mathbb N$, satisfying $h^{-1}(0)=\{0\}$ and finite
+$h^{-1}([0,N])$.  These assumptions make retained sets closed under
+summands and make each charge decomposition finite.
+An arbitrary finite subset of a charge group has no such property.
+Retaining zero and all summands of a retained sum would require retaining
+every $\alpha$, since $\alpha+(-\alpha)=0$.
+
+For a real-root $\mathfrak{sl}_2$ triple, the relations
+\[
+ [h_i,e_i]=2e_i,\qquad[e_i,f_i]=h_i
+\]
+force $h(h_i)=0$ and then $h(e_i)=h(f_i)=0$ under any nonnegative
+additive height making these nonzero elements homogeneous.
+They cannot be nonzero primitives in a connected height-zero component
+$\kk1$.  Allowing a nontrivial degree-zero Hopf algebra removes this
+connectedness obstruction.  It does not give finite-dimensional windows
+containing an even Cartan primitive, by
+Proposition~\ref{finite-primitive-obstruction}.
+Thus the finite-height recognition theorem concerns the positive Lie
+algebra.  A full root algebra requires separately specified halves,
+Cartan data, and a compatible double or another completion.

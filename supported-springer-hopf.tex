@@ -1,0 +1,688 @@
+\section{Springer actions and the supported Hall Hopf structure}
+\label{sec:supported-springer}
+
+A proper flag remembers an ordering of the successive line quotients
+even when the middle sheaf does not split. Over distinct support points,
+permuting those quotients gives the ordinary permutation action on the
+finite flag cover. Smallness extends that action across collisions.
+Its trace will identify the Hall multiplication with a shuffle product
+on the coefficient objects of Section~\ref{sec:support-coalgebra}.
+The same objects already carry the actual direct-sum coproduct.
+
+\subsection{The convolution tensor and full flags}
+
+Retain the rational Betti category, common base $B_E$, and objects
+$\mathcal B_n,\mathcal T_n,\mathcal V_n$ of
+Section~\ref{sec:support-coalgebra}. For coefficients on $Y_a,Y_b$,
+write
+\begin{equation}\label{sh:convolution}
+ \mathcal C_a*\mathcal D_b
+ =Rm_{a,b,*}(\mathcal C_a\boxtimes_{B_E}\mathcal D_b).
+\end{equation}
+Finite support addition and the external-product comparisons give
+the associativity identifications used below. The unit is
+$\mathbb Q_{B_E}$ on $Y_0$. In particular, the ordered line
+cochains have coherent identifications
+\[
+ \mathcal V_a*\mathcal V_b\simeq\mathcal V_{a+b},
+ \qquad \mathcal V_0=\mathbb Q_{B_E}.
+\]
+Let
+\begin{equation}\label{sh:ordered-inclusion}
+ j_n:\mathcal B_n\longrightarrow\mathcal V_n
+\end{equation}
+be $\theta_n$ from \eqref{sc:theta} followed by the invariant
+inclusion. Theorem~\ref{sc:ordered-equivalence} makes $j_n$ a
+split monomorphism. At this point its invariant description uses
+the ordinary permutation of the ordered supports and line factors.
+
+Let $\overline{\mathcal F}_n$ be the stack of full flags
+\[
+ 0=F_0\subset F_1\subset\cdots\subset F_n,
+ \qquad \operatorname{length}(F_i)=i,
+\]
+on one common elliptic torsor. There are maps
+\[
+ h_n:\overline{\mathcal F}_n\longrightarrow
+                    \overline{\mathcal M}_n,
+ \qquad
+ g_n:\overline{\mathcal F}_n\longrightarrow\widetilde L_n.
+\]
+The first forgets the flag; the second records
+$(F_1/F_0,\ldots,F_n/F_{n-1})$ in this order. Thus the convention
+is subobject first, as in the Hall product. Put
+\[
+ \mathrm{Spr}_n=Rh_{n,*}\mathbb Q,
+ \qquad
+ u_n:\mathbb Q\longrightarrow\mathrm{Spr}_n,
+ \qquad
+ t_n:\mathrm{Spr}_n\longrightarrow\mathbb Q.
+\]
+Here $u_n$ is the adjunction unit and $t_n$ is the proper
+complex-oriented full-flag trace with the normalized coefficient
+$+1$ of Proposition~\ref{gh:coefficient-maps}. These are maps on
+$\overline{\mathcal M}_n$; no support pushforward has yet been
+taken. For $n=0$ both maps are the identity on $B_E$.
+
+\subsection{Smallness and the trace identities}
+
+\begin{lemma}\label{sh:smallness}
+The map $h_n$ is proper and small. Both its source and target are
+smooth stacks of complex dimension $-1$. Over the distinct-support
+open substack it is the cover of ordered flags, with group $S_n$.
+\end{lemma}
+\begin{proof}
+The matrix neighbourhoods of Lemma~\ref{sc:neighbourhoods}
+identify a full flag with a complete invariant flag of the matrix.
+Before quotienting by a change of frame, the local map is a
+restriction of
+\[
+ \widetilde{\mathfrak g}
+ =\{(A,F_\bullet):AF_i\subset F_i\text{ for all }i\}
+ \longrightarrow\mathfrak g=\mathfrak{gl}_n(\mathbb C).
+\]
+The source is a vector bundle over the complete flag variety,
+smooth of dimension $n^2$, and the map is proper. A matrix with
+distinct eigenvalues has precisely its $n!$ ordered eigenline
+flags. The curve version of these matrix charts and the flag
+cover is also described in \cite[\S\S3.1--3.3]{FengYunZhang2024}.
+
+We check smallness at the collision strata. Let $\mathfrak b$
+be the upper-triangular matrices. For a pair of complete flags of
+relative position $w\in S_n$, the common preserving matrices
+have dimension $\dim\mathfrak b-\ell(w)$. The orbit of that pair
+has dimension $\dim\operatorname{Flag}_n+\ell(w)$. Thus each
+relative-position stratum in
+$\widetilde{\mathfrak g}\times_{\mathfrak g}
+\widetilde{\mathfrak g}$ has dimension $n^2$.
+In its common preserving matrix space, matrices with distinct
+eigenvalues form a nonempty dense open set: a Cartan diagonal in
+a common adapted basis contains such matrices. The complement
+of the regular semisimple locus in each of these finitely many
+strata therefore has dimension at most $n^2-1$.
+
+For a stratum $Z$ of $\mathfrak g$ outside that locus, let $d_Z$
+be the dimension of the flag fibre, constant after refining the
+stratification. Its inverse-image fibre product has dimension
+$\dim Z+2d_Z$. The preceding bound gives
+\[
+ \dim Z+2d_Z<n^2,
+\]
+which is the smallness inequality. It persists under restriction
+to spectral coordinate neighbourhoods. Changes of frame and
+translation preserve these maps and their fibre dimensions, so
+the calculation descends to the curve stacks and their common
+torsor quotient. The matrix quotient has dimension zero; the
+further quotient by the one-dimensional curve $E$ has dimension
+$-1$. Smoothness descends from the same charts.
+\end{proof}
+
+The small-map theorem identifies the shifted direct image from a
+smooth space with the intermediate extension of its covering local
+system \cite[\S4.1.14, Remark~9.29, Proposition~9.44]
+{deCataldoMigliorini2007}. Apply it on the smooth atlases with
+their dimension shifts and descend. In the present common-torsor
+convention the perverse object is $\mathrm{Spr}_n[-1]$.
+The constant object $\mathbb Q[-1]$ is the intermediate extension
+of the trivial summand. This argument uses complex Betti
+intermediate extension; the finite-field coefficients of
+\cite{FengYunZhang2024} are not needed for the conclusion.
+
+\begin{proposition}\label{sh:springer-trace}
+The deck action extends to a coherent action
+$\rho_n:S_n\to\operatorname{Aut}(\mathrm{Spr}_n)$, with
+\begin{equation}\label{sh:trace-identities}
+ t_nu_n=n!\operatorname{id},\qquad
+ u_nt_n=\sum_{w\in S_n}\rho_n(w).
+\end{equation}
+The action convention is inverse pullback by a deck permutation,
+so that $\rho_n$ is a left action.
+\end{proposition}
+\begin{proof}
+An intermediate extension has no subobject or quotient supported
+on the boundary. A morphism between two such extensions is
+therefore determined by its restriction to the open stratum.
+The deck operators extend by functoriality of intermediate
+extension, and their group equations continue to hold.
+On the cover, $u_n$ is the constant tuple and $t_n$ sums its
+$n!$ entries. The coefficient normalization and complex
+orientation fix this positive sign. Both equations in
+\eqref{sh:trace-identities} hold there, hence on the whole stack.
+
+These equations occur in the perverse heart after shifting by
+$[-1]$. Its mapping spaces have no positive homotopy groups:
+for $k>0$, the corresponding group is
+$\operatorname{Hom}(P,Q[-k])=0$. The action and its equalities
+thus give a coherent action in the derived enhancement.
+Applying a derived functor retains those diagrams.
+\end{proof}
+
+\subsection{Associated graded and refinement of blocks}
+
+The endpoint map $g_n$ is not proper. The coefficient comparison
+needed from it nevertheless follows from its actual extension
+charts.
+
+\begin{lemma}\label{sh:associated-graded}
+For the full or any partial flag, associated-graded pullback
+induces an equivalence
+$\mathcal C\to Rg_*g^*\mathcal C$ for the coefficient complexes
+pulled from its endpoint stack in the bounded-below rational
+category used here. These equivalences are natural in the
+coefficient and in base change of the endpoint family.
+In particular, there is a canonical equivalence
+\begin{equation}\label{sh:gamma}
+ \gamma_n:\mathcal V_n\xrightarrow{\ \sim\ }
+ \mathcal W_n:=R(\overline c_n h_n)_*\mathbb Q,
+ \qquad
+ \gamma_n j_n=R\overline c_{n,*}u_n.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For a partial flag, the matrix chart consists of block
+upper-triangular matrices modulo the preserving parabolic $P$.
+The endpoint chart consists of the diagonal blocks modulo its
+Levi quotient $L$. After choosing an endpoint family, the
+off-diagonal entries form an affine vector bundle and the kernel
+of $P\to L$ is a unipotent group bundle. Both are contractible
+in the analytic topology. More precisely, each level of the
+quotient nerve is an affine bundle over the same endpoint base.
+On a local product neighbourhood, cochains with a pulled-back
+coefficient identify with the cochains of that coefficient on
+the base. This identifies the adjunction unit, not just the
+dimensions of its cohomology. The contractions are natural under
+restriction and change of the endpoint family. Descent and
+iteration prove the stated equivalences. The stabilizer groups
+have been included in the quotient nerve; they have not been
+discarded from the extension stack.
+
+Since $\overline c_nh_n=q_nr_ng_n$, the full-flag equivalence
+gives $\gamma_n$. Its inverse on cochains is restriction to the
+ordered split-flag section of $g_n$. Composing that section with
+$h_n$ is the actual ordered direct sum $\sigma_n$.
+Consequently $\gamma_n^{-1}R\overline c_{n,*}u_n$ is exactly
+the adjunction map $j_n$ in \eqref{sh:ordered-inclusion}.
+This proves both parts of \eqref{sh:gamma} without a general
+nonproper base-change assertion.
+\end{proof}
+
+Transport the action through this equivalence:
+\[
+ \mathcal R_n(w)=\gamma_n^{-1}
+          (R\overline c_{n,*}\rho_n(w))\gamma_n
+       \quad\text{on }\mathcal V_n.
+\]
+To obtain a crossing for convolution, these actions must agree
+with the actions on blocks.
+
+\begin{proposition}\label{sh:block-action}
+For every finite list $\alpha=(n_1,\ldots,n_r)$ with
+$\sum_i n_i=n$, the identification
+$\mathcal V_{n_1}*\cdots*\mathcal V_{n_r}\simeq\mathcal V_n$
+intertwines the convolution of the $\mathcal R_{n_i}$ with
+$\mathcal R_n|_{\prod_iS_{n_i}}$. These identifications are
+coherent for refinements and zero blocks.
+\end{proposition}
+\begin{proof}
+Let $\overline{\mathcal P}_\alpha$ be the partial-flag stack
+with successive quotient lengths $n_i$. Forgetting the steps
+inside its blocks gives an actual Cartesian square
+\[
+ \begin{array}{ccc}
+ \overline{\mathcal F}_n&\longrightarrow&
+             \displaystyle\prod_{i,B_E}\overline{\mathcal F}_{n_i}\\
+ \downarrow&&\downarrow\prod_i h_{n_i}\\
+ \overline{\mathcal P}_\alpha&\xrightarrow{\ p_\alpha\ }&
+             \displaystyle\prod_{i,B_E}\overline{\mathcal M}_{n_i}.
+ \end{array}
+\]
+Indeed, a refinement is a full flag of each actual successive
+quotient. The vertical maps are proper. Proper base change
+identifies the direct image along the left map with
+$p_\alpha^*(\boxtimes_i\mathrm{Spr}_{n_i})$.
+It carries the product of the block Springer actions. Pushing
+to $\overline{\mathcal M}_n$ gives endomorphisms of
+$\mathrm{Spr}_n$ which, on the distinct-support cover, are the
+restrictions of the $S_n$ deck operators. Uniqueness of morphisms
+between the same intermediate extensions identifies them
+everywhere. This is the proper parabolic refinement mechanism
+of \cite[proof of Corollary~3.7]{FengYunZhang2024}, applied here
+to the Betti complexes just constructed.
+
+Push to support and use Lemma~\ref{sh:associated-graded} for the
+partial flag and its pulled-back block coefficients. The result
+is the asserted convolution comparison. Its external-product
+identification uses the finite maps $q_{n_i}$ and the constant
+line cochains: proper base change and the degreewise K\"unneth
+equivalence identify their products with the ordered object
+$\mathcal V_n$.
+
+Every further refinement has this same Cartesian diagram of
+actual quotient flags. Its action comparisons agree on the
+open cover and extend uniquely in the perverse heart. The
+derived functors preserve those coherent diagrams. A zero block
+inserts an identity map. This proves all finite refinements,
+not only an equality of binary cohomology operators.
+\end{proof}
+
+In particular, put $\mathcal R=\mathcal R_2((12))$.
+Its insertions in $\mathcal V_n$ are the adjacent operators
+$\mathcal R_n((i,i+1))$. They satisfy
+\[
+ \mathcal R_i^2=1,\qquad
+ \mathcal R_i\mathcal R_{i+1}\mathcal R_i
+  =\mathcal R_{i+1}\mathcal R_i\mathcal R_{i+1},\qquad
+ \mathcal R_i\mathcal R_j=\mathcal R_j\mathcal R_i
+       \quad(|i-j|>1).
+\]
+Thus the crossing is defined on the supported cochain objects,
+before global cohomology or a polynomial presentation.
+
+\subsection{The fixed Hall product and direct-sum coproduct}
+
+Denote the supported Hall product \eqref{sc:hall-product} by
+$\mu_{a,b}:\mathcal B_a*\mathcal B_b\to\mathcal B_{a+b}$.
+Its full charge-one product is
+\[
+ P_n=(R\overline c_{n,*}t_n)\gamma_n:
+                           \mathcal V_n\longrightarrow\mathcal B_n.
+\]
+The coefficient flag equations identify this composite with the
+actual iterated Hall product, including nonsplit extensions.
+
+\begin{theorem}\label{sh:operation-comparison}
+For every $n\geq0$,
+\begin{equation}\label{sh:symmetrizer}
+ j_nP_n=\sum_{w\in S_n}\mathcal R_n(w),\qquad
+ P_nj_n=n!\operatorname{id}_{\mathcal B_n}.
+\end{equation}
+Consequently $j_n(\mathcal B_n)$ is the image of the Springer
+averaging idempotent. For $a+b=n$, let
+$\operatorname{Sh}(a,b)$ consist of the permutations whose images
+are increasing within each input block. Then
+\begin{align}
+ j_n\mu_{a,b}
+   &=\sum_{w\in\operatorname{Sh}(a,b)}
+           \mathcal R_n(w)(j_a*j_b),\label{sh:shuffle}\\
+ (j_a*j_b)\Delta^{\mathrm{sup}}_{a,b}
+   &=j_n.\label{sh:coproduct}
+\end{align}
+These equations compare the fixed geometric operations in the
+same ordered object $\mathcal V_n$ and commute with all finite
+refinements.
+\end{theorem}
+\begin{proof}
+Push \eqref{sh:trace-identities} to support and use
+\eqref{sh:gamma}. This gives \eqref{sh:symmetrizer} and shows
+that the Springer invariant image is exactly $j_n(\mathcal B_n)$.
+This image equals the ordinary invariant image constructed in
+Theorem~\ref{sc:ordered-equivalence}. It does not identify the
+two group actions or their complementary averaging projectors.
+
+Full-flag refinement gives
+$P_n=\mu_{a,b}(P_a*P_b)$ under
+$\mathcal V_n=\mathcal V_a*\mathcal V_b$. Restricting to
+$j_a*j_b$ and using \eqref{sh:symmetrizer} gives
+\[
+ a!b!\,j_n\mu_{a,b}
+       =\sum_{w\in S_n}\mathcal R_n(w)(j_a*j_b).
+\]
+Every permutation is uniquely a shuffle followed by an element
+of $S_a\times S_b$. Proposition~\ref{sh:block-action} makes
+the latter action trivial on $j_a*j_b$. Cancelling $a!b!$
+proves \eqref{sh:shuffle} with its stated order and sign.
+
+Equation~\eqref{sh:coproduct} is the actual ordered direct-sum
+comparison in the proof of Theorem~\ref{sc:coalgebra}. The
+block invariant images for the Springer action are the same
+images with the same inclusions $j_a*j_b$. That inclusion is
+split monic, so the equation identifies
+$\Delta^{\mathrm{sup}}_{a,b}$ uniquely with the inclusion from
+full invariants to block invariants. No transported replacement
+of the coproduct, factorial factor, or Euler correction is made.
+All equations come from the full flag and direct-sum diagrams
+already compared, so they preserve their refinement coherences.
+\end{proof}
+
+\subsection{A tensor recipient and the global crossing}
+
+We specify a recipient on which the crossing is natural. Let
+$\mathcal P$ be the $\mathbb Q$-linear monoidal category with
+objects $n\geq0$, endomorphism algebra $\mathbb Q[S_n]$ at $n$,
+and zero morphisms between distinct integers. Tensor concatenates
+blocks and uses their group-algebra embeddings. The block
+permutation is its symmetry. Take finite sums and idempotent
+completion, and allow charge-graded families with the finite
+convolution sum in each total charge. Denote this category by
+$\mathcal P^{\mathrm{gr}}$.
+
+Proposition~\ref{sh:block-action} gives a coherent monoidal
+realization $\mathfrak R$ in the charge-graded support convolution
+category, with
+\[
+ \mathfrak R(n)=\mathcal V_n,
+ \qquad \mathfrak R(w)=\mathcal R_n(w).
+\]
+For the idempotent
+$e_n=(n!)^{-1}\sum_{w\in S_n}w$, put $\mathsf S_n=(n,e_n)$.
+Equation~\eqref{sh:symmetrizer} identifies
+$\mathfrak R(\mathsf S_n)=\mathcal B_n$ with inclusion $j_n$.
+No faithfulness of this realization is required. In particular,
+we have used the universal group algebras, not their image
+quotients defining the global category $\mathcal T_R$.
+Nor is $\mathfrak R$ asserted to preserve the ambient ordinary
+exchange of arbitrary sheaf coefficients.
+
+\begin{theorem}[Supported Hall Hopf comparison]\label{sh:hopf}
+The charge-graded object with components $\mathsf S_n$ is a
+connected Hopf object in $\mathcal P^{\mathrm{gr}}$ whose
+product is the shuffle sum and whose coproduct is the inclusion
+of full invariants into block invariants. Its realization gives
+the actual maps $\mu_{a,b}$ and
+$\Delta^{\mathrm{sup}}_{a,b}$.
+The realized symmetry is the block Springer crossing, the unit
+is $\mathcal B_0=\mathbb Q_{B_E}$, the counit is projection to
+charge zero, and the antipode on $\mathcal B_n$ is
+$(-1)^n\operatorname{id}$.
+These operations satisfy all finite-charge Hopf and refinement
+identities in this recipient.
+\end{theorem}
+\begin{proof}
+In $\mathbb Q[S_n]$, shuffle sum followed by the block
+idempotent has image in $e_n$, and
+$(e_a\otimes e_b)e_n=e_n$. Thus both operations are morphisms
+between the indicated idempotent objects. The interleaving
+argument of Theorem~\ref{gh:formal-hopf} is an identity of
+permutations before any representation or image quotient is
+taken, so it applies in $\mathcal P^{\mathrm{gr}}$ itself.
+
+More explicitly, an $(a,b)$-interleaving with an output cut after
+$p$ positions has unique numbers $i,j$ of entries from the two
+input lists before that cut, with $i+j=p$. It splits the inputs
+into four ordered lists of lengths $i,a-i,j,b-j$. Exchanging
+the middle two lists, and interleaving separately on each side
+of the cut, recovers precisely the original permutation.
+This is the bijection proving the four-block identity
+\eqref{gh:four-block}, now with the universal block permutation.
+Further cuts give the same ordered partitions, proving all
+regrouping identities. Three input lists similarly prove
+associativity; invariant inclusions give coassociativity.
+
+On $\mathsf S_n$ the product after a cut at $a$ is
+$\binom na\operatorname{id}$. Hence either convolution of
+$(-1)^n\operatorname{id}$ with the identity has coefficient
+$\sum_{a=0}^n(-1)^a\binom na$, zero for $n>0$ and one at
+$n=0$. This proves both antipode equations. Each fixed charge
+uses finitely many cuts; no completion or infinite output sum
+is involved. Finally Theorem~\ref{sh:operation-comparison}
+identifies the realized product and coproduct, while
+Proposition~\ref{sh:block-action} identifies their crossings
+and refinements.
+\end{proof}
+
+For example, the crossing between
+$\mathcal B_a*\mathcal B_b$ and
+$\mathcal B_b*\mathcal B_a$ is specified by applying the block
+permutation to $j_a*j_b$ and then restricting to the image
+$j_b*j_a$. Conjugation carries the first block subgroup to the
+second, so this restriction is well defined and invertible.
+This describes an actual supported map. Naturality is asserted
+for the morphisms of the specified recipient, not for every
+map in the ambient category of sheaves.
+
+\begin{corollary}\label{sh:global-crossing}
+Under common-base pushforward and the simultaneous comparison
+of Theorem~\ref{gh:simultaneous}, the supported crossing has
+global image
+\[
+ R=\sigma_E\sigma_z-\delta_{12}\partial_z.
+\]
+The supported operations recover
+Theorem~\ref{gh:global-hopf}, including its sign and unit.
+\end{corollary}
+\begin{proof}
+The global coproduct comparison is
+Proposition~\ref{sc:global-comparison}. The proper flag trace
+and its endpoint map push forward to the same global Hall
+product. In charge two, \eqref{sh:symmetrizer} reads
+$j_2P_2=1+\mathcal R$. The global calculation identifies this
+same geometric composite with
+$1+\sigma_E\sigma_z-\delta_{12}\partial_z$.
+Subtracting the identity proves the formula. Block compatibility
+then identifies all higher crossings and their operation
+diagrams.
+\end{proof}
+
+\begin{example}\label{sh:binary-example}
+The two flags over distinct support points produce the two
+terms in $1+\mathcal R$. Their extension across a collision is
+fixed by the proper flag complex, not by an arbitrary choice of
+exchange. On the global class $z\otimes1$, replacing this
+crossing by the ordinary swap while keeping the product fixed
+gives the nonzero residual $2\delta_{12}$ of
+Example~\ref{gh:crossing-example}. The coefficient of the
+diagonal therefore measures a change in the actual operation.
+In particular, Theorem~\ref{sh:hopf} does not make the full Hall
+carrier an ordinary-symmetry bialgebra.
+\end{example}
+
+\subsection{Comparison on the cyclic companion family}
+
+Trivialize the common $E$-torsor and work on the support atlas.
+Here $c_i:\mathcal M_i\to\operatorname{Sym}^i(E)$ denotes
+the unquotiented support map. In the coordinate disk $D$, use
+$Y=\operatorname{Sym}^3(D)$, $X=D^3$, $m:X\to Y$, and
+$j:U\hookrightarrow X$ from Section~\ref{sec:companion-family}.
+For the Springer comparison, label the ordered endpoints
+subobject first. This reverses the quotient-first labels in
+\eqref{cf:endpoint-lines} without changing the finite map $m$.
+The cyclic module
+\[
+ \mathcal O_Y[\zeta]/
+       (\zeta^3-e_1\zeta^2+e_2\zeta-e_3)
+\]
+defines a section $f:Y\to\mathcal M_3$ of $c_3$.
+Proposition~\ref{cf:families} identifies the actual full-flag
+pullback with $m$ and the strict full-splitting pullback with
+$mj$. Their coefficient objects and restriction map are
+\[
+ \mathcal F=Rm_*\mathbb Q_X,
+ \qquad \mathcal G=R(mj)_*\mathbb Q_U,
+ \qquad r:\mathcal F\longrightarrow\mathcal G.
+\]
+Write $u_{\mathcal F}:\mathbb Q_Y\to\mathcal F$ for the unit
+and $t_{\mathcal F}:\mathcal F\to\mathbb Q_Y$ for the proper
+trace. Its weights are $1,2,6$ on the three multiplicity types,
+as computed in Proposition~\ref{cf:proper-coefficient}, and
+$t_{\mathcal F}u_{\mathcal F}=6\operatorname{id}$.
+
+\begin{theorem}[The support-family Hall comparison]
+\label{gh:support-family}
+There are canonical maps
+\[
+ e_{\mathcal F}:\mathcal V_3|_Y\longrightarrow\mathcal F,
+ \qquad
+ e_{\mathcal G}:\mathcal V_3|_Y\longrightarrow\mathcal G,
+ \qquad
+ \varepsilon:\mathcal B_3|_Y\longrightarrow\mathbb Q_Y
+\]
+such that
+\begin{equation}\label{sh:family-identities}
+ \begin{gathered}
+ e_{\mathcal G}=r e_{\mathcal F},\qquad
+ e_{\mathcal F}j_3=u_{\mathcal F}\varepsilon,\\
+ \varepsilon P_3=t_{\mathcal F}e_{\mathcal F}.
+ \end{gathered}
+\end{equation}
+The first evaluation intertwines the supported Springer action
+with the permutation action on the proper finite flag family.
+The equations commute with both three-step parenthesizations,
+including the nonsplit cyclic fibre and its endpoint lines.
+\end{theorem}
+\begin{proof}
+The first map is counit evaluation followed by proper base change:
+\[
+ \mathcal V_3|_Y
+ \xrightarrow{\ \gamma_3\ }
+ (Rc_{3,*}\mathrm{Spr}_3)|_Y
+ \longrightarrow f^*\mathrm{Spr}_3
+ \xrightarrow{\ \sim\ }\mathcal F.
+\]
+The middle arrow applies $f^*$ to
+$c_3^*Rc_{3,*}\mathrm{Spr}_3\to\mathrm{Spr}_3$, using
+$c_3f=\operatorname{id}_Y$. This construction is natural for
+the Springer action. On $Y$, its target action is the deck
+action extended to the proper finite map $m$. Indeed, the
+pullback action has that restriction on distinct supports, and
+$\mathcal F[3]$ is their finite-map intermediate extension;
+uniqueness identifies the two actions.
+
+For the full direct-sum map
+$s:(\mathcal M_1)^3\to\mathcal M_3$, define the second
+evaluation by
+\[
+ \mathcal V_3|_Y=R(c_3s)_*\mathbb Q|_Y
+ \longrightarrow f^*Rs_*\mathbb Q
+ \longrightarrow\mathcal G.
+\]
+The first arrow is counit evaluation for $Rs_*\mathbb Q$;
+the second is the ordinary base-change transformation to the
+strict splitting pullback. No inverse to that transformation
+is assumed. On the distinct-support open $V\subset Y$, an
+ordered decomposition and its full flag determine each other,
+so $e_{\mathcal G}$ and $r e_{\mathcal F}$ agree there.
+But $\mathcal G=R(j_V)_*\mathcal L$ for the local system
+$\mathcal L=(m|_U)_*\mathbb Q_U$ on $V$. Adjunction gives
+\[
+ \operatorname{Map}(\mathcal V_3|_Y,\mathcal G)
+ \simeq
+ \operatorname{Map}(j_V^*\mathcal V_3,\mathcal L).
+\]
+It follows that their open identification extends to the
+derived equality $e_{\mathcal G}=r e_{\mathcal F}$.
+
+Define $\varepsilon$ by counit evaluation of
+$Rc_{3,*}\mathbb Q$ along $f$.
+Unit--counit naturality and \eqref{sh:gamma} give
+$e_{\mathcal F}j_3=u_{\mathcal F}\varepsilon$.
+The equivariance just proved and the full symmetrizer give
+\[
+ \begin{aligned}
+ u_{\mathcal F}\varepsilon P_3
+  &=e_{\mathcal F}j_3P_3
+    =\sum_{w\in S_3}w\,e_{\mathcal F}\\
+  &=u_{\mathcal F}t_{\mathcal F}e_{\mathcal F}.
+ \end{aligned}
+\]
+Here $u_{\mathcal F}t_{\mathcal F}=\sum_w w$ is the finite
+proper trace identity, with the actual ramification weights.
+The left inverse $t_{\mathcal F}/6$ of $u_{\mathcal F}$ permits
+cancellation and proves the last equation of
+\eqref{sh:family-identities}. Thus the trace comparison does
+not assume that arbitrary pullback preserves a Verdier trace.
+
+The two three-step decompositions are refinements of these full
+direct-sum and full-flag diagrams. Their supported comparisons
+are those of Proposition~\ref{sh:block-action} and
+Theorem~\ref{sh:operation-comparison}. Proper base change,
+the displayed counits, and the open-restriction adjunction
+commute with these refinements. Their quotient lines are the
+actual endpoint lines of \eqref{cf:endpoint-lines}, with the
+specified reversal when written subobject first.
+Consequently the comparisons retain both parenthesizations on
+the whole cyclic family.
+\end{proof}
+
+On the separate labelled base $T$, ordinary base change of $\mathcal G$
+is still the map $v\mapsto(\sigma^*v)_\sigma$ into the six
+strict-splitting copies. The proper pullback retains its
+collision-incidence kernel. The maps and cone ranks of
+Section~\ref{sec:companion-family} are therefore unchanged.
+Theorem~\ref{gh:support-family} supplies arrows between
+$\mathcal V_3|_Y$, $\mathcal F$, and $\mathcal G$; it does not
+identify these objects. In particular, it supplies no trace
+$\mathcal G\to\mathbb Q_Y$ extending the generic proper trace,
+which is excluded by Theorem~\ref{cf:no-trace}.
+
+The endpoint twists also give a direct obstruction to a
+multiplicative cyclic evaluation. To state it globally, let
+$\mathcal D_n$ be the universal degree-$n$ divisor on the
+universal elliptic torsor over $Y_n$. A descended invertible
+module $N$ on $\mathcal D_n$ defines a cyclic section
+$s_n^N:Y_n\to\overline{\mathcal M}_n$. Its adjunction unit
+gives the evaluation
+\[
+ \varepsilon_n^N:\mathcal B_n
+ \longrightarrow R\overline c_{n,*}Rs_{n,*}^N\mathbb Q
+ \simeq\mathbb Q_{Y_n}.
+\]
+It sends $1$ to $1$. On the coordinate family at charge three
+and for the trivial module, this is the map $\varepsilon$
+in \eqref{sh:family-identities}.
+Write $\mu^{\mathrm{quot}}=\mu\tau$ for the ordinary endpoint
+reversal described after Theorem~\ref{gh:global-hopf}.
+
+\begin{proposition}\label{sh:cyclic-defect}
+Let $z$ be the charge-one stabilizer Chern class and let
+$\mathfrak D_2\subset Y_2$ be the reduced discriminant divisor.
+For the quotient-first Hall product,
+\begin{equation}\label{sh:binary-cyclic-defect}
+ \varepsilon_2^N\mu^{\mathrm{quot}}_{1,1}
+             (1\boxtimes z-z\boxtimes1)
+       =-[\mathfrak D_2]\ne0.
+\end{equation}
+No family of these constant Betti evaluations is multiplicative
+for a bilinear multiplication on the evaluated recipients.
+Nonzero scalar rescalings of the evaluations do not remove the
+obstruction.
+\end{proposition}
+\begin{proof}
+Use the quotient-first endpoint order of
+\eqref{cf:endpoint-lines}. In charge two the lines are
+$e_1^*N$ and $e_2^*N\otimes\mathcal O(-\Delta_{12})$ on
+$\widetilde Y_2$. This follows from the same ideal sequence
+for a monic factorization used in
+Proposition~\ref{cf:families}; it retains the nonreduced flag
+fibre. With $\ell_i=c_1(e_i^*N)$, the proper cyclic trace of
+the displayed insertion is
+\[
+ (q_2)_*(\ell_2-\ell_1-[\Delta_{12}])
+          =-(q_2)_*[\Delta_{12}].
+\]
+The two $\ell_i$ have equal pushforward, since the transposition
+exchanges them. The map $q_2$ takes its ramification divisor
+with degree one to the reduced discriminant, so the last
+expression is $-[\mathfrak D_2]$.
+This is the proper trace of the actual cyclic flag pullback.
+Equivalently, the cyclic section is a smooth atlas of the cyclic
+locus: its trivializations form a torsor under the unit group
+of the rank-two finite support algebra, a smooth open subset of
+that algebra. Smooth base change therefore gives the same trace
+comparison.
+
+The complete pair map
+$\iota:E\to Y_2$, $\delta\mapsto[0]+[\delta]$, satisfies
+$\iota^*\mathfrak D_2=2[0]$. Locally the polynomial is
+$x(x-t)$ and its discriminant is $t^2$. Hence the pullback of
+\eqref{sh:binary-cyclic-defect} has integral $-2$, proving
+nonvanishing. But $Y_1=[E/E]=\mathrm{pt}$, so every such
+evaluation sends $z$ to zero. A bilinear multiplication after
+evaluation would therefore kill both terms of the insertion,
+contradicting \eqref{sh:binary-cyclic-defect}. Rescaling by
+nonzero constants preserves this contradiction.
+\end{proof}
+
+The subobject-first convention reverses the sign of the
+antisymmetric insertion; its nonvanishing is the same.
+
+The construction proves the supported crossing and Hopf comparison
+for the normalized rational spherical Betti coefficients.
+Interacting critical coefficients require their own orientation,
+coefficient, and gluing comparisons. Their possible negative
+cohomological degrees also lie outside the nonnegative
+fibre-quotient argument. An independently specified
+field or Ran-space realization, compact primitive recognition
+beyond the ordinary even quotient, and physical state
+reconstruction also require their actual comparison maps.
+The compact realization questions in
+Section~\ref{sec:compact-realization} retain those hypotheses.

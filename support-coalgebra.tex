@@ -1,0 +1,446 @@
+\section{The coefficient coalgebra over support}
+\label{sec:support-coalgebra}
+
+The support divisor records where a torsion sheaf is concentrated,
+without requiring the sheaf to split. Its coefficient sheaf can therefore
+retain a direct-sum coalgebra even though the strict decomposition of a
+fixed cyclic module has the trace obstruction of
+Theorem~\ref{cf:no-trace}. We construct this coalgebra from ordinary
+Betti direct images. The essential step is an equivalence for the
+actual external-product map, including coincident endpoint supports.
+
+\subsection{Coefficients, supports, and the common base}
+
+Continue with $\mathcal M_n=\mathfrak T_n(E)$ and
+$B_E=BE$ from Section~\ref{sec:spherical-hall}. Put
+\[
+ C_n=\operatorname{Sym}^n(E),\qquad Y_n=[C_n/E],\qquad
+ \overline c_n:\overline{\mathcal M}_n\longrightarrow Y_n,
+ \qquad p_n:Y_n\longrightarrow B_E,
+\]
+where $\overline c_n$ is the Fitting-support morphism.
+The normalization \eqref{gh:relative-coefficient} gives
+\begin{equation}\label{sc:coefficients}
+ \mathcal B_n=R\overline c_{n,*}\mathbb Q,
+ \qquad \mathcal A_n=Rp_{n,*}\mathcal B_n.
+\end{equation}
+Thus $\mathcal A_n$ is the global relative coefficient object already
+defined in Section~\ref{sec:spherical-hall}, since
+$\pi_n=p_n\overline c_n$.
+We work with Cartesian rational Betti complexes on the analytic
+quotient stacks. They are bounded below and have finite-dimensional
+cohomology in each degree on every multiplicity stratum of the support
+atlas. The derived tensor uses direct-sum totalization. There is no
+completion in Chern degree, and every $R*$ below is an ordinary direct
+image. Our shift convention is $H^k(C[r])=H^{k+r}(C)$.
+At charge zero,
+\[
+ \overline{\mathcal M}_0=Y_0=B_E,\qquad
+ \mathcal B_0=\mathbb Q_{B_E}.
+\]
+
+For $a+b=n$ define
+\[
+ P_{a,b}=Y_a\times_{B_E}Y_b,\qquad
+ S_{a,b}=\overline{\mathcal M}_a\times_{B_E}
+                                      \overline{\mathcal M}_b.
+\]
+Let $\overline c_{a,b}:S_{a,b}\to P_{a,b}$ be the product of
+support maps, $m_{a,b}:P_{a,b}\to Y_n$ addition of divisors,
+and $s_{a,b}:S_{a,b}\to\overline{\mathcal M}_n$ direct sum.
+These actual maps satisfy
+\[
+ \overline c_n s_{a,b}=m_{a,b}\overline c_{a,b}
+\]
+up to the natural isomorphism of families.
+If $\operatorname{pr}_a,\operatorname{pr}_b$ are the projections
+of $P_{a,b}$, write
+\[
+ \mathcal B_a\boxtimes_{B_E}\mathcal B_b
+ =\operatorname{pr}_a^*\mathcal B_a
+       \otimes^{\mathbb L}_{\mathbb Q_{P_{a,b}}}
+                         \operatorname{pr}_b^*\mathcal B_b.
+\]
+The natural external-product transformation is
+\begin{equation}\label{sc:kappa}
+ \kappa^{\mathrm{sup}}_{a,b}:
+ \mathcal B_a\boxtimes_{B_E}\mathcal B_b
+       \longrightarrow R\overline c_{a,b,*}\mathbb Q.
+\end{equation}
+The superscript distinguishes it from the global map
+$\kappa_{a,b}$ of \eqref{gh:direct-sum-map}.
+
+\subsection{Matrix neighbourhoods and the external product}
+
+\begin{lemma}\label{sc:neighbourhoods}
+Before quotienting by $E$, let
+$\xi=\sum_i m_i[x_i]\in C_n$, with distinct $x_i$.
+Then
+\begin{equation}\label{sc:stalk-ring}
+ H^*((Rc_{n,*}\mathbb Q)_\xi)
+  =\bigotimes_i\mathbb Q[c_{i,1},\ldots,c_{i,m_i}],
+ \qquad |c_{i,j}|=2j.
+\end{equation}
+The classes are the Chern classes of the spectral vector bundles
+on actual neighbourhoods of $\xi$.
+\end{lemma}
+\begin{proof}
+Choose pairwise disjoint coordinate disks $D_i$ about the $x_i$.
+Translate and rescale their coordinates so that their images are
+pairwise disjoint convex disks in $\mathbb C$, with centres
+$\lambda_i$. The coordinate function on their disjoint union is
+the holomorphic function used below. As the disks shrink, the sets
+\[
+ W=\prod_i\operatorname{Sym}^{m_i}(D_i)\subset C_n
+\]
+form cofinal neighbourhoods of $\xi$.
+The inverse image $c_n^{-1}(W)$ is equivalent to
+\begin{equation}\label{sc:matrix-stack}
+ \prod_i[\operatorname{Mat}_{m_i}(D_i)/
+                                      \operatorname{GL}_{m_i}(\mathbb C)],
+\end{equation}
+where $\operatorname{Mat}_m(D)$ consists of matrices whose eigenvalues
+lie in the coordinate image of $D$.
+
+To prove this equivalence on families, push a flat finite-length sheaf
+along its finite support to the parameter space. The resulting vector
+bundle has rank $n$. Multiplication by the coordinate function is an
+endomorphism; a frame represents it by a matrix $A$. Conversely, the
+presentation $\zeta I-A$ gives the sheaf. If the support lies in
+several disks, the holomorphic Riesz projectors
+\[
+ P_i(A)=\frac{1}{2\pi i}\int_{\partial D_i}
+                                  (\zeta I-A)^{-1}\,d\zeta
+\]
+split the vector bundle into spectral subbundles of ranks $m_i$.
+They commute with frame changes and base change of the family.
+Block direct sum and these projectors are inverse equivalences,
+proving \eqref{sc:matrix-stack}, including nonsplit modules.
+
+On the $i$th matrix space the homotopy
+\[
+ A\longmapsto\lambda_i I+t(A-\lambda_i I),\qquad 0\leq t\leq1,
+\]
+is equivariant for $\operatorname{GL}_{m_i}(\mathbb C)$ and stays
+inside that space, by convexity of the disk. It contracts to the
+scalar matrix $\lambda_i I$. The Borel realization of the quotient
+therefore has homotopy type $B\operatorname{GL}_{m_i}(\mathbb C)$.
+The equivalence forgets the matrix and retains its vector bundle,
+and it is compatible with restriction to smaller concentric disks.
+
+Now use $\operatorname{GL}_m(\mathbb C)\simeq U(m)$ and the
+universal complex Grassmannian. Its rational cohomology is
+$\mathbb Q[c_1,\ldots,c_m]$; restriction to a sum of lines sends
+$c_j$ to the elementary symmetric polynomial $e_j$ in their
+degree-two Chern classes. Its image is the symmetric-polynomial
+ring. These characteristic-class facts follow from the even
+Schubert cells and the splitting principle
+\cite[Theorems~3.2,3.9]{Hatcher2017}.
+Applying them on the cofinal neighbourhoods proves
+\eqref{sc:stalk-ring}.
+\end{proof}
+
+The contraction in this proof need not preserve each Fitting divisor.
+The proof computes ordinary images by neighbourhoods, and does not
+replace a nonproper direct-image stalk by a strict-fibre cohomology
+group.
+
+\begin{theorem}\label{sc:external-product}
+The map $\kappa^{\mathrm{sup}}_{a,b}$ is an equivalence for every
+$a,b\geq0$. The corresponding external-product transformations for
+any finite list of endpoints are equivalences, with their natural
+associativity, permutation, and unit coherences.
+\end{theorem}
+\begin{proof}
+First work on $C_a\times C_b$. At a pair of divisors $(\xi,\eta)$,
+use disks about the union of their support points, allowing zero
+multiplicity for either endpoint. The inverse image of a product of
+cofinal neighbourhoods has homotopy type
+\[
+ \prod_i\bigl(B\operatorname{GL}_{a_i}(\mathbb C)
+                    \times B\operatorname{GL}_{b_i}(\mathbb C)\bigr).
+\]
+The two endpoint vector bundles remain independent even when their
+supports coincide. In particular, the two factors cannot be replaced
+by $B\operatorname{GL}_{a_i+b_i}(\mathbb C)$.
+
+On these neighbourhoods the actual map
+$\kappa^{\mathrm{sup}}_{a,b}$ is the cross product on cochains.
+The spaces have nonnegative rational homology of finite dimension
+in each degree. Eilenberg--Zilber and the field-coefficient
+K\"unneth theorem therefore identify the cohomology of the product
+in degree $k$ with the finite sum
+$\bigoplus_{r+s=k}H^r\otimes H^s$.
+In the Chern coordinates of \eqref{sc:stalk-ring}, the map is the
+identity on the polynomial generators belonging to each endpoint.
+It is an isomorphism in every degree. Cohomology stalks detect
+equivalences, proving the assertion on the support atlas.
+
+The descent to $B_E$ also requires a direct-image comparison.
+The atlas of $Y_n$ is $C_n$, and the atlas of $P_{a,b}$ is
+$C_a\times C_b$ with the diagonal $E$ action. The endpoints are
+not quotiented independently. On the simplicial atlases the maps
+are products of $E^k$ with the support maps. Locally on the smooth
+$E^k$ factor, the inverse images of product neighbourhoods are a
+contractible disk times the matrix-stack neighbourhoods above.
+Their ordinary cochains have the same cohomology. This verifies
+the Cartesian base-change transformations for these objects at
+every simplicial level. It uses their actual neighbourhoods,
+rather than a general nonproper base-change claim.
+
+These calculations are uniformly bounded below, finite in each
+degree, and compatible with the action maps because the external
+product is natural. They descend to the asserted equivalence on
+$P_{a,b}$. The same reasoning works for every finite list of
+endpoints. The natural external-product transformations already
+carry associativity, permutation, and unit coherences in the
+derived enhancement. Inverting the equivalences preserves those
+coherences; it does not require separate choices for different
+parenthesizations.
+\end{proof}
+
+\subsection{Ordered supports and Chern roots}
+
+Let
+\[
+ \widetilde Y_n=[E^n/E],\qquad
+ q_n:\widetilde Y_n\longrightarrow Y_n
+\]
+be the finite map forgetting the order. Define
+\[
+ \widetilde L_n=[(E\times B\mathbb G_m)^n/E]
+             =\widetilde Y_n\times(B\mathbb G_m)^n.
+\]
+Write $r_n:\widetilde L_n\to\widetilde Y_n$ for the projection
+and $\sigma_n:\widetilde L_n\to\overline{\mathcal M}_n$
+for the actual sum of the $n$ line skyscrapers. Set
+\[
+ \mathcal T_n=Rr_{n,*}\mathbb Q,\qquad
+ \mathcal V_n=Rq_{n,*}\mathcal T_n.
+\]
+On the support atlas, $\mathcal T_n$ is the constant cochain
+complex $C^*((B\mathbb G_m)^n;\mathbb Q)$, with its cup algebra
+and permutation action. Product neighbourhoods prove this
+constancy, and the coherent K\"unneth map compares it with
+$C^*(B\mathbb G_m;\mathbb Q)^{\otimes n}$.
+This notation retains the actual cochains; it makes no simultaneous
+polynomial formality assertion for the operations over support.
+
+Permuting the factors gives an $S_n$ action on $\mathcal V_n$.
+It permutes the supports and the line factors, with the ordinary
+Koszul signs on cochains. Direct sum is coherently unchanged by
+these permutations. Its adjunction unit consequently gives
+\begin{equation}\label{sc:theta}
+ \theta_n:\mathcal B_n\longrightarrow
+                              \mathcal V_n^{hS_n}.
+\end{equation}
+Over $\mathbb Q$, finite-group invariants are exact: averaging
+splits the invariant subspace and higher group cohomology vanishes.
+For the bounded-below complexes here this gives
+$H^*(\mathcal V_n^{hS_n})=H^*(\mathcal V_n)^{S_n}$.
+
+\begin{theorem}\label{sc:ordered-equivalence}
+The actual map $\theta_n$ is an equivalence of the derived
+coefficient complexes and of their rational cup algebras.
+At $\xi=\sum_i m_i[x_i]$, it is the Chern-root map
+\begin{equation}\label{sc:chern-roots}
+ \bigotimes_i\mathbb Q[c_{i,1},\ldots,c_{i,m_i}]
+ \xrightarrow{\ \sim\ }
+ \mathbb Q[z_1,\ldots,z_n]^{\prod_iS_{m_i}},
+ \qquad c_{i,j}\longmapsto e_j(z\text{ in cluster }i).
+\end{equation}
+\end{theorem}
+\begin{proof}
+The orderings of $\xi$ form a transitive $S_n$-set with stabilizer
+$H_\xi=\prod_iS_{m_i}$. Since $q_n$ is finite and proper, the
+stalk of $\mathcal V_n$ is the direct sum over these orderings
+of $C^*((B\mathbb G_m)^n;\mathbb Q)$.
+Taking invariants identifies its cohomology with
+$\mathbb Q[z_1,\ldots,z_n]^{H_\xi}$.
+Lemma~\ref{sc:neighbourhoods} computes the source of $\theta_n$.
+The ordered direct-sum map pulls each spectral vector bundle back
+to the sum of its $m_i$ line bundles. Thus the map itself, rather
+than merely its dimensions, is \eqref{sc:chern-roots}.
+The symmetric-polynomial theorem makes it an isomorphism.
+Stalkwise detection and the Cartesian descent established in
+Theorem~\ref{sc:external-product} prove the equivalence on $Y_n$.
+The construction uses pullback, ordinary direct image, and homotopy
+fixed points of rational $E_\infty$ cup algebras, so it preserves
+their cup-algebra structures as well.
+\end{proof}
+
+The cup algebra in this theorem is not the Hall product.
+The proof shows that the stalk cohomology is even and finite in
+each degree. The support space can still contribute odd global
+cohomology. No support-level purity or smallness assertion has
+been used to replace a sheaf by its cohomology.
+
+\subsection{The supported coproduct and collisions}
+
+Use the inverse from Theorem~\ref{sc:external-product} to define
+\begin{equation}\label{sc:coproduct}
+ \begin{split}
+ \Delta^{\mathrm{sup}}_{a,b}:\mathcal B_{a+b}
+ &\longrightarrow Rm_{a,b,*}R\overline c_{a,b,*}\mathbb Q\\
+ &\xrightarrow{\ Rm_{a,b,*}(\kappa^{\mathrm{sup}}_{a,b})^{-1}\ }
+       Rm_{a,b,*}(\mathcal B_a\boxtimes_{B_E}\mathcal B_b).
+ \end{split}
+\end{equation}
+The first arrow applies $R\overline c_{a+b,*}$ to the adjunction
+unit $\mathbb Q\to Rs_{a,b,*}\mathbb Q$.
+
+\begin{theorem}\label{sc:coalgebra}
+The maps $\Delta^{\mathrm{sup}}_{a,b}$ form a coherent coassociative
+coalgebra for convolution by support addition. Their zero-endpoint
+components are identity maps, and their counit is projection to
+$\mathcal B_0=\mathbb Q_{B_E}$.
+Let $H_{a,b}=S_a\times S_b$ act on the first $a$ and last $b$
+ordered factors. Under the ordered equivalences there is a canonical
+identification
+\begin{equation}\label{sc:recipient}
+ Rm_{a,b,*}(\mathcal B_a\boxtimes_{B_E}\mathcal B_b)
+       \simeq \mathcal V_{a+b}^{hH_{a,b}},
+\end{equation}
+and $\Delta^{\mathrm{sup}}_{a,b}$ is restriction of homotopy
+fixed points from $S_{a+b}$ to $H_{a,b}$. There is no factorial
+or Euler factor in this map.
+\end{theorem}
+\begin{proof}
+Associativity of actual direct sum identifies both iterated units
+with the unit for the sum of three endpoint sheaves. The coherent
+external-product equivalences identify their common recipient as
+\[
+ Rm_{a,b,c,*}(\mathcal B_a\boxtimes_{B_E}\mathcal B_b
+                                      \boxtimes_{B_E}\mathcal B_c).
+\]
+The passage from iterated convolution to this recipient uses proper
+base change for finite support addition. Applying the same argument
+to every finite direct sum supplies coherent coassociativity.
+If an endpoint is zero, direct sum is the identity and the external
+product is the unit equivalence. This proves the identity components
+and the counit statement.
+
+Finite proper base change for $q_a\times_{B_E}q_b$, the
+equivalences $\theta_a,\theta_b$, the constant line-cochain
+K\"unneth map, and finite-group averaging give
+\eqref{sc:recipient}. To identify the coproduct itself, compose
+both proposed maps with the forgetful map to $\mathcal V_{a+b}$.
+Both composites are pullback by the same ordered direct sum of
+all $a+b$ line skyscrapers. Their identification is thus the natural
+isomorphism of those direct-sum diagrams before taking invariants.
+The invariant inclusion is a retract by averaging, so the diagram
+restricts to its invariant factors. The same natural isomorphisms
+commute with refinements of blocks. This proves the asserted map
+and its coherences, with no change to the normalized coefficient.
+\end{proof}
+
+The stalk description fixes the collision maps explicitly.
+At $\xi=\sum_i m_i[x_i]$, the finite fibre of $m_{a,b}$ is the
+set of allocations
+\[
+ 0\leq a_i\leq m_i,\qquad \sum_i a_i=a,\qquad b_i=m_i-a_i.
+\]
+The target stalk is the direct sum over these allocations of the
+polynomial cohomology rings of
+$\prod_i(B\operatorname{GL}_{a_i}\times B\operatorname{GL}_{b_i})$.
+On the component for one allocation the actual map is
+\begin{equation}\label{sc:whitney}
+ c_{i,k}\longmapsto\sum_{r+s=k}c'_{i,r}c''_{i,s}.
+\end{equation}
+Here $c'_{i,0}=c''_{i,0}=1$, and classes above the relevant rank
+vanish. This is the Whitney formula for that same direct-sum map.
+For a cluster of length three, both iterated splittings to three
+line endpoints give
+\[
+ \begin{aligned}
+ c_1&\longmapsto z_1+z_2+z_3,\\
+ c_2&\longmapsto z_1z_2+z_1z_3+z_2z_3,\\
+ c_3&\longmapsto z_1z_2z_3.
+ \end{aligned}
+\]
+These $z_i$ remain line Chern classes, not support coordinates.
+
+To describe the restriction across a support collision, split a
+small disk into disjoint subdisks. The spectral vector bundle on
+the original neighbourhood restricts to the sum of the subcluster
+bundles. The resulting map on cohomology is again
+\eqref{sc:whitney}; when all points separate, it is $c_k\mapsto e_k$.
+Continuing along paths permutes the line or subcluster factors by
+the actual ordered-cover monodromy. Thus \eqref{sc:theta} retains
+both the finite permutation action and the collision restriction
+maps. This is a statement about coefficient sheaves over support.
+It does not apply proper base change to the nonproper strict
+decomposition correspondence of Section~\ref{sec:companion-family}.
+
+\subsection{Comparison with the global coproduct}
+
+Let $p_{a,b}:P_{a,b}\to B_E$ be the structure map.
+The external product for $p_a,p_b$ with the displayed coefficients is
+\[
+ \lambda_{a,b}:\mathcal A_a\otimes^{\mathbb L}_{\mathbb Q_{B_E}}
+                  \mathcal A_b
+       \longrightarrow
+ Rp_{a,b,*}(\mathcal B_a\boxtimes_{B_E}\mathcal B_b).
+\]
+
+\begin{proposition}\label{sc:global-comparison}
+The map $\lambda_{a,b}$ is an equivalence. Applying $Rp_{a+b,*}$
+to $\Delta^{\mathrm{sup}}_{a,b}$ and then $\lambda_{a,b}^{-1}$
+gives exactly the global direct-sum coproduct
+\eqref{gh:direct-sum-map}, with its finite-flag coherences.
+\end{proposition}
+\begin{proof}
+The composite
+$Rp_{a,b,*}\kappa^{\mathrm{sup}}_{a,b}\circ\lambda_{a,b}$
+is the natural relative K\"unneth map for
+$\pi_a=p_a\overline c_a$ and $\pi_b=p_b\overline c_b$.
+Proposition~\ref{gh:direct-sum} proves that global map is an
+equivalence on the actual common-torsor objects.
+Theorem~\ref{sc:external-product} proves the same for
+$\kappa^{\mathrm{sup}}_{a,b}$, so two-out-of-three proves the
+assertion about $\lambda_{a,b}$.
+Now $p_{a+b}m_{a,b}=p_{a,b}$. Both coproduct composites are
+the adjunction unit for $s_{a,b}$ followed by the inverse of the
+same global external product. They are therefore identified as
+natural composites, and the identification commutes with every
+finite refinement of direct sums.
+\end{proof}
+
+Pushing $\theta_n$ to $B_E$ similarly gives the ordered direct-sum
+coefficient comparison of Proposition~\ref{gh:direct-sum}.
+The simultaneous Hodge comparison of Theorem~\ref{gh:simultaneous}
+then gives its polynomial action model. The common-base cochains
+and the Koszul differential of \eqref{gh:koszul-model} are retained.
+Neither a new global formality nor a support-level purity
+assumption enters Proposition~\ref{sc:global-comparison}.
+
+\subsection{The Hall product over support}
+
+The Hall product over support uses the full extension stack.
+For its endpoint map $p$ and proper middle-object map $q$, the
+normalized coefficient map of Proposition~\ref{gh:coefficient-maps}
+and the proper trace give the composite
+\begin{equation}\label{sc:hall-product}
+ \begin{split}
+ Rm_{a,b,*}(\mathcal B_a\boxtimes_{B_E}\mathcal B_b)
+ &\xrightarrow{\ Rm_{a,b,*}\kappa^{\mathrm{sup}}_{a,b}\ }
+          Rm_{a,b,*}R\overline c_{a,b,*}\mathbb Q\\
+ &\longrightarrow R\overline c_{a+b,*}Rq_*\mathbb Q
+ \xrightarrow{\ R\overline c_{a+b,*}\operatorname{tr}_q\ }
+          \mathcal B_{a+b}.
+ \end{split}
+\end{equation}
+The middle arrow is the endpoint adjunction unit followed by the
+normalized coefficient map. This product is not cup product or
+the trace of the finite ordered-support cover.
+
+The next section compares this fixed product with
+\eqref{sc:coproduct}. Proper full flags supply a Springer action
+on the ordered coefficient $\mathcal V_n$ across support
+collisions. Their trace identifies the product with a shuffle
+sum, while the same inclusion of invariant objects identifies
+the coproduct. This constructs the crossing over support without
+deducing a sheaf map from global cohomology or from the scalar
+flag degree. Theorem~\ref{gh:support-family} then compares its
+proper and strict-splitting evaluations on the cyclic family,
+retaining the trace obstruction of Theorem~\ref{cf:no-trace}.

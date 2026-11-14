@@ -1,0 +1,91 @@
+\subsection{Cohomology and enveloping primitives in the completion}
+
+Let $C=\bigoplus_{\beta\in Q_+}C_\beta$ be a charge-graded cochain
+complex. The height product is taken in each cohomological degree.
+
+\begin{proposition}[Cohomology of the split height completion]
+\label{cohomology-completion}
+For a charge-preserving differential,
+\[
+ H^p(\widehat C)=\prod_{\beta\in Q_+}H^p(C_\beta).
+\]
+A charge-preserving quasi-isomorphism therefore remains a
+quasi-isomorphism after height completion.
+\end{proposition}
+
+\begin{proof}
+Cycles and boundaries in a degreewise product are computed componentwise.
+For boundaries, choose a preimage independently in every component.
+Thus $Z^p(\widehat C)=\prod_\beta Z^p(C_\beta)$ and
+$B^p(\widehat C)=\prod_\beta B^p(C_\beta)$.
+The quotient of these products is the product of the quotients.
+For a charge-preserving quasi-isomorphism of direct sums, each component
+is a quasi-isomorphism.  Apply the displayed formula.
+\end{proof}
+
+The enveloping comparison has a particularly explicit completion.
+Use the positive charge monoid $Q_+$ and its height as above, and assume
+\[
+ \mathfrak g=\bigoplus_{\beta\in Q_+\setminus\{0\}}\mathfrak g_\beta,
+ \qquad d\mathfrak g_\beta\subseteq\mathfrak g_\beta,
+ \qquad [\mathfrak g_\beta,\mathfrak g_\gamma]
+ \subseteq\mathfrak g_{\beta+\gamma}.
+\]
+This charge is independent of cohomological degree.
+Set $C=U(\mathfrak g)=\bigoplus_{\beta\in Q_+}C_\beta$, with $C_0=\kk$.
+Its completion and completed tensor are those of
+\eqref{completed-tensor}, taken degreewise. Multiplication is finite
+convolution in each charge; coproduct, differential and antipode extend
+chargewise by Theorem~\ref{tower-theorem}. The result is a topological
+differential graded Hopf algebra in that specified tensor category.
+
+\begin{proposition}[Primitives and cohomology in the charge completion]
+\label{sp:completion}
+With this charge grading, there are natural isomorphisms
+\begin{align*}
+ P(\widehat{U(\mathfrak g)})
+   &=\prod_{\beta\ne0}\mathfrak g_\beta,\\
+ H(\widehat{U(\mathfrak g)})
+   &\cong\widehat{U(H(\mathfrak g))},\\
+ H(P(\widehat{U(\mathfrak g)}))
+   &\xrightarrow{\sim}P(H(\widehat{U(\mathfrak g)}))
+    \cong\prod_{\beta\ne0}H(\mathfrak g_\beta).
+\end{align*}
+All products are degreewise.  The coproduct in cohomology uses the
+same charge completion of the tensor product of the cohomology
+components.  If $\mathfrak r$ is also charge-homogeneous, these
+statements apply to the completion of
+$U(\mathfrak g)/(\mathfrak r)\cong U(\mathfrak g/\mathfrak r)$.
+\end{proposition}
+
+\begin{proof}
+The primitive equation holds precisely when it holds in each charge.
+Theorem~\ref{sp:primitives} therefore proves the first identity.
+Proposition~\ref{cohomology-completion} computes its cohomology
+componentwise.
+The isomorphism \eqref{sp:cohomology-map} preserves charge, as do
+symmetrization and all the cycle cross products in its proof.
+Taking these componentwise products gives the second isomorphism.
+Applying Lemma~\ref{sp:kunnethtensor} to each pair of charge
+components identifies the target of its cohomological coproduct.
+Theorem~\ref{sp:cohomology}, charge by charge, now gives the last line.
+The quotient assertion follows by applying the same argument to the
+positive charge-graded Lie algebra $\mathfrak g/\mathfrak r$.
+\end{proof}
+
+For the abelian pair $du=v$, assign both generators charge one.
+The completion is $\kk[[u]]\oplus \kk[[u]]v$, with $d f(u)=f'(u)v$.
+Formal differentiation has kernel $\kk$ and is onto $\kk[[u]]v$:
+the series $\sum_{m\geq0}a_mu^mv$ is the differential of
+$\sum_{m\geq0}a_mu^{m+1}/(m+1)$.
+Thus its cohomology is $\kk$, as the proposition asserts.
+These are formal series in the stated height topology.
+No analytic convergence is used.
+
+The completion in Proposition~\ref{sp:completion} is
+$\widehat{U(H(\mathfrak g))}$, formed after the algebraic enveloping
+algebra.  It is not defined as $U(\prod_\beta H(\mathfrak g_\beta))$.
+Its tensor product is also explicitly completed in charge.
+The proposition makes no claim about a different topology or an
+arbitrary completed tensor product.
+

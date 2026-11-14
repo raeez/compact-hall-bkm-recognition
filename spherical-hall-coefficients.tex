@@ -1,0 +1,613 @@
+\section{Normalized spherical coefficients on common elliptic torsors}
+\label{sec:spherical-hall}
+
+There is a smooth sector in which the relative coefficients and their
+extension maps can be constructed explicitly. Its Hall product retains
+the diagonal of the elliptic curve. Direct sum gives a coproduct on the
+same coefficient objects, but compatibility with multiplication requires
+a symmetry that also retains this diagonal. We first construct the
+objects and the two geometric operations. Their global comparison
+is Theorem~\ref{gh:global-hopf}; Section~\ref{sec:supported-springer}
+constructs the crossing itself over support from proper full flags.
+
+\subsection{The smooth spherical sector}
+
+Fix a spherical coherent sheaf $G$ on the projective K3 surface $S$:
+\[
+ \operatorname{Hom}_S(G,G)=\mathbb C,\qquad
+ \operatorname{Ext}^1_S(G,G)=0,\qquad
+ \operatorname{Ext}^2_S(G,G)=\mathbb C.
+\]
+Choose a holomorphic volume form on $S$ and a nonzero differential on
+$E$; these fix the Serre traces. The example $G=\mathcal O_S$ is always
+available. Let $\mathcal M_n=\mathfrak T_n(E)$ be the stack of
+length-$n$ torsion sheaves on $E$, and put
+\[
+ B_E=BE,\qquad
+ \overline{\mathcal M}_n=[\mathcal M_n/E],\qquad
+ \pi_n:\overline{\mathcal M}_n\longrightarrow B_E.
+\]
+The charge is the length $n$. In particular
+$\mathcal M_0=\operatorname{Spec}\mathbb C$ and
+$\overline{\mathcal M}_0=B_E$.
+
+\begin{proposition}\label{gh:sector}
+The functor $T\mapsto G\boxtimes T$ is exact and fully faithful, and its
+image is closed under extensions in $\operatorname{Coh}(S\times E)$.
+It identifies $\mathcal M_n$ with a smooth open sheaf locus of dimension
+zero. For every ordered list $\mathbf n=(n_1,\ldots,n_r)$, the full flag
+stack $\mathcal F_{\mathbf n}$ has a smooth endpoint map of relative
+dimension zero and a representable projective map to
+$\mathcal M_{\sum n_i}$. After simultaneous translation quotient, the
+flag and middle-object stacks have dimension $-1$. These assertions
+include nonsplit flags and zero blocks.
+\end{proposition}
+\begin{proof}
+K\"unneth gives, for torsion sheaves $T,U$,
+\[
+ R\operatorname{Hom}_{S\times E}(G\boxtimes T,G\boxtimes U)
+ \simeq R\operatorname{Hom}_S(G,G)
+             \otimes R\operatorname{Hom}_E(T,U).
+\]
+In degrees zero and one this identifies Hom and Ext with those on $E$.
+Thus the functor is fully faithful and every ambient extension class
+comes from an extension on $E$. The two middle terms are then
+isomorphic. The same comparison holds in families.
+
+For completeness, a length-$n$ sheaf is a quotient of
+$\mathcal O_E^n$ whose map on global sections is an isomorphism.
+Let $Q_n$ be this open part of the Quot scheme. Its kernel is a vector
+bundle $K$ of rank $n$, and
+$\operatorname{Ext}^1(K,T)=H^1(K^\vee\otimes T)=0$.
+The tangent space $\operatorname{Hom}(K,T)$ has dimension $n^2$.
+Hence $\mathcal M_n=[Q_n/\operatorname{GL}_n]$ is smooth of dimension
+zero. The exterior-product map is a monomorphism of sheaf stacks.
+Across a square-zero extension, the source is unobstructed and the
+Hom and Ext$^1$ comparisons identify automorphisms and possible lifts.
+Induction on small extensions therefore makes this map formally
+\'etale. Being locally of finite presentation, it is an open immersion.
+
+The groupoid of extensions of fixed endpoints is locally the vector
+bundle stack $[V^1/V^0]$ associated with
+$R\operatorname{Hom}_E(T_b,T_a)[1]$.
+There is no Ext$^2$ on a smooth curve, and the Euler pairing of two
+torsion sheaves is zero, so the two vector bundles have equal rank.
+This proves smoothness and relative dimension zero. Iteration gives the
+full endpoint map. The map forgetting a subobject is the relative Quot
+map and is projective and representable. Equivalently, on a finite
+support presentation it is the closed condition that a subspace in a
+Grassmannian be stable under the support algebra. This description
+includes nilpotent support. Iterating it proves the full flag assertion.
+Quotienting all terms by the same smooth one-dimensional group subtracts
+one from both dimensions and preserves the stated properties.
+Inserting a zero block gives the identity correspondence.
+\end{proof}
+
+\subsection{Canonical roots and the relative coefficient}
+
+For families on $E\times T$, write
+$D(U,V)=R\operatorname{pr}_{T,*}R\mathcal Hom_E(U,V)$.
+Its degrees are zero and one. Put
+\[
+ \lambda_n=\det D(\mathcal U_n,\mathcal U_n)=K_{\mathcal M_n},\qquad
+ L_n=K_{\overline{\mathcal M}_n},\qquad W=\operatorname{Lie}(E),
+\]
+where $\mathcal U_n$ denotes the universal sheaf. Determinants
+carry their Euler parity.
+
+\begin{proposition}\label{gh:roots}
+On every extension $0\to T_a\to T\to T_b\to0$ there is an
+$E$-equivariant isomorphism
+\[
+ \lambda_{a+b}\simeq
+ \lambda_a\otimes\lambda_b\otimes
+                  \bigl(\det D(T_a,T_b)\bigr)^{\otimes2}.
+\]
+It squares to the threefold determinant comparison and is compatible
+with all flag refinements and units. If
+$a_n:\mathcal M_n\to\overline{\mathcal M}_n$ is the quotient map, then
+\[
+ a_n^*L_n\simeq\lambda_n\otimes\det W.
+\]
+The relative root $L_n\otimes\pi_n^*K_{B_E}^{-1}$ has even parity and
+has its evaluation trivialization at $n=0$.
+\end{proposition}
+\begin{proof}
+The curve tangent complex is $D(T,T)[1]$, whose cotangent determinant
+is $\det D(T,T)$. The unit and the fixed trace give the two graded
+pieces $\mathbb C$ and $\mathbb C[-2]$ of the Postnikov filtration of
+$R\operatorname{Hom}_S(G,G)$. Determinant multiplicativity therefore
+identifies the threefold endomorphism determinant with $\lambda_n^2$.
+This uses a filtration of complexes, not a multiplicative splitting.
+
+Filter both arguments of $D(T,T)$ by the extension. Determinant
+multiplicativity gives the four ordered Hom blocks. Curve Serre
+duality identifies
+\[
+ D(T_b,T_a)\simeq D(T_a,T_b)^\vee[-1].
+\]
+Duality and the odd shift each invert the determinant, so the two
+cross determinants are identified. This gives the root isomorphism,
+and its cross square is the threefold cross determinant.
+For a longer flag, every bracketing refines to the determinant map of
+the same doubly filtered complex. Each Hom block has Euler rank zero.
+Thus the regroupings introduce no superline signs, and the root maps
+themselves agree. A zero block has its distinguished determinant unit.
+Translation preserves these filtrations and the chosen Serre trace.
+
+The cotangent triangle of $a_n$ has relative cotangent line $W^*$.
+It gives $a_n^*L_n=\lambda_n\otimes\det W$.
+More generally, the determinant of an $r$-fold product over $B_E$
+contains the inverse of $r-1$ base determinants: the correction is
+$(\det W)^{1-r}$. Removing the single base root from $L_n$ leaves
+relative dimension zero. At the zero object this is
+$K_{B_E}\otimes K_{B_E}^{-1}$.
+\end{proof}
+
+A smooth stack $Y$ has zero $d$-critical structure: its sheaf of
+critical sections is zero, as one sees on the identity embedding of a
+smooth atlas. Its critical canonical line is $K_Y^{\otimes2}$.
+We use the dimension-signed monodromy convention in which the
+canonically oriented smooth coefficient on a stack of dimension $m$ is
+\[
+ \boldsymbol\Phi_Y=(\mathbb Q_Y[m],(-1)^m\operatorname{id}).
+\]
+The sign is part of the convention; shifting a complex alone does not
+change its specified automorphism. Since both
+$\overline{\mathcal M}_n$ and $B_E$ have dimension $-1$, the
+\emph{normalized relative coefficient} is
+\begin{equation}\label{gh:relative-coefficient}
+ \boldsymbol K_n=
+ \boldsymbol\Phi_{\overline{\mathcal M}_n}
+       \otimes\pi_n^*\boldsymbol\Phi_{B_E}^{-1}
+ =(\mathbb Q_{\overline{\mathcal M}_n},+\operatorname{id}).
+\end{equation}
+Its underlying complex is denoted $K_n$.
+The root comparison in Proposition~\ref{gh:roots}, with the base line
+removed, identifies $a_n^*\boldsymbol K_n$ with the independently
+normalized coefficient
+$(\mathbb Q_{\mathcal M_n},+\operatorname{id})$.
+In particular $K_0=\mathbb Q_{B_E}$.
+These are specified coefficients on the smooth spherical sector.
+They do not identify reduced critical coefficients on a sheaf locus
+with additional K3 deformation directions.
+
+\subsection{The product, its trace, and direct sum}
+
+All tensors and pullbacks below are derived. We use rational Betti
+complexes on analytic stacks, defined by smooth descent, in an
+unbounded ambient derived category. The coefficients $K_n$ are
+bounded and constructible; their ordinary direct images need not be
+bounded above. Put
+\[
+ Z_{a,b}=\overline{\mathcal M}_a\times_{B_E}
+                          \overline{\mathcal M}_b,\qquad
+ \mathcal A_n=R\pi_{n,*}K_n.
+\]
+Let $\overline{\mathcal E}_{a,b}$ be the extension stack on a common
+torsor, with maps
+$Z_{a,b}\xleftarrow{p}\overline{\mathcal E}_{a,b}
+\xrightarrow{q}\overline{\mathcal M}_{a+b}$.
+Here the first endpoint is the subobject.
+
+\begin{proposition}\label{gh:coefficient-maps}
+The complex orientation gives an isomorphism
+\[
+ u_{a,b}:p^*(K_a\boxtimes_{B_E}K_b)
+                  \xrightarrow{\ \sim\ }q^!K_{a+b}
+\]
+which is the identity on the constant coefficient. Its shift is zero.
+These maps satisfy every flag and unit equation, including on nonsplit
+extensions, and intertwine the specified $+1$ automorphisms.
+\end{proposition}
+\begin{proof}
+For a smooth complex stack $Y$ of dimension $m$,
+$\omega_Y=\mathbb Q_Y[2m]$.
+If $f:Y\to Z$ is any map between smooth stacks, transitivity of
+exceptional pullback gives
+$f^!\mathbb Q_Z=\mathbb Q_Y[2(\dim Y-\dim Z)]$.
+The source and target of $q$ both have dimension $-1$ by
+Proposition~\ref{gh:sector}. Thus $q^!K_{a+b}$ is the constant
+coefficient without a shift, as is the endpoint pullback. Define
+$u_{a,b}$ by the identity under these dualizing identifications.
+
+Both substitutions for a three-step flag are made on the same full
+flag stack. Their smooth endpoint legs have relative dimension zero.
+Smooth base change and transitivity identify both recipients with the
+constant coefficient there; both composites are its identity.
+For every longer flag the same argument uses its full endpoint and
+middle-object maps. The functorial adjunction and base-change
+identifications give the refinement coherences. Repeated or zero
+steps are identity correspondences, so both unit maps are identities.
+\end{proof}
+
+The relative external-product map will be denoted
+\[
+ \kappa_{a,b}:\mathcal A_a\otimes_{\mathbb Q_{B_E}}^{\mathbb L}
+                  \mathcal A_b
+       \longrightarrow R\pi_{Z_{a,b},*}\mathbb Q_{Z_{a,b}}.
+\]
+The Hall product uses this arrow in its forward direction:
+\begin{equation}\label{gh:hall-product}
+ \begin{split}
+ \mathcal A_a\otimes^{\mathbb L}_{\mathbb Q_{B_E}}\mathcal A_b
+ &\xrightarrow{\kappa_{a,b}}
+                  R\pi_{Z_{a,b},*}\mathbb Q\\
+ &\xrightarrow{\text{unit of }p^*\dashv Rp_*}
+                  R\pi_{Z_{a,b},*}Rp_*p^*\mathbb Q\\
+ &\xrightarrow{u_{a,b}}
+                  R\pi_{a+b,*}Rq_*q^!K_{a+b}
+ \xrightarrow{\operatorname{tr}_q}\mathcal A_{a+b}.
+ \end{split}
+\end{equation}
+The trace is the proper counit: $q$ is representable projective, so
+$Rq_*=Rq_!$. There is no integration over the nonproper sheaf stack.
+The flag equations make
+$\mathcal A=\bigoplus_{n\geq0}\mathcal A_n$ an associative unital
+algebra over $B_E$, with unit $\mathbb Q_{B_E}$. The sum has finite
+charge support, and no completion is used.
+
+We recall the precise cohomology comparison for torsion sheaves on a
+curve~\cite[\S\S3.1--3.3]{JindalLim2026}. Let
+\[
+ X_1=\mathcal M_1=E\times B\mathbb G_m,\qquad
+ N=H^*(E;\mathbb Q)[z],\quad |z|=2,\qquad
+ T_n=N^{\otimes n},\quad
+ \mathsf B_n=T_n^{S_n}.
+\]
+The action of $S_n$ simultaneously permutes the curve factors and
+Chern variables, with the Koszul signs on curve cohomology.
+Ordered direct sum induces the isomorphism
+\begin{equation}\label{gh:curve-cohomology}
+ H^*(\mathcal M_n;\mathbb Q)
+    \xrightarrow{\ \sim\ }
+ \bigl(H^*(E^n;\mathbb Q)[z_1,\ldots,z_n]\bigr)^{S_n}
+ =\mathsf B_n.
+\end{equation}
+The map matters here. The full flag stack has an associated-graded
+map to $X_1^n$ whose pullback is a vector bundle stack cohomology
+equivalence. The proper map to $\mathcal M_n$ identifies its
+cohomology with the invariant subspace, by the small-map and Galois
+comparison in the cited theorem. The split-flag section is the inverse
+of the associated-graded pullback on cohomology, and its composite
+with the proper map is ordered direct sum. Thus
+\eqref{gh:curve-cohomology} is the pullback of that actual morphism.
+We use the cited small-map comparison as a theorem, rather than
+infer an isomorphism from dimensions.
+
+\begin{proposition}[Coefficient objects and direct sum]
+\label{gh:direct-sum}
+The maps $\kappa_{a,b}$ are equivalences, and direct sum induces
+equivalences of coefficient objects
+\[
+ \Phi_n:\mathcal A_n
+ \xrightarrow{\ \sim\ }
+ \left(\mathcal A_1^{\otimes^{\mathbb L}_{\mathbb Q_{B_E}}n}
+                                                    \right)^{S_n}.
+\]
+For $s_{a,b}:Z_{a,b}\to\overline{\mathcal M}_{a+b}$, the actual maps
+\begin{equation}\label{gh:direct-sum-map}
+ d_{a,b}:\mathcal A_{a+b}
+ \xrightarrow{s_{a,b}^*}
+ R\pi_{Z_{a,b},*}\mathbb Q
+ \xrightarrow{\kappa_{a,b}^{-1}}
+ \mathcal A_a\otimes_{\mathbb Q_{B_E}}^{\mathbb L}\mathcal A_b
+\end{equation}
+are coherently coassociative and cocommutative for the usual Koszul
+symmetry. Both zero-endpoint components are the unit identifications.
+After fibre realization and graded cohomology, $d_{a,b}$ is the
+inclusion
+$\mathsf B_{a+b}\hookrightarrow\mathsf B_a\otimes\mathsf B_b$.
+\end{proposition}
+\begin{proof}
+The equivariant direct-sum map
+$X_1^n/S_n\to\mathcal M_n$ gives an actual pullback of constant
+coefficients over $B_E$. Locally trivializing the universal torsor
+identifies its stalk with the cochain map in
+\eqref{gh:curve-cohomology}, so its cone has acyclic stalks.
+This uses local triviality of the associated fibration, not proper
+base change for $\pi_n$.
+
+The stalk of $\kappa_{a,b}$ is the ordinary rational K\"unneth map.
+The formula \eqref{gh:curve-cohomology} shows that all cohomology is
+bounded below and finite-dimensional in each degree. K\"unneth
+therefore applies degree by degree, including every positive Chern
+power. The same cone argument proves that $\kappa_{a,b}$ is an
+equivalence. Taking invariants under a finite group over $\mathbb Q$
+is exact, by averaging; this proves the formula for $\Phi_n$.
+
+Associativity and commutativity of direct sum, functorial pullback,
+and the coherent external products give the assertions about $d$.
+At a zero endpoint the stack is
+$B_E\times_{B_E}\overline{\mathcal M}_n
+=\overline{\mathcal M}_n$ and the direct-sum map is the identity.
+Finally, compose with all ordered charge-one direct-sum maps. Both
+routes are the same ordered direct sum, so the cohomology map is
+restriction from $S_{a+b}$-invariants to
+$S_a\times S_b$-invariants.
+\end{proof}
+
+\begin{proposition}[The constant classes]\label{gh:constants}
+Let $\mathbf1_n$ be the constant class in
+$H^0(\mathcal M_n;\mathbb Q)$. Then
+\[
+ \mathbf1_a*\mathbf1_b=\binom{a+b}{a}\mathbf1_{a+b},
+ \qquad \mathbf1_1^{*n}=n!\mathbf1_n .
+\]
+\end{proposition}
+\begin{proof}
+Over a sheaf supported at $a+b$ distinct points, the proper extension
+map has $\binom{a+b}{a}$ sheets, one for each choice of the subobject
+support. The coefficient map is the identity, so its complex-oriented
+trace has this degree. The stack $\mathcal M_{a+b}$ is connected:
+deform each local Jordan block by a companion polynomial to distinct
+nearby roots, then use the connected distinct-support configuration
+space. A degree-zero class is determined by its value there.
+Iteration gives the factorial.
+\end{proof}
+
+\subsection{One formality comparison for all the operations}
+
+To compare the relative product and coproduct, it is necessary to
+retain the coherent translation action. Purity provides a simultaneous
+comparison of this entire diagram. We give the coefficient lift and
+the extension of the purity argument that accommodates all Chern
+powers.
+
+Use rational graded-polarizable mixed Hodge structures, and write
+$\mathcal C=D^b(\operatorname{MHS}_{\mathbb Q})$ for its enhanced
+symmetric monoidal derived category. The mixed Hodge category of a
+point is $\operatorname{Ind}(\mathcal C)$. On complex Artin stacks
+we use the six-operation theory of
+\cite[Theorems 3.1, 3.8 and Proposition 3.16]{Tubach2025}.
+It supplies smooth descent, $\mathbb A^1$-invariance, purity,
+projection formulas, and comparison with Betti realization in the
+bounded-below cohomologically constructible range used here.
+
+\begin{lemma}\label{gh:hodge-lift}
+The coefficient maps, Hall products, full flag coherences, direct-sum
+pullbacks and translation-action diagrams above lift together to
+mixed Hodge coefficients. Their Betti realizations are the specified
+maps, including their proper traces and unit normalizations.
+\end{lemma}
+\begin{proof}
+Set $K_n^{\mathrm H}=\mathbb Q^{\mathrm H}_{\overline{\mathcal M}_n}$
+with automorphism $+1$, including $K_0^{\mathrm H}=\mathbb Q^{\mathrm H}_{B_E}$.
+This lifts the normalized relative coefficient
+\eqref{gh:relative-coefficient}; no absolute vanishing-cycle Hodge
+module or half-Tate twist is needed.
+For a smooth stack $Y$ of dimension $m$,
+$\omega_Y^{\mathrm H}=\mathbb Q_Y^{\mathrm H}(m)[2m]$.
+Transitivity gives, for any map between smooth stacks,
+\[
+ f^!\mathbb Q_Z^{\mathrm H}
+ =\mathbb Q_Y^{\mathrm H}(\dim Y-\dim Z)
+                                      [2(\dim Y-\dim Z)].
+\]
+Thus the extension map $q$ has both shift and Tate twist zero.
+Define $u_{a,b}^{\mathrm H}$ by the identity under this
+identification. Hodge purity realizes the same complex orientation,
+so its Betti map is $u_{a,b}$ with scalar exactly one.
+All flag substitutions are the same identities under smooth base
+change and transitivity. Enhanced functoriality supplies their
+coherences.
+
+The unit $\mathbb Q^{\mathrm H}\to Rp_*\mathbb Q^{\mathrm H}$
+is an equivalence. Locally write the extension stack as $[V^1/V^0]$.
+The \v Cech terms are $V^1$ times powers of $V^0$, hence vector
+bundles over the endpoint base. Their units are equivalences by
+$\mathbb A^1$-invariance and are compatible with all face and
+degeneracy maps. Smooth descent gives the assertion. This argument
+uses algebraic maps, rather than a real contraction asserted to be a
+Hodge morphism.
+
+The map $q$ is representable projective. Its Hodge counit
+$Rq_!q^!\to\operatorname{id}$ realizes the actual proper trace.
+Set $\mathcal A_n^{\mathrm H}=R\pi_{n,*}K_n^{\mathrm H}$.
+The Hodge external-product map is an equivalence: after the smooth
+atlas $\mathrm{pt}\to B_E$, its Betti realization is the K\"unneth
+equivalence already proved. Betti realization is conservative on
+the bounded-below cohomologically constructible objects in question.
+Using the forward external-product arrow, the unit of $p$, $u^{\mathrm H}$
+and the proper counit gives exactly \eqref{gh:hall-product}.
+Direct sum and translation are algebraic maps, so their pullbacks
+and all their composition diagrams lift in the same formalism.
+\end{proof}
+
+\begin{lemma}[Pure diagrams with unbounded Chern degree]
+\label{gh:ind-formality}
+Let $\mathcal P\subset\mathcal C$ be the full subcategory of bounded
+objects $C$ for which $H^j(C)$ is pure of weight $j$.
+The rational realization functor on $\operatorname{Ind}(\mathcal P)$
+admits a monoidal natural equivalence with
+\[
+ h(C)=\bigoplus_j H^j(C;\mathbb Q)[-j]
+\]
+with zero differential. Every bounded-below object of
+$\operatorname{Ind}(\mathcal C)$ with finite-dimensional cohomology
+in each degree and weight $j$ in degree $j$ lies in this subcategory.
+The equivalence applies to all morphisms and coherent diagrams
+between these objects.
+\end{lemma}
+\begin{proof}
+For bounded objects this is the rational pure-weight theorem of
+\cite[Proposition 2.7, Lemma 4.4 and Corollary 4.6]{CiriciHorel2022}.
+Its mechanism is a natural weak splitting of the weight filtration
+followed by truncation in each weight. In cohomological notation, on
+the weight-$w$ complex retain the terms below degree $w$ and the
+cycles in degree $w$. Inclusion into the original complex and
+projection onto its degree-$w$ cohomology are quasi-isomorphisms
+when cohomology has weight equal to degree. Tensor products respect
+this truncation: the boundary degree is the sum of the two boundary
+degrees, and the tensor of cycles is a cycle. The resulting
+transformations are monoidal. The rational weak splitting need not
+be canonical; it is a splitting of the underlying weight-filtered
+vector spaces, not a splitting of mixed Hodge structures.
+Localizing these natural equivalences gives the corresponding
+enhanced statement, as in the proof of
+\cite[Theorem 7.1]{CiriciHorel2022}.
+A quasi-isomorphism with a pure endpoint has a pure source, so this
+is the full pure derived subcategory.
+
+The category $\mathcal P$ contains the tensor unit and is closed
+under tensor products by K\"unneth. Its objects are compact in
+$\operatorname{Ind}(\mathcal C)$. For filtered diagrams
+$C_i,D_j$ in $\mathcal P$, the mapping spaces in both Ind categories
+are
+\[
+ \operatorname{Map}\left(\mathop{\operatorname{colim}}_i C_i,
+                         \mathop{\operatorname{colim}}_j D_j\right)
+ =\lim_i\mathop{\operatorname{colim}}_j\operatorname{Map}(C_i,D_j).
+\]
+Thus $\operatorname{Ind}(\mathcal P)\to
+\operatorname{Ind}(\mathcal C)$ is fully faithful, including on
+higher homotopies. Tensor preserves filtered colimits separately.
+The monoidal equivalence therefore extends to this full Ind
+subcategory. Exactness of filtered colimits identifies its extended
+cohomology functor with $h$.
+
+If $C$ satisfies the final hypotheses, each good truncation
+$\tau_{\leq m}C$ is a bounded object with finite mixed Hodge
+cohomology, hence belongs to $\mathcal C$ and to $\mathcal P$.
+The canonical map
+$\operatorname{colim}_m\tau_{\leq m}C\to C$ is an equivalence:
+the t-structure is compatible with filtered colimits and is
+separated on these bounded-below objects. No individual truncation
+has been made an algebra. The monoidal equivalence is on the full
+Ind subcategory, so it retains the entire diagram and its coherences.
+\end{proof}
+
+\begin{theorem}[Simultaneous Hall, direct-sum and action comparison]
+\label{gh:simultaneous}
+There is a rational monoidal formality comparison for the normalized
+smooth spherical sector that simultaneously retains the actual Hall
+products, proper flag traces, direct-sum pullbacks and translation
+actions. After descent to $B_E$, its strict action model is
+\[
+ \Lambda_E=\bigwedge(\xi_a,\xi_b),\quad |\xi_a|=|\xi_b|=-1,
+ \qquad
+ \mathsf B_n=
+ \left(\bigwedge(a_1,b_1,\ldots,a_n,b_n)
+                   [z_1,\ldots,z_n]\right)^{S_n},
+\]
+with zero internal differential, primitive coproduct on
+$\Lambda_E$, and actions
+$I_a=\sum_i\partial_{a_i}$ and $I_b=\sum_i\partial_{b_i}$.
+The degrees are $|a_i|=|b_i|=1$ and $|z_i|=2$.
+The direct-sum map is the inclusion of Proposition~\ref{gh:direct-sum}.
+\end{theorem}
+\begin{proof}
+Put $C_n^{\mathrm H}=R\Gamma(\mathcal M_n,\mathbb Q^{\mathrm H})$.
+The pullback in \eqref{gh:curve-cohomology} is algebraic, hence is an
+isomorphism of mixed Hodge structures. Curve cohomology is pure of
+its cohomological weight and each $z_i$ has degree and weight two.
+Finite rational invariants preserve purity. Thus $C_n^{\mathrm H}$
+is bounded below, degreewise finite, and pure of weight $j$ in degree
+$j$. The same holds for full flag objects by their associated-graded
+vector bundle stack comparison, and for their products with $E^k$.
+
+Lemma~\ref{gh:hodge-lift} places all the Hall and proper-trace maps
+in this diagram. Include the actual direct-sum pullbacks and their
+associativity diagrams; their sources and targets satisfy the same
+purity hypotheses. Lemma~\ref{gh:ind-formality} applies to all of
+them at once. In particular it compares multiplication with the
+actual cohomological Hall product of
+\cite[\S3.3]{JindalLim2026}. All endpoint orderings are subobject
+first.
+
+The same pure diagram contains the cup product, addition and identity
+of $E$, and the translation coactions
+\[
+ C_n^{\mathrm H}\longrightarrow
+ R\Gamma(E,\mathbb Q^{\mathrm H})\otimes C_n^{\mathrm H}.
+\]
+Consequently the same monoidal equivalence formalizes this Hopf
+coaction and its compatibility with every Hall and direct-sum map.
+The cochains of $E$ are perfect; their Hopf dual is the rational
+chain action algebra. Choosing dual loop and cohomology bases gives
+the exterior model $\Lambda_E$ and the contractions stated above.
+For a torus this model can also be obtained by choosing primitive
+based loop cycles in normalized chains: the shuffle Pontryagin
+product extends them to the exterior Hopf model, and they generate
+its homology. The rational Borel comparison is natural in the
+action~\cite{Franz2003}. No dual of the
+infinite-dimensional $B\mathbb G_m$ cochain object is taken.
+
+Locally constant derived coefficient systems over $BE$ are
+homotopy-coherent $E$-actions on their fibres. The associated
+fibration defining $\pi_n$ realizes precisely that action system.
+Thus the simultaneous comparison descends to the actual relative
+maps. It does not use a general assertion that fibre cohomology
+determines morphisms over $BE$. Composing direct sum with ordered
+charge-one sums gives the stated invariant inclusion, as in
+Proposition~\ref{gh:direct-sum}.
+\end{proof}
+
+The common-base cochain model of this action is
+\begin{equation}\label{gh:koszul-model}
+ \mathfrak t(\mathsf B_n)
+ =\left(\mathbb Q[u,v]\otimes\mathsf B_n,\,
+                         d=uI_a+vI_b\right),
+ \qquad |u|=|v|=2.
+\end{equation}
+On ordered factors it has $da_i=u$ and $db_i=v$ for every $i$.
+Tensoring these models over the same $\mathbb Q[u,v]$ gives the
+diagonal action on the tensor product. The model is free with a
+filtration by exterior degree whose differential lowers that degree,
+so this tensor computes the derived tensor in the cases at hand.
+The charge-zero model is $\mathbb Q[u,v]$, the cochains of $BE$.
+Formality was applied before this Borel construction; it has not
+removed its differential. Indeed $u,v$ have Hodge weight one and
+cohomological degree two. No pure-weight semisimplicity assertion on
+$BE$ is used; that assertion fails for this nonaffine stabilizer
+\cite[Remark 3.25]{Tubach2025}.
+
+\subsection{The relative diagonal and the constant-target obstruction}
+
+Choose $a,b\in H^1(E;\mathbb Q)$ with $\int_E ab=1$.
+On two ordered factors put
+\begin{equation}\label{gh:diagonal}
+ \delta_{12}=(a_1-a_2)(b_1-b_2)
+ =a_1b_1+a_2b_2-a_1b_2+b_1a_2 .
+\end{equation}
+This is the fibre expression for the elliptic diagonal class
+$\Delta_E$. Over the common base it is closed, since both differences
+are closed in \eqref{gh:koszul-model}.
+It is nonzero even there: the chain map setting
+$u=v=a_1=b_1=0$ sends it to the nonzero class $a_2b_2$.
+Geometrically it is the point class pulled back by relative position.
+Indeed
+\[
+ \overline{\mathcal M}_1=B\mathbb G_m,\qquad
+ \overline{\mathcal M}_1\times_{B_E}\overline{\mathcal M}_1
+          \simeq E\times B\mathbb G_m^2.
+\]
+The extra $E$ is retained by the common torsor.
+
+\begin{proposition}\label{gh:no-relative-rho}
+There is no degree-zero, charge-preserving morphism
+$\mathcal A\to\mathbb Q_{B_E}[x]$, with $x$ of cohomological degree
+zero and charge one, whose fibre cohomology sends $\mathbf1_1$ to
+$x$.
+\end{proposition}
+\begin{proof}
+The map $B\mathbb G_m=\overline{\mathcal M}_1\to BE$ classifies
+the trivial $E$-torsor. Thus $u\mathbf1_1=0$ in its global
+hypercohomology. A morphism over $\mathbb Q_{B_E}$ induces an
+$H^*(BE)$-linear map on global hypercohomology. The required
+degree-zero normalization sends $\mathbf1_1$ to $x$, and would
+therefore send zero to the nonzero class $ux$.
+
+The same obstruction is visible in
+$\mathbb Q[u,v]\otimes\bigwedge(a,b)[z]$, where $da=u$.
+An $\mathbb Q[u,v]$-linear degree-zero chain map to
+$\mathbb Q[u,v][x]$ sending $1$ to $x$ would have $f(a)=0$ and
+$f(da)=ux\ne0$. The hypercohomology argument makes the
+contradiction independent of this choice of representative.
+\end{proof}
+
+This obstruction concerns the constant relative target with the stated
+normalization. A quotient after trivial-torsor base change and graded
+cohomology has a different source and will exist below. A shifted
+integration map or a target retaining the torsor cochains likewise
+has a different type.
